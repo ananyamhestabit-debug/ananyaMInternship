@@ -34,7 +34,7 @@ To understand how a high-level language like Node.js interacts with the Linux Op
 <img width="1447" height="1022" alt="Screenshot from 2026-02-03 17-23-49" src="https://github.com/user-attachments/assets/01583611-8a09-4751-810a-75bfca3c38f2" />
 
 
----
+***
 
 <img width="825" height="956" alt="week1day11" src="https://github.com/user-attachments/assets/e7c42193-55b8-4dc4-b84e-a144f3aba42b" />
 
@@ -52,8 +52,5 @@ To understand how a high-level language like Node.js interacts with the Linux Op
 
 ---
 
-## 🟩 Day 2: Node.js CLI & Concurrency (In Progress)
-- [ ] Building a file-processing CLI tool.
-- [ ] Implementing Parallel Processing with `Promise.all()`.
-- [ ] Memory and Execution time benchmarking.
+
 
