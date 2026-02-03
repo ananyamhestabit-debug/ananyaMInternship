@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-02-03T10:50:12.027Z",
+  "cpuusageinmicrosec": {
+    "user": 75754,
+    "system": 52142
+  },
+  "resources": {
+    "userCPUTime": 76080,
+    "systemCPUTime": 52366,
+    "maxRSS": 49100,
+    "sharedMemorySize": 0,
+    "unsharedDataSize": 0,
+    "unsharedStackSize": 0,
+    "minorPageFault": 4861,
+    "majorPageFault": 0,
+    "swappedOut": 0,
+    "fsRead": 0,
+    "fsWrite": 0,
+    "ipcSent": 0,
+    "ipcReceived": 0,
+    "signalsCount": 0,
+    "voluntaryContextSwitches": 52,
+    "involuntaryContextSwitches": 6
+  }
+}
