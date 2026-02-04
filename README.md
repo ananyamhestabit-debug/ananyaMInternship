@@ -92,6 +92,8 @@ node stats.js --lines data1.txt
 node stats.js --words data1.txt
 node stats.js --chars data1.txt
 node stats.js --unique data1.txt
+Multiple files (parallel execution):
+node stats.js --lines data1.txt --words data2.txt --chars data3.txt
 
 
 
