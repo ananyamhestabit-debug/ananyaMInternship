@@ -95,6 +95,39 @@ node stats.js --unique data1.txt
 Multiple files (parallel execution):
 node stats.js --lines data1.txt --words data2.txt --chars data3.txt
 
+---
+### Day 3 – Git Debugging & Release Workflow
+
+**Objective:**
+Learn advanced Git techniques to identify bugs and manage a stable release.
+
+**Tasks Completed:**
+- Created multiple commits to simulate versions
+- Introduced a bug intentionally
+- Used `git bisect` to locate the faulty commit
+- Saved bisect logs as proof
+- Created a release branch
+- Used `git cherry-pick` to move only safe commits
+- Used `git stash` for temporary changes
+
+**Key Concepts Learned:**
+- git bisect
+- git cherry-pick
+- git stash
+- branching & release workflow
+
+### Proof of Work (Deliverables)
+
+#### Terminal / Bisect Output
+<img src="ADD_SCREENSHOT_1_HERE" />
+
+---
+
+#### Cherry-pick / Release Branch
+<img src="ADD_SCREENSHOT_2_HERE" />
+
+---
+
 
 
 
