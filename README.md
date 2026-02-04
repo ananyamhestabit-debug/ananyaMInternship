@@ -83,19 +83,6 @@ Build a command-line tool using Node.js to analyze text files and process multip
 #### Unique Output Files (`output/unique-*.txt`)
 <img width="722" height="552" alt="image" src="https://github.com/user-attachments/assets/2323f2c9-72fa-4405-8612-735379e19852" />
 
----
-
-**Usage:**
-
-```bash
-node stats.js --lines data1.txt
-node stats.js --words data1.txt
-node stats.js --chars data1.txt
-node stats.js --unique data1.txt
-Multiple files (parallel execution):
-node stats.js --lines data1.txt --words data2.txt --chars data3.txt
-
----
 ### Day 3 – Git Debugging & Release Workflow
 
 **Objective:**
@@ -127,6 +114,7 @@ Learn advanced Git techniques to identify bugs and manage a stable release.
 <img src="ADD_SCREENSHOT_2_HERE" />
 
 ---
+
 
 
 
