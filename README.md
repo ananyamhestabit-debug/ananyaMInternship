@@ -42,26 +42,56 @@ Understand the system environment using Node.js and Linux commands.
 
 ---
 
-
----
-
 ### Day 2 – Node CLI & File Processing
 
 **Objective:**
-Build a command-line tool to analyze text files using Node.js.
+Build a command-line tool using Node.js to analyze text files and process multiple files concurrently.
 
 **Tasks Completed:**
-- Created a CLI tool using Node.js
-- Counted total lines, words and characters in text files
-- Measured execution time and memory usage
+- Developed a CLI tool (stats.js) using Node.js
+- Counted total lines, words, and characters in text files
+- Processed multiple files in parallel using asynchronous operations
+- Measured execution time and memory usage for each file
 - Generated performance logs in JSON format
-- Removed duplicate lines and saved unique output to a file
+- Removed duplicate lines and saved unique content to output files
+- Created logs and output folders for structured results
+- Added .gitignore to exclude generated files from version control
+
+**Key Concepts Learned:**
+- Node.js File System (fs / fs.promises)
+- Command-line arguments (process.argv)
+- Asynchronous programming
+- Promise.all for concurrency
+- Performance measurement (time and memory usage)
+- Basic project structure and logging
+
+### Proof of Work (Deliverables)
+
+#### Script (`stats.js`) and Terminal Output
+<img width="623" height="958" alt="image" src="https://github.com/user-attachments/assets/48f0544f-40e6-4840-b5f5-2eedd7e4bfbf" />
+
+<img width="667" height="556" alt="image" src="https://github.com/user-attachments/assets/4647f96b-46d5-45eb-8f78-6b6c0c0c31da" />
+
+
+---
+
+#### Performance Logs (`logs/performance-*.json`)
+<img width="722" height="552" alt="image" src="https://github.com/user-attachments/assets/7942d85a-f6b5-49e2-8edc-c3bc86ff3eca" />
+
+---
+
+#### Unique Output Files (`output/unique-*.txt`)
+<img width="722" height="552" alt="image" src="https://github.com/user-attachments/assets/2323f2c9-72fa-4405-8612-735379e19852" />
+
+---
 
 **Usage:**
+
 ```bash
 node stats.js --lines data1.txt
 node stats.js --words data1.txt
 node stats.js --chars data1.txt
+node stats.js --unique data1.txt
 
 
 
