@@ -1,0 +1,25 @@
+#!/bin/sh
+
+echo "Running pre-commit checks..."
+#Blocks .env file-->
+if [ -f .env ]; then
+  echo ".env file found! Remove it before commit."
+  exit 1
+fi
+
+#Blocks logs-->
+if git diff --cached --name-only | grep -E '\.log$'; then
+  echo "Log files should not be committed!"
+  exit 1
+fi
+
+#formats JS-->
+echo "Running Day5 checks only..."
+
+npx prettier --write Week1/Day5
+
+if git ls-files | grep -q ".env"; then
+  echo ".env file detected! Commit blocked"
+  exit 1
+fi
+
