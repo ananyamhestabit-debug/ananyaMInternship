@@ -115,6 +115,58 @@ Learn advanced Git techniques to identify bugs and manage a stable release.
 
 ---
 
+## Day 4 – HTTP / API Forensics (cURL + Postman)
+
+### Objective
+Understand HTTP requests, inspect API headers, implement pagination, test APIs using Postman, and build a basic HTTP server with Node.js.
+
+---
+
+### Tasks Completed
+
+- Fetched GitHub API data using cURL
+- Captured verbose HTTP headers
+- Extracted Rate-limit, ETag, and Server information
+- Implemented pagination using `page` and `per_page=3`
+- Retrieved 3 pages of repository data
+- Documented Link headers and page navigation
+- Created Postman collection for testing APIs
+- Added Bearer token authentication
+- Built a simple Node.js HTTP server
+
+---
+
+### Key Concepts Learned
+
+- HTTP request/response cycle
+- Headers analysis
+- Rate limiting
+- Pagination handling
+- API testing with Postman
+- Node.js HTTP server basics
+
+---
+
+### Server Endpoints Implemented
+
+- `/ping` → returns current timestamp
+- `/headers` → returns request headers
+- `/count` → maintains in-memory request counter
+
+---
+
+### Proof of Work (Deliverables)
+
+- curl-headers.txt
+- findings.txt
+- page1.txt
+- page2.txt
+- page3.txt
+- pagination-analysis.md
+- Postman collection (.json)
+- server.js
+
+
 
 
 
