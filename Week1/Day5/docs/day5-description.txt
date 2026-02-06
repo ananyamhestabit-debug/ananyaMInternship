@@ -1,0 +1,13 @@
+-->Day 5 Automation and Mini CI Pipleline:
+
+->Implemented a healthcheck shell script that monitors the server every 10 seconds and logs failures.
+
+->Added pre-commit validation using Husky to:
+- block .env files
+- ignore logs
+- format JavaScript files
+
+->Created a timestamped bundle zip for packaging and generated SHA1 checksum for integrity verification.
+
+->Configured cron job to automatically run healthcheck every 5 minutes.
+
