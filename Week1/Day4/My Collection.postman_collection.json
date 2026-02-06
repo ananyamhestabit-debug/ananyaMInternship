@@ -24,7 +24,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://api.github.com/users/octocat",
+					"raw": "https://api.github.com/users/octocat/repos?page=1&per_page=3",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -33,7 +33,18 @@
 					],
 					"path": [
 						"users",
-						"octocat"
+						"octocat",
+						"repos"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "per_page",
+							"value": "3"
+						}
 					]
 				}
 			},
