@@ -4,3 +4,4 @@ Week1/Day2/output/.env
 logs/
 *.log
 .env
+node_modules/
