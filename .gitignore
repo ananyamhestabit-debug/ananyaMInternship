@@ -1,2 +1,6 @@
 Week1/Day2/logs/
-Week1/Day2/output/
+Week1/Day2/output/.env
+*token*
+logs/
+*.log
+.env

@@ -1,0 +1,24 @@
+{
+  "name": "re_assignment",
+  "version": "1.0.0",
+  "description": "This repository contains my assignments completed during the Engineering Mindset Bootcamp. All work is organized week-wise and day-wise. --- ## Week 1 – Engineering Mindset & Node.js Basics ### Day 1 – System Reverse Engineering",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ananyamhestabit-debug/ananyaMInternship.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ananyamhestabit-debug/ananyaMInternship/issues"
+  },
+  "homepage": "https://github.com/ananyamhestabit-debug/ananyaMInternship#readme",
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}
