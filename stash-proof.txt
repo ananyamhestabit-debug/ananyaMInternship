@@ -1,0 +1,23 @@
+55c8663 HEAD@{0}: checkout: moving from master to release/v0.1
+99c2878 HEAD@{1}: checkout: moving from release/v0.1 to master
+55c8663 HEAD@{2}: reset: moving to HEAD
+55c8663 HEAD@{3}: commit (cherry-pick): day3 commit 10
+bc90a80 HEAD@{4}: checkout: moving from master to release/v0.1
+99c2878 HEAD@{5}: checkout: moving from release/v0.1 to master
+bc90a80 HEAD@{6}: checkout: moving from master to release/v0.1
+99c2878 HEAD@{7}: checkout: moving from release/v0.1 to master
+99c2878 HEAD@{8}: checkout: moving from master to release/v0.1
+99c2878 HEAD@{9}: checkout: moving from bc90a800cf05923c668ba86e07d409fc6f77fb10 to master
+bc90a80 HEAD@{10}: checkout: moving from 9c5b662c207e2bcc1f50a48e7015e898c20086d6 to bc90a800cf05923c668ba86e07d409fc6f77fb10
+9c5b662 HEAD@{11}: checkout: moving from 0467607717ffce2691ded78d739680bf0001e52a to 9c5b662c207e2bcc1f50a48e7015e898c20086d6
+0467607 HEAD@{12}: checkout: moving from master to 0467607717ffce2691ded78d739680bf0001e52a
+99c2878 HEAD@{13}: commit: day3 commit 10
+e7846a1 HEAD@{14}: commit: commit 9
+f837395 HEAD@{15}: commit: day3 commit 8
+076138c HEAD@{16}: commit: day 3 commit 7
+b346f4d HEAD@{17}: commit: day3 commit 6
+0467607 HEAD@{18}: commit: day3 commit 5
+bc90a80 HEAD@{19}: commit: commit 4
+9c5b662 HEAD@{20}: commit: day3 commit 3
+3524d58 HEAD@{21}: commit: day3 commit 2
+be42738 HEAD@{22}: commit (initial): day3 commit1
