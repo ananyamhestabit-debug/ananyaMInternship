@@ -225,6 +225,8 @@ Pre-commit Hook (pass):
 
 
 Scheduled cron jobs:
+
+
 <img width="676" height="280" alt="cron job scheduling" src="https://github.com/user-attachments/assets/c22880a0-cc58-4377-8e90-b9d9af979c36" />
 
 
