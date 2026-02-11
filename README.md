@@ -121,15 +121,10 @@ Learn advanced Git techniques to identify bugs and manage a stable release.
 
 ### Proof of Work (Deliverables)
 
-#### Terminal / Bisect Output
+#### Commit Graph Screenshot:
 
-<img src="ADD_SCREENSHOT_1_HERE" />
+<img width="748" height="578" alt="commit graph week1-day3" src="https://github.com/user-attachments/assets/b43ef677-0dfc-4435-b590-c35b9cc92f99" />
 
----
-
-#### Cherry-pick / Release Branch
-
-<img src="ADD_SCREENSHOT_2_HERE" />
 
 ---
 <<<<<<< HEAD
@@ -174,16 +169,63 @@ Understand HTTP requests, inspect API headers, implement pagination, test APIs u
 
 ---
 
-### Proof of Work (Deliverables)
+# Day 5 – Automation & Mini CI Pipeline
 
-- curl-headers.txt
-- findings.txt
-- page1.txt
-- page2.txt
-- page3.txt
-- pagination-analysis.md
-- Postman collection (.json)
-- server.js
+## Objective
+Learn basic automation and set up small CI checks to keep the project reliable and production ready.
+
+---
+
+## What I Built
+
+- healthcheck.sh script to ping the server every 10 seconds  
+- Logs failures automatically into logs/health.log  
+- Husky pre-commit hook for validations  
+- Blocks committing .env files  
+- Blocks committing .log files  
+- Runs Prettier to auto-format JavaScript  
+- Creates bundle-<timestamp>.zip for packaging  
+- Generates checksums.sha1 for integrity  
+- Cron job to run healthcheck regularly  
+
+---
+
+## Project Files
+
+- healthcheck.sh  
+- .husky/pre-commit  
+- logs/health.log  
+- bundle-<timestamp>.zip  
+- checksums.sha1  
+
+---
+
+## Key Concepts Learned
+
+- Bash scripting  
+- Automation and monitoring  
+- Continuous integration basics  
+- Pre-commit hooks  
+- Code formatting  
+- Packaging and checksums  
+- Cron scheduling  
+
+---
+
+## Deliverables / Screenshots
+
+Pre-commit Hook (fail):
+<img width="1422" height="575" alt="pre commit fail" src="https://github.com/user-attachments/assets/1d21ba6f-5c8a-47f2-8a28-8bdbfac888e5" />
+
+
+
+Pre-commit Hook (pass):
+<img width="887" height="642" alt="husky pre commit hook ss" src="https://github.com/user-attachments/assets/855ae61f-9a20-46eb-8c7a-dc3741645167" />
+
+
+
+Scheduled cron jobs:
+<img width="676" height="280" alt="cron job scheduling" src="https://github.com/user-attachments/assets/c22880a0-cc58-4377-8e90-b9d9af979c36" />
 
 
 
