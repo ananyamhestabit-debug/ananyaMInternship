@@ -151,11 +151,12 @@ Understand HTTP requests, inspect API headers, implement pagination, test APIs u
 - Node.js HTTP server basics
 
 ---
-
 ## Day 5 – Automation & Mini CI Pipeline
 
 ### Objective
 Learn basic automation and set up small CI checks to keep the project reliable and production ready.
+
+---
 
 ### What I Built
 - healthcheck.sh script to ping the server every 10 seconds  
@@ -168,12 +169,16 @@ Learn basic automation and set up small CI checks to keep the project reliable a
 - Generates checksums.sha1 for integrity  
 - Cron job to run healthcheck regularly  
 
+---
+
 ### Project Files
 - healthcheck.sh  
 - .husky/pre-commit  
 - logs/health.log  
 - bundle-<timestamp>.zip  
 - checksums.sha1  
+
+---
 
 ### Key Concepts Learned
 - Bash scripting  
@@ -183,6 +188,26 @@ Learn basic automation and set up small CI checks to keep the project reliable a
 - Code formatting  
 - Packaging and checksums  
 - Cron scheduling  
+
+---
+
+### Deliverables / Screenshots
+
+#### Pre-commit Hook (fail)
+
+<img width="1422" height="575" alt="pre commit fail" src="https://github.com/user-attachments/assets/1d21ba6f-5c8a-47f2-8a28-8bdbfac888e5" />
+
+---
+
+#### Pre-commit Hook (pass)
+
+<img width="887" height="642" alt="husky pre commit hook ss" src="https://github.com/user-attachments/assets/855ae61f-9a20-46eb-8c7a-dc3741645167" />
+
+---
+
+#### Scheduled Cron Jobs
+
+<img width="676" height="280" alt="cron job scheduling" src="https://github.com/user-attachments/assets/c22880a0-cc58-4377-8e90-b9d9af979c36" />
 
 ---
 
