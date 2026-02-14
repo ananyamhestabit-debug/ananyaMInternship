@@ -1,0 +1,89 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Comic Sans MS",cursive;
+}
+
+body{
+  background:#f5dfff;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.card{
+  width:600px;
+  background:#fef8ba;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  padding:25px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.35);
+}
+
+.topRow{
+  display:flex;
+  gap:10px;
+}
+
+#taskInput{
+  flex:1;
+  padding:8px;
+  border:2px solid #595959;
+  border-radius:6px;
+}
+
+#addBtn{
+  padding:8px 14px;
+  background:#cbf3ff;
+  border:2px solid #6ca9f9;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+#taskList{
+  list-style:none;
+}
+
+#taskList li{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  background:#93cffc;
+  padding:8px;
+  margin-bottom:6px;
+  border-radius:6px;
+}
+
+.smallBtn{
+  padding:4px 8px;
+  cursor:pointer;
+}
+
+.suggestionSide{
+  background:#f5dfff;
+  padding:10px;
+  border-radius:8px;
+}
+
+.accHeader{
+  background:#e9bcfe;
+  padding:6px;
+  margin-top:6px;
+  cursor:pointer;
+}
+
+.accBody{
+  display:none;
+  padding-left:10px;
+}
+
+#msg{
+  color:rgb(38,71,168);
+  text-align:center;
+  font-size:16px;
+  height:18px;
+}
