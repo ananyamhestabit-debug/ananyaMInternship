@@ -7,8 +7,6 @@ All work is organized week-wise and day-wise.
 
 # Week 1 – Engineering Mindset & Node.js Basics
 
----
-
 ## Day 1 – System Reverse Engineering
 
 ### Objective
@@ -218,6 +216,23 @@ Understand proper webpage structure using semantic HTML.
 
 ## Day 2 – CSS Layout Mastery (Flexbox & Grid)
 
+### Objective
+Build modern responsive layouts.
+
+### Work Done
+- Practiced CSS selectors and specificity
+- Built responsive navbar and hero section
+- Created product grid using CSS Grid
+- Applied Flexbox for alignment
+- Implemented mobile-first responsive design
+- Added basic transitions and hover effects
+
+### Learning
+- Flexbox for 1D layouts
+- Grid for 2D layouts
+- Responsive design with media queries
+- Layout control and box model
+
 ### Screenshot
 
 <img width="1835" height="923" alt="image" src="https://github.com/user-attachments/assets/33d65dfa-6ea5-4216-b5f2-b2f6b808c5da" />
@@ -225,6 +240,22 @@ Understand proper webpage structure using semantic HTML.
 ---
 
 ## Day 3 – JavaScript ES6 & DOM Manipulation
+
+### Objective
+Make webpages interactive using JavaScript.
+
+### Work Done
+- Practiced let vs const
+- Used map, filter, reduce
+- Implemented arrow functions
+- Built interactive FAQ accordion
+- Handled DOM selection and event listeners
+
+### Learning
+- DOM manipulation
+- Event handling
+- Dynamic content rendering
+- Clean function-based logic
 
 ### Screenshot
 
@@ -234,6 +265,23 @@ Understand proper webpage structure using semantic HTML.
 
 ## Day 4 – LocalStorage Todo App
 
+### Objective
+Build a mini project with persistent data.
+
+### Features Implemented
+- Add tasks
+- Delete tasks
+- Edit tasks
+- Store tasks using localStorage
+- Render tasks dynamically
+- Error handling using try/catch
+
+### Learning
+- State management
+- Data persistence
+- Rendering UI from stored data
+- Debugging with browser DevTools
+
 ### Screenshot
 
 <img width="1713" height="886" alt="image" src="https://github.com/user-attachments/assets/79ba5db4-a0d5-44a3-aeeb-479ca00dddde" />
@@ -241,6 +289,26 @@ Understand proper webpage structure using semantic HTML.
 ---
 
 ## Day 5 – Mini E-Commerce Capstone Project
+
+### Objective
+Combine HTML, CSS, and JavaScript into a real-world UI project.
+
+### Features
+- Fetch product data using Fetch API
+- Display dynamic product cards
+- Live search functionality
+- Sort by price (High to Low / Low to High)
+- Sale and Out of Stock tags
+- Hover action icons (Cart, Wishlist, View)
+- Responsive layout using Grid
+- Category navigation (Men, Women, Kids)
+
+### Learning
+- API integration
+- Filtering and sorting logic
+- Conditional rendering
+- UI state management
+- Structuring a complete frontend project
 
 ### Screenshot
 
