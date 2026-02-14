@@ -356,16 +356,26 @@ This week marked the transition from static pages to interactive web application
 # Screenshots:
 
 Day 1:
+
 <img width="716" height="917" alt="image" src="https://github.com/user-attachments/assets/ebdf3176-5a93-4179-9c07-c15944c6b6df" />
 
+
+
 Day 2:
+
 <img width="1835" height="923" alt="image" src="https://github.com/user-attachments/assets/33d65dfa-6ea5-4216-b5f2-b2f6b808c5da" />
+
+
 
 Day 3:
 <img width="1713" height="886" alt="image" src="https://github.com/user-attachments/assets/219f6e80-83d3-4e95-a245-f78c7968a622" />
 
+
+
 Day 4:
 <img width="1713" height="886" alt="image" src="https://github.com/user-attachments/assets/79ba5db4-a0d5-44a3-aeeb-479ca00dddde" />
+
+
 
 Day 5:
 <img width="1817" height="931" alt="image" src="https://github.com/user-attachments/assets/fc83af25-c954-453c-84d1-fe448f9d63b6" />
