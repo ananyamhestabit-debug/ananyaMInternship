@@ -1,6 +1,4 @@
-# ananyaMInternship
-
-# Engineering Mindset Bootcamp Assignments
+# Hestabit weekly task description:
 
 This repository contains my assignments completed during the Engineering Mindset Bootcamp.
 All work is organized week-wise and day-wise.
@@ -230,6 +228,147 @@ Scheduled cron jobs:
 <img width="676" height="280" alt="cron job scheduling" src="https://github.com/user-attachments/assets/c22880a0-cc58-4377-8e90-b9d9af979c36" />
 
 
+# 🚀 Week 2 – Frontend Fundamentals
+
+---
+
+## Day 1 – Semantic HTML5
+
+### Objective
+Understand proper webpage structure using semantic HTML.
+
+### Work Done
+- Created a blog layout using semantic tags
+- Used header, nav, main, section, article, footer
+- Built forms with validation
+- Added image, video, and audio elements
+- Applied accessibility basics (alt text, labels)
+
+### Learning
+- Importance of semantic structure
+- Clean HTML scaffolding
+- Accessibility fundamentals
+- Form structure & validation basics
+
+---
+
+## Day 2 – CSS Layout Mastery (Flexbox & Grid)
+
+### Objective
+Build modern responsive layouts.
+
+### Work Done
+- Practiced CSS selectors and specificity
+- Built responsive navbar and hero section
+- Created product grid using CSS Grid
+- Applied Flexbox for alignment
+- Implemented mobile-first responsive design
+- Added basic transitions and hover effects
+
+### Learning
+- Flexbox for 1D layouts
+- Grid for 2D layouts
+- Responsive design with media queries
+- Layout control and box model
+
+---
+
+## Day 3 – JavaScript ES6 & DOM Manipulation
+
+### Objective
+Make webpages interactive using JavaScript.
+
+### Work Done
+- Practiced let vs const
+- Used map, filter, reduce
+- Implemented arrow functions
+- Built interactive FAQ accordion
+- Handled DOM selection and event listeners
+
+### Learning
+- DOM manipulation
+- Event handling
+- Dynamic content rendering
+- Clean function-based logic
+
+---
+
+## Day 4 – LocalStorage Todo App
+
+### Objective
+Build a mini project with persistent data.
+
+### Features Implemented
+- Add tasks
+- Delete tasks
+- Edit tasks
+- Store tasks using localStorage
+- Render tasks dynamically
+- Error handling using try/catch
+
+### Learning
+- State management
+- Data persistence
+- Rendering UI from stored data
+- Debugging with browser DevTools
+
+---
+
+## Day 5 – Mini E-Commerce Capstone Project
+
+### Objective
+Combine HTML, CSS, and JavaScript into a real-world UI project.
+
+### Features
+- Fetch product data using Fetch API
+- Display dynamic product cards
+- Live search functionality
+- Sort by price (High → Low / Low → High)
+- Sale and Out of Stock tags
+- Hover action icons (Cart, Wishlist, View)
+- Responsive layout using Grid
+- Category navigation (Men, Women, Kids)
+
+### Learning
+- API integration
+- Filtering and sorting logic
+- Conditional rendering
+- UI state management
+- Structuring a complete frontend project
+
+---
+
+# Overall Week 2 Learnings:
+
+By the end of Week 2, I understood:
+
+- How structure (HTML), styling (CSS), and behavior (JavaScript) work together.
+- How to build responsive layouts.
+- How to manipulate the DOM dynamically.
+- How to store data in browser using localStorage.
+- How to fetch and display API data.
+- How to structure a small real-world frontend project.
+
+This week marked the transition from static pages to interactive web applications.
+
+---
+
+# Screenshots:
+
+Day 1:
+<img width="716" height="917" alt="image" src="https://github.com/user-attachments/assets/ebdf3176-5a93-4179-9c07-c15944c6b6df" />
+
+Day 2:
+<img width="1835" height="923" alt="image" src="https://github.com/user-attachments/assets/33d65dfa-6ea5-4216-b5f2-b2f6b808c5da" />
+
+Day 3:
+<img width="1713" height="886" alt="image" src="https://github.com/user-attachments/assets/219f6e80-83d3-4e95-a245-f78c7968a622" />
+
+Day 4:
+<img width="1713" height="886" alt="image" src="https://github.com/user-attachments/assets/79ba5db4-a0d5-44a3-aeeb-479ca00dddde" />
+
+Day 5:
+<img width="1817" height="931" alt="image" src="https://github.com/user-attachments/assets/fc83af25-c954-453c-84d1-fe448f9d63b6" />
 
 
 
