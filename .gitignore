@@ -4,4 +4,7 @@ Week1/Day2/output/.env
 logs/
 *.log
 .env
+.env.local
+.DS_Store
 node_modules/
+.next/

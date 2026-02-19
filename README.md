@@ -340,3 +340,149 @@ Combine HTML, CSS, and JavaScript into a real-world UI project.
 <img width="1817" height="931" alt="image" src="https://github.com/user-attachments/assets/fc83af25-c954-453c-84d1-fe448f9d63b6" />
 
 ---
+
+# Week 3 – Advanced Frontend  
+Next.js + TailwindCSS- SaaS Hub Dashboard
+
+## Overview
+
+This project was built during Week 3 of Advanced Frontend training.  
+The goal was to create a multi-page, responsive UI using Next.js (App Router) and TailwindCSS with a reusable component system and clean routing structure.
+
+---
+
+## Tech Stack
+
+- Next.js (App Router)
+- React
+- TailwindCSS
+- next/image
+- JavaScript
+
+---
+
+## Work Summary (Day Wise)
+
+### Day 1
+- TailwindCSS setup
+- Global layout creation
+- Navbar and Sidebar components
+- Dashboard layout skeleton
+
+### Day 2
+- Built reusable UI components:
+  - Button
+  - Input
+  - Card
+  - Badge
+  - Modal
+- Followed atomic design approach
+
+### Day 3
+- Implemented file-based routing
+- Created nested dashboard layout
+- Pages: `/`, `/about`, `/dashboard`, `/dashboard/profile`
+
+### Day 4
+- Built responsive landing page
+- Implemented image optimization
+- Added SEO metadata
+- Improved typography and layout responsiveness
+
+### Day 5 (Capstone)
+- Built full multi-page UI (no backend):
+  - `/login`
+  - `/dashboard`
+  - `/dashboard/users`
+  - `/dashboard/profile`
+- Reused components from `/components/ui`
+- Ensured clean structure and mobile responsiveness
+
+---
+
+## Screenshots
+
+Landing Page  
+![Landing Page](public/landingpage.png)
+
+Dashboard  
+![Dashboard](public/dashboard.png)
+
+Users Page  
+![Users Page](public/userpage.png)
+
+Profile Page  
+![Profile Page](public/profile.png)
+
+Login Page  
+![Login Page](public/login.png)
+
+---
+
+## Tech Stack
+
+- Next.js (App Router)
+- React
+- TailwindCSS
+- JavaScript
+
+---
+
+## Folder Structure
+
+app/
+ ├── layout.jsx
+ ├── page.jsx
+ ├── globals.css
+ ├── favicon.ico
+ │
+ ├── login/
+ ├── signup/
+ ├── ping/
+ │
+ └── dashboard/
+      ├── layout.jsx
+      ├── page.jsx
+      ├── about/
+      ├── analytics/
+      ├── billing/
+      ├── products/
+      ├── profile/
+      ├── settings/
+      └── users/
+
+components/
+ └── ui/
+      ├── Badge.jsx
+      ├── Button.jsx
+      ├── Card.jsx
+      ├── Input.jsx
+      ├── Modal.jsx
+      ├── Navbar.jsx
+      └── Sidebar.jsx
+
+---
+
+## How to Run
+
+git clone <repository-link>  
+cd project-folder  
+npm install  
+npm run dev  
+
+Open http://localhost:3000
+
+---
+
+## Learning Outcomes
+
+- Understanding Next.js App Router
+- Nested layouts implementation
+- Reusable component architecture
+- Managing large folder structure
+- Building scalable dashboard UI
+
+
+
+
+
