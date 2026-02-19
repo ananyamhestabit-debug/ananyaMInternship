@@ -403,19 +403,19 @@ The goal was to create a multi-page, responsive UI using Next.js (App Router) an
 ## Screenshots
 
 Landing Page  
-![Landing Page](public/landingpage.png)
+<img width="1813" height="862" alt="landingpage" src="https://github.com/user-attachments/assets/1817fdbc-f393-4b0f-bafd-88566fba5c82" />
 
 Dashboard  
-![Dashboard](public/dashboard.png)
+<img width="1813" height="920" alt="dashboard" src="https://github.com/user-attachments/assets/61a51f55-975e-4f89-bfbf-aa1067a07f26" />
 
 Users Page  
-![Users Page](public/userpage.png)
+<img width="1813" height="920" alt="userpage" src="https://github.com/user-attachments/assets/f8d71d86-0880-4d65-bbf7-1e772757f7da" />
 
 Profile Page  
-![Profile Page](public/profile.png)
+<img width="1813" height="920" alt="profile" src="https://github.com/user-attachments/assets/18898494-b96b-4bf5-bfb0-d8d69ac067f5" />
 
 Login Page  
-![Login Page](public/login.png)
+<img width="1813" height="920" alt="login" src="https://github.com/user-attachments/assets/f4f399d1-6282-4e43-9a36-df5a1b4caf40" />
 
 ---
 
