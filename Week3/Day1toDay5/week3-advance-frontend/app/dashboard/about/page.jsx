@@ -22,7 +22,7 @@ export default function AboutPage() {
 
         <div className="mt-16 grid md:grid-cols-3 gap-8">
 
-          <div className="bg-white p-8 rounded-2xl shadow">
+          <div className="bg-white/70 backdrop-blur-md p-8 rounded-2xl shadow-lg">
             <h3 className="text-xl font-semibold text-blue-600">
               Scalable Architecture
             </h3>
@@ -31,7 +31,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow">
+          <div className="bg-white/70 backdrop-blur-md p-8 rounded-2xl shadow-lg">
             <h3 className="text-xl font-semibold text-blue-600">
               Modern UI System
             </h3>
@@ -40,7 +40,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow">
+          <div className="bg-white/70 backdrop-blur-md p-8 rounded-2xl shadow-lg">
             <h3 className="text-xl font-semibold text-blue-600">
               Enterprise Ready
             </h3>
@@ -53,7 +53,8 @@ export default function AboutPage() {
 
       </section>
 
-      <section id="contact" className="bg-white py-20 border-t">
+      {/* Contact Section */}
+      <section id="contact" className="py-20 border-t border-white/30">
 
         <div className="max-w-4xl mx-auto px-6 text-center">
 
@@ -67,7 +68,7 @@ export default function AboutPage() {
 
           <div className="mt-10 grid md:grid-cols-2 gap-6">
 
-            <div className="bg-blue-50 p-6 rounded-xl">
+            <div className="bg-white/70 backdrop-blur-md p-6 rounded-xl shadow-lg">
               <h4 className="font-semibold text-gray-900">
                 Email
               </h4>
@@ -76,7 +77,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-blue-50 p-6 rounded-xl">
+            <div className="bg-white/70 backdrop-blur-md p-6 rounded-xl shadow-lg">
               <h4 className="font-semibold text-gray-900">
                 Office
               </h4>

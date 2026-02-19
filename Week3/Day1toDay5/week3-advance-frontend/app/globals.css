@@ -1,7 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 body {
-  @apply bg-gray-100 text-darkText;
+  background-color: rgb(243 244 246); /* bg-gray-100 equivalent */
 }
