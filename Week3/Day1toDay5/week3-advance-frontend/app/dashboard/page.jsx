@@ -24,7 +24,7 @@ export default function DashboardPage() {
           <h3 className="text-2xl font-bold text-purple-600">₹42,500</h3>
         </div>
 
-        {/* ✅ System Status Card */}
+
         <div className="bg-white p-6 rounded-xl shadow">
           <p className="text-gray-500 text-sm">System Status</p>
           <h3 className="text-xl font-bold text-green-600 mt-1">
