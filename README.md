@@ -482,6 +482,81 @@ Open http://localhost:3000
 - Managing large folder structure
 - Building scalable dashboard UI
 
+---
+
+  # Week 4 – Day 1  
+## Backend System Bootstrapping & Lifecycle
+
+---
+
+## Overview
+
+In this task, I built the foundational backend structure using **Node.js, Express, and MongoDB**.
+
+The objective was not to build business APIs, but to design a clean, scalable, and production-ready backend system with proper lifecycle management.
+
+---
+
+## Key Implementations
+
+- Structured backend folder architecture
+- Environment-based configuration management
+- Centralized configuration loader
+- MongoDB connection using Mongoose
+- Structured logging using Pino
+- Controlled startup sequence
+- Graceful shutdown handling
+- Fail-fast strategy (server does not start if DB fails)
+
+---
+
+## Startup Lifecycle
+
+Application startup flow:
+
+Config → Logger → Express → Middlewares → Routes → Database → Server
+
+If database connection fails, the process exits immediately.
+
+---
+
+## Environment Management
+
+Supports:
+
+- `.env.local`
+- `.env.dev`
+- `.env.prod`
+
+Environment is selected using `NODE_ENV` (default: `local`).
+
+---
+
+## Logging
+
+Structured logging is implemented using **Pino** to track:
+
+- Startup
+- Database status
+- Route mounting
+- Shutdown
+
+---
+
+## Graceful Shutdown
+
+On termination:
+
+- Database connection closes
+- Server stops
+- Process exits safely
+
+---
+
+## Conclusion
+
+Day 1 establishes a clean and scalable backend foundation with controlled startup and shutdown handling.
+
 
 
 
