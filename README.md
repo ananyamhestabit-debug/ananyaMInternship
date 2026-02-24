@@ -557,6 +557,56 @@ On termination:
 
 Day 1 establishes a clean and scalable backend foundation with controlled startup and shutdown handling.
 
+---
+
+# Week 4 – Day 2  
+## Data Design & Query Performance
+
+---
+
+## Objective
+
+Design optimized database schemas for read-heavy systems and implement performance-focused indexing strategies.
+
+---
+
+## Key Implementations
+
+- Account and Order schemas using Mongoose
+- Referenced relationship between Account and Order
+- Pre-save hook for password hashing (bcrypt)
+- Virtual field (`fullName`)
+- Field validation and transformations
+- Compound index: `{ status: 1, createdAt: -1 }`
+- TTL index on `expiresAt` for automatic data cleanup
+- Repository pattern for database abstraction
+- Pagination using skip/limit strategy
+
+---
+
+## Performance Strategy
+
+- Compound index improves filtered + sorted queries
+- TTL index enforces data lifecycle rules
+- Unique index on email prevents duplicate accounts
+- Separation of schema and repository improves maintainability
+
+---
+
+## Deliverables
+
+- `/models/Account.js`
+- `/models/Order.js`
+- `/repositories/account.repository.js`
+- `/repositories/order.repository.js`
+- Index verification screenshot from MongoDB Compass
+
+---
+
+## Conclusion
+
+Day 2 focuses on schema optimization, indexing strategies, and structured data access patterns to support scalable and efficient backend systems.
+
 
 
 
