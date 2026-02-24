@@ -600,6 +600,7 @@ Design optimized database schemas for read-heavy systems and implement performan
 - `/repositories/account.repository.js`
 - `/repositories/order.repository.js`
 - Index verification screenshot from MongoDB Compass:
+  
 Accounts:
 <img width="1662" height="1041" alt="Screenshot from 2026-02-24 21-56-06" src="https://github.com/user-attachments/assets/c581def2-832a-4105-9506-a8bc8b42d6b4" />
 
