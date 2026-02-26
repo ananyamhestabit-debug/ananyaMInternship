@@ -8,24 +8,25 @@ const mongoose = require("mongoose");
 const AccountRepository = require("../repositories/account.repository");
 const OrderRepository = require("../repositories/order.repository");
 
+// Day 3 Controller + Error Middleware
+const productController = require("../controllers/product.controller");
+const errorMiddleware = require("../middlewares/error.middleware");
+
 async function startServer() {
   const app = express();
 
-  // Middleware
+
+  // GLOBAL MIDDLEWARES
   app.use(express.json());
   logger.info("Middlewares loaded");
 
-  // Health Check Route
+  // HEALTH CHECK
   app.get("/health", (req, res) => {
     res.json({ status: "OK" });
   });
 
-  // -----------------------------
   // DAY 2 TEST ROUTES
-  // -----------------------------
-
-  // Create Account
-  app.get("/create-account", async (req, res) => {
+  app.get("/create-account", async (req, res, next) => {
     try {
       const account = await AccountRepository.create({
         firstName: "Ananya",
@@ -36,47 +37,55 @@ async function startServer() {
 
       res.json(account);
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      next(error);
     }
   });
 
-  // Get Paginated Accounts
-  app.get("/accounts", async (req, res) => {
+  app.get("/accounts", async (req, res, next) => {
     try {
       const accounts = await AccountRepository.findPaginated(1, 5);
       res.json(accounts);
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      next(error);
     }
   });
 
-  // Create Order (requires accountId)
-  app.get("/create-order/:accountId", async (req, res) => {
+  app.get("/create-order/:accountId", async (req, res, next) => {
     try {
       const order = await OrderRepository.create({
         account: req.params.accountId,
         productName: "Laptop",
         amount: 50000,
-        expiresAt: new Date(Date.now() + 60000), // 1 minute TTL
+        expiresAt: new Date(Date.now() + 60000),
       });
 
       res.json(order);
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      next(error);
     }
   });
 
+
+  // DAY 3 PRODUCT ROUTES
+  app.get("/products", productController.getProducts);
+
+  app.delete("/products/:id", productController.deleteProduct);
+
   logger.info("Routes mounted");
 
-  // Connect Database
+  // ERROR MIDDLEWARE (ALWAYS LAST)
+  app.use(errorMiddleware);
+
+
+  // DATABASE CONNECTION
   await connectDB();
 
-  // Start Server
+  // SERVER START
   const server = app.listen(config.port, () => {
     logger.info(`Server started on port ${config.port}`);
   });
 
-  // Graceful Shutdown
+  // GRACEFUL SHUTDOWN
   process.on("SIGINT", async () => {
     logger.info("Graceful shutdown started");
 

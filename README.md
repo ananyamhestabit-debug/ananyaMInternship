@@ -613,6 +613,63 @@ Orders:
 
 Day 2 focuses on schema optimization, indexing strategies, and structured data access patterns to support scalable and efficient backend systems.
 
+---
+
+
+# WEEK 4 — DAY 3
+## Query Pipelines & Failure-Safe APIs
+
+### Objective
+
+Implement a dynamic Product API with advanced filtering, sorting, pagination, soft deletion, and unified error handling.
+
+---
+
+## Features Implemented
+
+- Controller → Service → Repository architecture
+- Dynamic search using regex
+- Price filtering (minPrice, maxPrice)
+- Tag filtering
+- Dynamic sorting
+- Pagination (skip/limit)
+- Soft delete using deletedAt timestamp
+- Include deleted toggle
+- Centralized error middleware
+- Typed error handling
+
+---
+
+## Example Endpoints
+
+GET /products
+
+GET /products?search=phone
+
+GET /products?minPrice=100&maxPrice=500
+
+GET /products?sort=price:desc
+
+GET /products?page=1&limit=5
+
+DELETE /products/:id
+
+GET /products?includeDeleted=true
+
+---
+
+## Architecture
+
+Route → Controller → Service → Repository → MongoDB
+
+Strict separation of concerns maintained.
+
+---
+
+## Status
+
+Day 3 implementation completed with defensive API design and production-safe structure.
+
 
 
 
