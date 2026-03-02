@@ -670,6 +670,49 @@ Strict separation of concerns maintained.
 
 Day 3 implementation completed with defensive API design and production-safe structure.
 
+## Day 4 — API Security
+
+On this day, the backend was secured.
+
+Implemented:
+
+- Helmet for security headers
+- CORS configuration
+- Rate limiting (100 requests per 15 minutes)
+- Request payload size limit (10kb)
+- MongoDB query sanitization (NoSQL injection protection)
+- HPP (parameter pollution protection)
+- Joi validation with payload whitelisting
+
+Tested for:
+
+- NoSQL injection attempts
+- XSS inputs
+- Invalid request bodies
+- Rate limit enforcement
+
+Result: The API is protected against common attacks and misuse.
+
+---
+
+## Day 5 — Async Jobs & Production Readiness
+
+On this day, the backend was made production-ready.
+
+Implemented:
+
+- Background email job using BullMQ and Redis
+- Retry mechanism with exponential backoff
+- Separate worker process
+- Request tracing using X-Request-ID
+- Structured logging using Pino
+- Postman collection export
+- PM2 production configuration
+- .env.example file
+- Deployment notes
+
+Result: The backend supports async processing, structured logging, and is ready for deployment.
+
 
 
 

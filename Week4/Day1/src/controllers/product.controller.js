@@ -1,4 +1,23 @@
 const ProductService = require("../services/product.service");
+const { sendEmailJob } = require("../jobs/email.job");
+
+exports.createProduct = async (req, res, next) => {
+  try {
+    const product = await ProductService.createProduct(req.body);
+
+    await sendEmailJob({
+      email: "admin@example.com",
+      product: product.name,
+    });
+
+    res.status(201).json({
+      success: true,
+      product,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
 exports.getProducts = async (req, res, next) => {
   try {
