@@ -12,3 +12,5 @@ node_modules/
 .env.dev
 .env.prod
 .env.example
+*.pem
+*.key
