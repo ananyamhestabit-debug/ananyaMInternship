@@ -14,3 +14,7 @@ node_modules/
 .env.example
 *.pem
 *.key
+venv/
+.vscode/
+__pycache__/
+*.pyc
