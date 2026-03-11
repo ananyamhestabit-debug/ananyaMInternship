@@ -1,0 +1,30 @@
+{
+    "LogisticRegression": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0
+    },
+    "RandomForest": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0
+    },
+    "XGBoost": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "roc_auc": 1.0
+    },
+    "NeuralNetwork": {
+        "accuracy": 0.9991125310614128,
+        "precision": 0.9986622073578595,
+        "recall": 0.9979946524064172,
+        "f1": 0.9983283182881979,
+        "roc_auc": 0.9990843958304794
+    }
+}
