@@ -10,7 +10,6 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-
   background:#F6F3EB ;
 }
 
@@ -34,7 +33,7 @@ h1{
 }
 
 .faq-head{
-  background: linear-gradient(90deg,#d6c6ff,#cbb8ff);
+  background:#cbb8ff;
   color:#333;
 
   padding:16px 22px;

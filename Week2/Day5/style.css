@@ -2,7 +2,7 @@ body{
 font-family:Arial;
 margin:0;
 padding:20px;
-background:#f4f4f4;
+background:#ffffff;
 }
 
 header{
@@ -14,14 +14,14 @@ nav ul{
 display:flex;
 justify-content:center;
 gap:25px;
-list-style:none;
+list-style:none;  /*bullets nhi honge*/
 padding:0;
 margin-top:10px;
 }
 
 nav li{
-cursor:pointer;
-position:relative;
+cursor:pointer; /* clickable*/
+position:relative; /*iske andar jo absolute elements hone woh iske accoridng postion hone*/
 }
 
 nav li.active::after{
@@ -57,17 +57,17 @@ gap:20px;
 }
 
 .card{
-background:white;
+background:rgb(242, 249, 255);
 padding:10px;
 border-radius:8px;
 text-align:center;
 position:relative;
-overflow:hidden;
+overflow:hidden; /*jo content bahar hai woh hides*/
 transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:translateY(-5px);/*when mouse is on card makes elememt move,rotate or scale*/
 }
 
 .card img{
@@ -91,12 +91,12 @@ font-weight:bold;
 }
 
 .sale{
-background:gold;
+background:rgb(250, 214, 9);
 color:black;
 }
 
 .out{
-background:silver;
+background:rgb(199, 199, 199);
 color:black;
 }
 

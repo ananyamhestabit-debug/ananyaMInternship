@@ -15,6 +15,7 @@ body{
 
 .card{
   width:600px;
+  max-width:95%;
   background:#fef8ba;
   display:flex;
   flex-direction:column;
@@ -52,9 +53,10 @@ body{
   display:flex;
   gap:8px;
   align-items:center;
-  background:#93cffc;
+  background:#bfe1fc;
   padding:8px;
   margin-bottom:6px;
+  border:2px solid rgb(129, 228, 255);
   border-radius:6px;
 }
 
@@ -78,7 +80,7 @@ body{
 
 .accBody{
   display:none;
-  padding-left:10px;
+  padding-left:20px;
 }
 
 #msg{

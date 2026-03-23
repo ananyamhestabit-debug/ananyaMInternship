@@ -1,19 +1,18 @@
-const items = document.querySelectorAll(".faq-item");
-items.forEach(item=>{
+const accordItems = document.querySelectorAll(".faq-item");
+accordItems.forEach(accordItem=>{
 
-  const head=item.querySelector(".faq-head");
-  const icon=item.querySelector("span");
+  const head=accordItem.querySelector(".faq-head");
+  const sign=accordItem.querySelector("span");
+  
   head.addEventListener("click", ()=>{
-    const isOpen = item.classList.contains("active");
-
-    items.forEach(el => {
-      el.classList.remove("active");
-      el.querySelector("span").textContent="+";
+    const openAccor = accordItem.classList.contains("active");
+    accordItems.forEach(element => {
+      element.classList.remove("active");
+      element.querySelector("span").textContent="+";
     });
-
-    if(!isOpen){
-      item.classList.add("active");
-      icon.textContent="-";
+    if(!openAccor){
+      accordItem.classList.add("active");
+      sign.textContent="-";
     }
   });
 });
