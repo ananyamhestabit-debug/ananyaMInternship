@@ -46,3 +46,25 @@ exports.validateAccount = (req, res, next) => {
   req.body = value;
   next();
 };
+
+exports.validateLogin = (req, res, next) => {
+  const schema = Joi.object({
+    email: Joi.string().email().required(),
+    password: Joi.string().required(),
+  }).options({ stripUnknown: true });
+
+  const { error, value } = schema.validate(req.body);
+
+  if (error) {
+    return res.status(400).json({
+      success: false,
+      message: error.details[0].message,
+      code: "VALIDATION_ERROR",
+      timestamp: new Date().toISOString(),
+      path: req.originalUrl,
+    });
+  }
+
+  req.body = value;
+  next();
+};

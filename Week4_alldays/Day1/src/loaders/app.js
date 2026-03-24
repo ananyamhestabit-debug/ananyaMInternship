@@ -57,10 +57,11 @@ async function startServer() {
   app.use(rateLimiter);
   app.use(mongoSanitizeMiddleware);
   app.use(hppMiddleware);
-  app.use(sanitizeMiddleware);
+  
 
 //body parser
   app.use(express.json({ limit: "10kb" }));
+  app.use(sanitizeMiddleware);
 
   logger.info("Middlewares loaded");
 
