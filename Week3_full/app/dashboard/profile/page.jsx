@@ -58,11 +58,11 @@ export default function ProfilePage() {
 
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
 
-          <Button variant="primary" className="w-full sm:w-auto">
+          <Button className="bg-yellow-400 text-gray-900 hover:bg-yellow-500 px-6 py-3 w-full w-full sm:w-auto">
             Edit Profile
           </Button>
 
-          <Button variant="secondary" className="w-full sm:w-auto">
+          <Button className="bg-sky-200 text-gray-900 hover:bg-sky-300 px-6 py-3 w-full w-full sm:w-auto">
             Change Password
           </Button>
 

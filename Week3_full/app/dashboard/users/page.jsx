@@ -51,17 +51,24 @@ export default function Users() {
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
 
-                      <Modal triggerText="View">
-                        <p>User: {user.name}</p>
-                        <p>Role: {user.role}</p>
-                        <p>Status: {user.status}</p>
-                      </Modal>
+  
+                <Modal
+                  triggerText={
+                  <span className="bg-yellow-400 text-gray-900 hover:bg-yellow-500 px-4 py-2 rounded-lg transition cursor-pointer">
+                    View
+                  </span>
+                  }
+                  >
+                    <p>User: {user.name}</p>
+                    <p>Role: {user.role}</p>
+                    <p>Status: {user.status}</p>
+                  </Modal>
 
-                      <Button variant="danger" className="w-full sm:w-auto">
-                        Delete
-                      </Button>
+                  <Button className="bg-red-500 text-white hover:bg-red-600 w-full sm:w-auto">
+                    Delete
+                  </Button>
 
-                    </div>
+</div>
 
                   </td>
 

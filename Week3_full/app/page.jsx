@@ -41,13 +41,13 @@ export default function Home() {
         <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
 
           <Link href="/dashboard" className="block w-full sm:w-auto">
-          <Button size="lg" variant="primary" className="w-full">
+          <Button className="bg-yellow-400 text-gray-900 hover:bg-yellow-500 px-6 py-3 w-full">
           Go to Dashboard
           </Button>
           </Link>
 
           <Link href="/login" className="block w-full sm:w-auto">
-          <Button variant="secondary" size="lg" className="w-full">
+          <Button className="bg-sky-200  text-gray-900 hover:bg-sky-300 px-6 py-3 w-full">
           Login
           </Button>
           </Link>

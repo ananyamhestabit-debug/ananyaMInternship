@@ -1,3 +1,5 @@
+"use client";
+
 import Card from "../../../components/ui/Card";
 import Button from "../../../components/ui/Button";
 
@@ -55,7 +57,7 @@ export default function SettingsPage() {
             </div>
           </div> 
 
-          <Button variant="secondary" className="mt-6">
+          <Button className="bg-yellow-400 text-gray-900 hover:bg-yellow-500 mt-4 px-3 py-3 w-full sm:w-auto">
             Save Preferences
           </Button>
 

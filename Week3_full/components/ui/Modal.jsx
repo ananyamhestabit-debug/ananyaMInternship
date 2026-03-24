@@ -13,7 +13,7 @@ export default function Modal({ triggerText, children }) {
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center">
           <div className="bg-white p-6 rounded-xl w-96">
             <div className="mb-4">{children}</div>
-            <Button variant="secondary" onClick={() => setOpen(false)}>
+            <Button className="bg-yellow-400 text-gray-900 hover:bg-yellow-500 px-5 py-2 w-full" onClick={() => setOpen(false)}>
               Close
             </Button>
           </div>

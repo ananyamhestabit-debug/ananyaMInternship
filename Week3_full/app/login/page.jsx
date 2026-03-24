@@ -32,7 +32,7 @@ export default function LoginPage() {
 
       
         <Link href="/dashboard" className="block mt-8 w-full">
-  <Button className="w-full py-3">
+  <Button className="bg-yellow-400 text-gray-900 hover:bg-yellow-500 px-6 py-3 w-full">
     Login
   </Button>
 </Link>

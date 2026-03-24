@@ -19,8 +19,8 @@ export default function BillingPage() {
         </p>
 
         <div className="mt-6">
-          <Button variant="primary" >
-            Upgrade Plan
+          <Button className="bg-yellow-400 text-gray-900 hover:bg-yellow-500 px-6 py-3 w-full sm:w-auto">
+          Upgrade Plan
           </Button>
         </div>
       </Card>

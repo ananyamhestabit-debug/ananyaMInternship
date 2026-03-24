@@ -53,9 +53,9 @@ export default function Sidebar() {
 
       <div className="mt-10">
         <Link href="/login" className="block w-full">
-          <Button variant="primary" className="w-full">
-            Logout
-          </Button>
+          <Button className="bg-yellow-400 text-gray-900 hover:bg-yellow-500 px-6 py-3 w-full">
+  Logout
+</Button>
         </Link>
       </div>
 
