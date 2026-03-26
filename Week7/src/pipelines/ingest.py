@@ -1,7 +1,7 @@
 import os
 import json
 
-# Loaders for PDF, CSV, TXT, DOCX
+# Loaders
 from langchain_community.document_loaders import (
     PyPDFLoader,
     CSVLoader,
@@ -9,26 +9,24 @@ from langchain_community.document_loaders import (
     UnstructuredWordDocumentLoader
 )
 
-# Text splitting
+# Chunking
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # Embeddings
 from embeddings.embedder import embed_texts
 
-# Vector database
+# Vector DB
 from vectorstore.faiss_store import FAISSStore
 
-# Basic retriever
-from retriever.query_engine import retrieve
-
-# Day 2 modules
+# Retrieval
 from retriever.keyword import build_bm25
 from retriever.hybrid_retriever import hybrid_search
 from retriever.reranker import rerank
 from pipelines.context_builder import build_context
 
 
-# Load documents from folder
+# LOAD DOCUMENTS
+
 def load_documents(folder_path):
     docs = []
 
@@ -50,17 +48,31 @@ def load_documents(folder_path):
     return docs
 
 
-# Clean text and add metadata
+# CLEAN + METADATA
 def clean_documents(docs):
     cleaned = []
 
     for doc in docs:
+        source = doc.metadata.get("source", "")
+
+        # detect type
+        if source.endswith(".pdf"):
+            doc_type = "policy"
+        elif source.endswith(".csv"):
+            doc_type = "product"
+        elif source.endswith(".txt"):
+            doc_type = "text"
+        elif source.endswith(".docx"):
+            doc_type = "document"
+        else:
+            doc_type = "unknown"
+
         cleaned.append({
             "text": doc.page_content.strip(),
             "metadata": {
-                "source": doc.metadata.get("source"),
+                "source": source,
                 "page": doc.metadata.get("page", 0),
-                "type": "document",
+                "type": doc_type,
                 "year": "2024"
             }
         })
@@ -68,7 +80,7 @@ def clean_documents(docs):
     return cleaned
 
 
-# Split documents into chunks
+# CHUNKING
 def chunk_documents(cleaned_docs):
 
     splitter = RecursiveCharacterTextSplitter(
@@ -90,73 +102,91 @@ def chunk_documents(cleaned_docs):
     return chunks
 
 
-# Save chunks to file
-def save_chunks(chunks):
-    with open("data/chunks/chunks.json", "w") as f:
-        json.dump(chunks, f)
+# SAVE METADATA JSON
+def save_metadata(chunks):
+    os.makedirs("data/metadata", exist_ok=True)
 
+    with open("data/metadata/metadata.json", "w") as f:
+        json.dump(chunks, f, indent=2)
 
-# Main pipeline
+# MAIN PIPELINE
 if __name__ == "__main__":
 
-    # Load data
     print("\nLoading documents...")
     docs = load_documents("data/raw/")
     print("Documents:", len(docs))
 
-    # Clean data
     print("\nCleaning...")
     cleaned = clean_documents(docs)
 
-    # Create chunks
     print("\nChunking...")
     chunks = chunk_documents(cleaned)
     print("Chunks:", len(chunks))
 
-    save_chunks(chunks)
+    # Save metadata
+    save_metadata(chunks)
+    print("Metadata JSON saved")
 
-    # Generate embeddings
+    # Prepare texts
     texts = [c["text"] for c in chunks]
 
+    # Embeddings
     print("\nEmbedding...")
     embeddings = embed_texts(texts)
 
-    # Create FAISS vector database
+    # Vector DB
     print("\nCreating FAISS DB...")
     store = FAISSStore(dim=len(embeddings[0]))
-
     store.add(embeddings, chunks)
     store.save()
-
     print("FAISS saved")
 
-    # Build BM25 for keyword search
+    # SEARCH PIPELINE
     bm25, tokenized = build_bm25(texts)
 
-    # Query
-    query = "product price"
+    query = input("\nEnter your query: ") or "product price"
 
     print("\nHybrid Searching...")
 
-    # Hybrid search (semantic + keyword)
+    # Hybrid retrieval
     results = hybrid_search(query, store, chunks, bm25, tokenized)
 
-    # Rerank results
+    # Reranking
     reranked = rerank(query, results)
 
-    # Apply filters
-    filters = {
-        "year": "2024",
-        "type": "document"
-    }
+    # DEDUPLICATION
+    unique_docs = []
+    seen = set()
 
-    # Get final top results
-    final = build_context(reranked, k=5, filters=filters)
+    for doc in reranked:
+        if doc["text"] not in seen:
+            unique_docs.append(doc)
+            seen.add(doc["text"])
 
-    # Print results
+
+    # DYNAMIC FILTERING
+    query_lower = query.lower()
+
+    if any(word in query_lower for word in ["price", "product", "cost", "buy"]):
+        filters = {"type": "product", "year": "2024"}
+
+    elif any(word in query_lower for word in ["policy", "report", "company"]):
+        filters = {"type": "policy", "year": "2024"}
+
+    else:
+        filters = None
+
+    # Final context
+    final = build_context(unique_docs, k=5, filters=filters)
+
+    # OUTPUT
     print("\nFINAL RESULTS:\n")
 
-    for r in final:
+    for i, r in enumerate(final):
+        print(f"\nRESULT {i+1}")
         print("TEXT:", r["text"][:150])
-        print("META:", r["metadata"])
+        print("SOURCE:", r["metadata"]["source"])
+        print("PAGE:", r["metadata"]["page"])
+        print("TYPE:", r["metadata"]["type"])
+        print("YEAR:", r["metadata"]["year"])
         print("------")

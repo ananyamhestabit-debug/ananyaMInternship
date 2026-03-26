@@ -11,4 +11,4 @@ def embed_texts(texts):
     Converts text → vector embeddings
     Used in both indexing and search
     """
-    return model.encode(texts)
+    return model.encode(texts, convert_to_numpy=True)
