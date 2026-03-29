@@ -1,4 +1,13 @@
 from rank_bm25 import BM25Okapi
+import json
+
+# LOAD CHUNKS
+with open("src/data/chunks/chunks.json") as f:
+    chunks = json.load(f)
+
+# EXTRACT TEXT
+documents = [chunk["text"] for chunk in chunks]
+
 
 class HybridRetriever:
     def __init__(self, documents):
@@ -16,4 +25,26 @@ class HybridRetriever:
             reverse=True
         )
 
-        return [idx for idx, _ in ranked[:top_k]]
+        return ranked[:top_k]   # 🔥 return index + score
+
+
+# INIT
+retriever = HybridRetriever(documents)
+
+
+# FINAL FUNCTION (USED IN DAY 5)
+def advanced_search(query, top_k=5):
+
+    ranked_results = retriever.search(query, top_k)
+
+    results = []
+
+    for idx, score in ranked_results:
+        results.append({
+            "text": chunks[idx]["text"],
+            "source": chunks[idx]["source"],
+            "chunk_id": chunks[idx]["chunk_id"],
+            "score": float(score)
+        })
+
+    return results

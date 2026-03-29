@@ -15,13 +15,17 @@ for doc in documents:
     chunks = chunk_text(doc["text"])
 
     for i, chunk in enumerate(chunks):
-        all_chunks.append(chunk)
+        all_chunks.append({
+        "text": chunk,
+        "chunk_id": i,
+        "source": doc["metadata"]["source"]
+    })
 
-        metadata.append({
-            "source": doc["metadata"]["source"],
-            "type": doc["metadata"]["type"],
-            "chunk_id": i
-        })
+    metadata.append({
+        "source": doc["metadata"]["source"],
+        "type": doc["metadata"]["type"],
+        "chunk_id": i
+    })
 
 print(f"Total chunks: {len(all_chunks)}")
 
@@ -39,6 +43,6 @@ save_metadata(metadata)
 os.makedirs("src/data/chunks", exist_ok=True)
 
 with open("src/data/chunks/chunks.json", "w") as f:
-    json.dump(all_chunks, f)
+    json.dump(all_chunks, f, indent=4)
 
 print("Day 1 + Day 2 Base Setup Completed")
