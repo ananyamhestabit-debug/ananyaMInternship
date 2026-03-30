@@ -21,7 +21,7 @@ services:
 
   nginx:
     image: nginx
-    restart: always
+    restart: always 
     ports:
       - "80:80"
       - "443:443"
@@ -29,3 +29,4 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ../Day4/certs:/etc/nginx/certs
+      - ./frontend:/usr/share/nginx/html 

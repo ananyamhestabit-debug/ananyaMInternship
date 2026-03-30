@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Full Stack App</title>
+</head>
+<body>
+  <h1>Day 5 Full Stack App</h1>
+  <button onclick="getData()">Call Backend</button>
+
+  <p id="result"></p>
+
+  <script>
+    function getData() {
+      fetch('/api')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('result').innerText = data;
+        });
+    }
+  </script>
+</body>
+</html>

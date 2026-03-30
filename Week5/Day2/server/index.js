@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-mongoose.connect("mongodb://mongo:27017/testdb")
+mongoose.connect(process.env.MONGO_URL || "mongodb://mongo:27017/testdb")
   .then(() => console.log("Mongo Connected"))
   .catch(err => console.log(err));
 

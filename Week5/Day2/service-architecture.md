@@ -3,82 +3,99 @@
 ## Overview
 
 This project demonstrates a multi-container application using Docker Compose.
-It includes three services:
 
-1. Client – React application (Frontend)
-2. Server – Node.js + Express API (Backend)
-3. MongoDB – Database
+It includes:
+- React Client (Frontend)
+- Node.js Server (Backend)
+- MongoDB Database
 
-All services are deployed using a single command:
-
-docker compose up -d
+All services run using a single command.
 
 ---
 
-## Services Description
+## Run Commands
 
+### Start Application
+docker compose up -d --build
+
+
+### Stop Application
+docker compose down
+
+
+### Check Running Containers
+docker ps
+
+
+### View Logs
+docker logs server
+docker logs client
+docker logs mongo
+
+
+## Services Description
 ### 1. Client (React)
 - Runs on port 3000
-- Provides frontend interface
-- Communicates with the backend server
+- Displays UI in browser
+- Connects to backend
 
 ### 2. Server (Node + Express)
 - Runs on port 5000
-- Connects to MongoDB using container networking
+- Connects to MongoDB
 - Handles API requests
 
-Mongo connection string used:
-
+Mongo Connection:
 mongodb://mongo:27017/testdb
-
-Here, "mongo" is the service name and acts as the hostname inside Docker network.
+### "mongo" is the service name used as hostname.
 
 ### 3. MongoDB
-- Runs internally on port 27017
-- Uses a named volume for persistent storage
-- Not exposed to host machine (internal communication only)
+- Internal container database
+- Uses volume for data persistence
+- Not exposed to host
 
 ---
 
 ## Docker Networking
 
-Docker Compose automatically creates a default bridge network.
-All services can communicate using their service names.
+Docker Compose automatically creates a network.
+
+All services communicate using service names.
 
 Example:
-Server connects to Mongo using hostname "mongo".
 
-This eliminates the need for manual IP configuration.
+### server-->mongo
+No IP address needed.
 
----
 
 ## Volumes
+MongoDB uses:
 
-MongoDB uses a named volume:
+### mongo-data
+This ensures:
+- Data is not lost after container restart
+- Persistent storage
 
-mongo-data
-
-This ensures that database data persists even if the container is removed or restarted.
-
----
 
 ## Logs Verification
-
-Logs were verified using:
-
+Verified using-->
 docker logs server
-docker logs client
-docker logs mongo
+Output:
+Mongo Connected
 
-Server logs confirmed successful MongoDB connection.
+
+## Final Result
+Multi-container app working  
+Backend connected to database  
+Frontend running  
+Logs verified  
+Data persistence working  
 
 ---
 
 ## Conclusion
 
-This setup successfully demonstrates:
-
-- Multi-container orchestration
-- Container networking
+This setup demonstrates:
+- Docker Compose orchestration
+- Multi-container architecture
+- Networking between containers
 - Persistent storage using volumes
-- Centralized deployment using Docker Compose
