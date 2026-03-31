@@ -19,7 +19,7 @@ with open("features/feature_list.json") as f:
 # create logs folder
 os.makedirs("logs", exist_ok=True)
 
-LOG_FILE = "logs/prediction_logs.csv"
+LOG_FILE = "/app/logs/prediction_logs.csv"
 
 # create log file
 if not os.path.exists(LOG_FILE):
