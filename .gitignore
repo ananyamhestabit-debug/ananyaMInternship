@@ -14,7 +14,9 @@ node_modules/
 .env.example
 *.pem
 *.key
-venv/
+Week6_ml/venv/
+Week7/venv/
 .vscode/
 __pycache__/
 *.pyc
+Week7_c/venv/

@@ -49,8 +49,8 @@ export default function ProfilePage() {
 
           <div className="p-4 bg-blue-50 rounded-lg">
             <p className="text-gray-500">Account Status</p>
-            <span className="inline-block px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold">
-              Active
+            <span className="inline-block px-3 py-1 rounded-full bg-red-100 text-yellow-700 text-xs font-semibold">
+              Inctive
             </span>
           </div>
 

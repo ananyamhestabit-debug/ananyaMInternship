@@ -51,11 +51,15 @@ function render(){
     edit.onclick=()=>{
       try{
         const t=prompt("Edit task",task.text) //popup opens
-        if(t){
+        
+        if(t==true){
+          
+          else{
           task.text=t
           save()
           render()
-        }
+          }
+        
       }catch(e){
         console.error("Edit error:",e)
       }

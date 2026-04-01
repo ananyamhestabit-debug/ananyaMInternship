@@ -75,6 +75,15 @@ export default function Home() {
 
           <Card>
             <h3 className="text-xl font-semibold text-gray-800">
+              Secure Settings
+            </h3>
+            <p className="text-gray-600 mt-3">
+              Configure application settings, preferences, and system controls securely and efficiently.
+            </p>
+          </Card>
+
+          <Card>
+            <h3 className="text-xl font-semibold text-gray-800">
               Analytics & Insights
             </h3>
             <p className="text-gray-600 mt-3">
@@ -82,14 +91,7 @@ export default function Home() {
             </p>
           </Card>
 
-          <Card>
-            <h3 className="text-xl font-semibold text-gray-800">
-              Secure Settings
-            </h3>
-            <p className="text-gray-600 mt-3">
-              Configure application settings, preferences, and system controls securely and efficiently.
-            </p>
-          </Card>
+          
 
         </div>
       </section>
