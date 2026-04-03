@@ -21,6 +21,16 @@ def build():
         chunks = chunk_text(doc["text"])
 
         for chunk in chunks:
+            text = chunk.lower()
+
+            # LIGHT FILTER (correct approach)
+            if "contents" in text:
+                continue
+            if "officers and professional advisers" in text:
+                continue
+            if len(chunk.split()) < 30:
+                continue
+
             all_chunks.append(chunk)
 
             metadata.append({
@@ -44,7 +54,7 @@ def build():
     vs.save()
 
     log("Index saved successfully")
-    log("Day 1 completed")
+    log("Day 2 indexing completed")
 
 
 if __name__ == "__main__":
