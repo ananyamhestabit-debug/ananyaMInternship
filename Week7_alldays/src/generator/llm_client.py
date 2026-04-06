@@ -1,6 +1,5 @@
-import os
-import yaml
 from transformers import pipeline
+import yaml
 
 
 class LLMClient:
@@ -8,53 +7,21 @@ class LLMClient:
         with open("config/model.yaml", "r") as f:
             config = yaml.safe_load(f)
 
-        self.provider = config["provider"]
-        self.model_name = config["model_name"]
-        self.api_key_env = config["api_key_env"]
+        model_name = config["model_name"]
 
-        # -------- LOCAL --------
-        if self.provider == "local":
-            print("[LLM] Using LOCAL model")
+        print(f"[LLM] Loading {model_name}...")
 
-            self.llm = pipeline(
-                "text2text-generation",
-                model=self.model_name,
-                max_new_tokens=100
-            )
-
-        # -------- OPENAI --------
-        elif self.provider == "openai":
-            print("[LLM] Using OPENAI")
-
-            from openai import OpenAI
-            self.client = OpenAI(api_key=os.getenv(self.api_key_env))
-
-        # -------- GEMINI --------
-        elif self.provider == "gemini":
-            print("[LLM] Using GEMINI")
-
-            import google.generativeai as genai
-            genai.configure(api_key=os.getenv(self.api_key_env))
-            self.model = genai.GenerativeModel(self.model_name)
-
-        else:
-            raise ValueError("Unsupported provider")
+        self.pipe = pipeline(
+            "text-generation",
+            model=model_name,
+            device_map="auto",   # auto CPU/GPU
+            max_new_tokens=150,
+            do_sample=True,
+            temperature=0.3
+        )
 
     def generate(self, prompt):
+        output = self.pipe(prompt)[0]["generated_text"]
 
-        # LOCAL
-        if self.provider == "local":
-            return self.llm(prompt)[0]["generated_text"]
-
-        # OPENAI
-        elif self.provider == "openai":
-            response = self.client.chat.completions.create(
-                model=self.model_name,
-                messages=[{"role": "user", "content": prompt}]
-            )
-            return response.choices[0].message.content
-
-        # GEMINI
-        elif self.provider == "gemini":
-            response = self.model.generate_content(prompt)
-            return response.text
+        # IMPORTANT: remove prompt part
+        return output.replace(prompt, "").strip()

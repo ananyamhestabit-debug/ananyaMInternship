@@ -23,9 +23,9 @@ class CaptionGenerator:
         with torch.no_grad():
             out = self.model.generate(
                 **inputs,
-                max_new_tokens=50,
-                num_beams=5,
-                repetition_penalty=1.5
+                max_new_tokens=40,
+                num_beams=4,
+                repetition_penalty=1.3
             )
 
         caption = self.processor.decode(out[0], skip_special_tokens=True)

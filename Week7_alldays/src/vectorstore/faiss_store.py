@@ -9,11 +9,13 @@ META_PATH = "src/vectorstore/meta.pkl"
 
 class VectorStore:
     def __init__(self, dim):
-        self.index = faiss.IndexFlatL2(dim)
+        # cosine similarity index
+        self.index = faiss.IndexFlatIP(dim)
         self.metadata = []
 
     def add(self, vectors, meta):
-        self.index.add(np.array(vectors))
+        vectors = np.array(vectors).astype("float32")
+        self.index.add(vectors)
         self.metadata.extend(meta)
 
     def save(self):
