@@ -1,0 +1,696 @@
+{"instruction": "Answer the finance question", "input": "What is GST in case 331?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹700, what is total?", "output": "GST = 126.0, Total = 826.0"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹687, what is total?", "output": "GST = 123.66, Total = 810.66"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹398", "output": "398"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 241?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹581, what is total?", "output": "GST = 104.58, Total = 685.58"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 292?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 7?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 40?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 258?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹94", "output": "94"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹725, what is total?", "output": "GST = 130.5, Total = 855.5"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹396", "output": "396"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹303, what is total?", "output": "GST = 54.54, Total = 357.54"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹172", "output": "172"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹362", "output": "362"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹98", "output": "98"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 157?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹364, what is total?", "output": "GST = 65.52, Total = 429.52"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹445", "output": "445"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 154?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹272", "output": "272"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 277?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹409", "output": "409"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 347?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹118, what is total?", "output": "GST = 21.24, Total = 139.24"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹255, what is total?", "output": "GST = 45.9, Total = 300.9"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹377", "output": "377"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹423, what is total?", "output": "GST = 76.14, Total = 499.14"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹210", "output": "210"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 276?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 375?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 305?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 9?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹815, what is total?", "output": "GST = 146.7, Total = 961.7"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 73?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹148, what is total?", "output": "GST = 26.64, Total = 174.64"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 90?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹721, what is total?", "output": "GST = 129.78, Total = 850.78"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹167", "output": "167"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹406", "output": "406"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 130?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 393?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹809, what is total?", "output": "GST = 145.62, Total = 954.62"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 200?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹474", "output": "474"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹706, what is total?", "output": "GST = 127.08, Total = 833.08"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 190?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 65?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹613, what is total?", "output": "GST = 110.34, Total = 723.34"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹590, what is total?", "output": "GST = 106.2, Total = 696.2"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹203, what is total?", "output": "GST = 36.54, Total = 239.54"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 362?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹169, what is total?", "output": "GST = 30.42, Total = 199.42"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹390", "output": "390"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹33", "output": "33"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 233?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 62?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹310", "output": "310"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 173?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹60", "output": "60"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 77?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹493", "output": "493"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹793, what is total?", "output": "GST = 142.74, Total = 935.74"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹422, what is total?", "output": "GST = 75.96, Total = 497.96"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹763, what is total?", "output": "GST = 137.34, Total = 900.34"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 143?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 34?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹990, what is total?", "output": "GST = 178.2, Total = 1168.2"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 165?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 52?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 271?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹306", "output": "306"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹36", "output": "36"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹340", "output": "340"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 141?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹194", "output": "194"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹657, what is total?", "output": "GST = 118.26, Total = 775.26"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 125?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹336", "output": "336"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 164?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹992, what is total?", "output": "GST = 178.56, Total = 1170.56"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 123?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 185?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹352", "output": "352"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 20?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹426, what is total?", "output": "GST = 76.68, Total = 502.68"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹317, what is total?", "output": "GST = 57.06, Total = 374.06"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹329", "output": "329"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹258, what is total?", "output": "GST = 46.44, Total = 304.44"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 160?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹245, what is total?", "output": "GST = 44.1, Total = 289.1"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹346", "output": "346"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹318, what is total?", "output": "GST = 57.24, Total = 375.24"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹905, what is total?", "output": "GST = 162.9, Total = 1067.9"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 376?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 311?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 135?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹723, what is total?", "output": "GST = 130.14, Total = 853.14"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹873, what is total?", "output": "GST = 157.14, Total = 1030.14"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 328?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 338?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 280?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 144?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 226?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 249?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹164", "output": "164"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹428", "output": "428"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹916, what is total?", "output": "GST = 164.88, Total = 1080.88"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹964, what is total?", "output": "GST = 173.52, Total = 1137.52"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹171, what is total?", "output": "GST = 30.78, Total = 201.78"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹15", "output": "15"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹179", "output": "179"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 120?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 45?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 47?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 184?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 254?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹14", "output": "14"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹187, what is total?", "output": "GST = 33.66, Total = 220.66"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹68", "output": "68"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 344?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹594, what is total?", "output": "GST = 106.92, Total = 700.92"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹50", "output": "50"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹589, what is total?", "output": "GST = 106.02, Total = 695.02"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹452", "output": "452"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 80?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹61", "output": "61"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹221, what is total?", "output": "GST = 39.78, Total = 260.78"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹214", "output": "214"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 207?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 27?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹57", "output": "57"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹340, what is total?", "output": "GST = 61.2, Total = 401.2"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹808, what is total?", "output": "GST = 145.44, Total = 953.44"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹896, what is total?", "output": "GST = 161.28, Total = 1057.28"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 358?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 105?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹466", "output": "466"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 203?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 352?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 88?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹18", "output": "18"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹546, what is total?", "output": "GST = 98.28, Total = 644.28"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹988, what is total?", "output": "GST = 177.84, Total = 1165.84"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹383, what is total?", "output": "GST = 68.94, Total = 451.94"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹63", "output": "63"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹244, what is total?", "output": "GST = 43.92, Total = 287.92"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹119", "output": "119"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 236?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 250?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 19?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 391?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹163", "output": "163"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 256?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹64", "output": "64"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹208", "output": "208"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹321", "output": "321"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹177, what is total?", "output": "GST = 31.86, Total = 208.86"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹304", "output": "304"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹137, what is total?", "output": "GST = 24.66, Total = 161.66"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 288?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹114", "output": "114"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 212?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 218?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 113?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 156?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 129?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 264?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹852, what is total?", "output": "GST = 153.36, Total = 1005.36"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 387?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹424", "output": "424"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 285?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 221?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 133?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹122", "output": "122"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹297", "output": "297"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹234", "output": "234"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 307?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹555, what is total?", "output": "GST = 99.9, Total = 654.9"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹884, what is total?", "output": "GST = 159.12, Total = 1043.12"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 263?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹490", "output": "490"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 55?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹293", "output": "293"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹842, what is total?", "output": "GST = 151.56, Total = 993.56"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 355?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹425, what is total?", "output": "GST = 76.5, Total = 501.5"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 272?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 216?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹460", "output": "460"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹486", "output": "486"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 211?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹209, what is total?", "output": "GST = 37.62, Total = 246.62"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹545, what is total?", "output": "GST = 98.1, Total = 643.1"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹265", "output": "265"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹251", "output": "251"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 162?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹804, what is total?", "output": "GST = 144.72, Total = 948.72"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹154, what is total?", "output": "GST = 27.72, Total = 181.72"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹465, what is total?", "output": "GST = 83.7, Total = 548.7"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 0?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹471, what is total?", "output": "GST = 84.78, Total = 555.78"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹307, what is total?", "output": "GST = 55.26, Total = 362.26"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 313?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹178", "output": "178"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 86?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹515, what is total?", "output": "GST = 92.7, Total = 607.7"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 333?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹275, what is total?", "output": "GST = 49.5, Total = 324.5"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹446", "output": "446"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹173, what is total?", "output": "GST = 31.14, Total = 204.14"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹316", "output": "316"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 104?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹948, what is total?", "output": "GST = 170.64, Total = 1118.64"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹322, what is total?", "output": "GST = 57.96, Total = 379.96"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹752, what is total?", "output": "GST = 135.36, Total = 887.36"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹290", "output": "290"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹496", "output": "496"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 253?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 366?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹1000, what is total?", "output": "GST = 180.0, Total = 1180.0"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹192, what is total?", "output": "GST = 34.56, Total = 226.56"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 374?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹366, what is total?", "output": "GST = 65.88, Total = 431.88"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 195?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 246?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 94?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 147?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 95?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹859, what is total?", "output": "GST = 154.62, Total = 1013.62"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 269?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹261", "output": "261"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹125", "output": "125"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 274?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹110", "output": "110"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 318?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹42", "output": "42"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 42?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹479", "output": "479"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 97?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 56?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 75?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 134?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 350?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹194, what is total?", "output": "GST = 34.92, Total = 228.92"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 382?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 92?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹201", "output": "201"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹823, what is total?", "output": "GST = 148.14, Total = 971.14"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹337, what is total?", "output": "GST = 60.66, Total = 397.66"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 76?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 63?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹119, what is total?", "output": "GST = 21.42, Total = 140.42"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 208?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 81?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 158?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 378?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹965, what is total?", "output": "GST = 173.7, Total = 1138.7"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 213?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹217, what is total?", "output": "GST = 39.06, Total = 256.06"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 341?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 169?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 283?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 37?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹180, what is total?", "output": "GST = 32.4, Total = 212.4"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹977, what is total?", "output": "GST = 175.86, Total = 1152.86"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 152?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹92", "output": "92"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹369", "output": "369"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 176?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹175", "output": "175"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 16?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 148?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹116, what is total?", "output": "GST = 20.88, Total = 136.88"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹359", "output": "359"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 397?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 294?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 370?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 343?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹909, what is total?", "output": "GST = 163.62, Total = 1072.62"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹384", "output": "384"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 255?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹198, what is total?", "output": "GST = 35.64, Total = 233.64"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 237?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 69?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 273?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 163?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 155?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹419, what is total?", "output": "GST = 75.42, Total = 494.42"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹320, what is total?", "output": "GST = 57.6, Total = 377.6"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 392?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 386?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹54", "output": "54"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 327?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹810, what is total?", "output": "GST = 145.8, Total = 955.8"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 239?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹593, what is total?", "output": "GST = 106.74, Total = 699.74"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 38?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹215", "output": "215"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹310, what is total?", "output": "GST = 55.8, Total = 365.8"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹894, what is total?", "output": "GST = 160.92, Total = 1054.92"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 197?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 67?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹572, what is total?", "output": "GST = 102.96, Total = 674.96"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹260, what is total?", "output": "GST = 46.8, Total = 306.8"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 153?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 57?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 235?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹89", "output": "89"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹307", "output": "307"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 18?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹901, what is total?", "output": "GST = 162.18, Total = 1063.18"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 265?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹450, what is total?", "output": "GST = 81.0, Total = 531.0"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 301?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹100", "output": "100"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 319?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 353?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 275?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹404", "output": "404"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹368", "output": "368"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 109?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 261?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹996, what is total?", "output": "GST = 179.28, Total = 1175.28"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 25?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 227?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹494", "output": "494"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 251?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹268", "output": "268"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹669, what is total?", "output": "GST = 120.42, Total = 789.42"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 252?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹383", "output": "383"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹110, what is total?", "output": "GST = 19.8, Total = 129.8"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹792, what is total?", "output": "GST = 142.56, Total = 934.56"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 304?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 102?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 380?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹279", "output": "279"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹500, what is total?", "output": "GST = 90.0, Total = 590.0"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹716, what is total?", "output": "GST = 128.88, Total = 844.88"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹160, what is total?", "output": "GST = 28.8, Total = 188.8"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 2?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 12?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 28?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹986, what is total?", "output": "GST = 177.48, Total = 1163.48"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹946, what is total?", "output": "GST = 170.28, Total = 1116.28"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 335?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 209?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 10?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹174", "output": "174"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 223?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹233", "output": "233"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 354?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹429, what is total?", "output": "GST = 77.22, Total = 506.22"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹500", "output": "500"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹418, what is total?", "output": "GST = 75.24, Total = 493.24"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 228?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 349?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹21", "output": "21"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹824, what is total?", "output": "GST = 148.32, Total = 972.32"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 320?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 308?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 230?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹659, what is total?", "output": "GST = 118.62, Total = 777.62"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 396?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹330", "output": "330"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 192?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 13?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹283", "output": "283"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹161, what is total?", "output": "GST = 28.98, Total = 189.98"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 32?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹440, what is total?", "output": "GST = 79.2, Total = 519.2"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 39?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 11?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹409, what is total?", "output": "GST = 73.62, Total = 482.62"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹269, what is total?", "output": "GST = 48.42, Total = 317.42"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 51?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹166", "output": "166"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 193?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 302?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹714, what is total?", "output": "GST = 128.52, Total = 842.52"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹205, what is total?", "output": "GST = 36.9, Total = 241.9"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 198?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹416", "output": "416"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 293?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 131?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹223", "output": "223"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹330, what is total?", "output": "GST = 59.4, Total = 389.4"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 117?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 177?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 298?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 322?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹67", "output": "67"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹614, what is total?", "output": "GST = 110.52, Total = 724.52"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹292, what is total?", "output": "GST = 52.56, Total = 344.56"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 360?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹349", "output": "349"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹342, what is total?", "output": "GST = 61.56, Total = 403.56"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 50?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹955, what is total?", "output": "GST = 171.9, Total = 1126.9"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹262, what is total?", "output": "GST = 47.16, Total = 309.16"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 309?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 306?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹625, what is total?", "output": "GST = 112.5, Total = 737.5"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹103", "output": "103"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹807, what is total?", "output": "GST = 145.26, Total = 952.26"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹991, what is total?", "output": "GST = 178.38, Total = 1169.38"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹741, what is total?", "output": "GST = 133.38, Total = 874.38"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹864, what is total?", "output": "GST = 155.52, Total = 1019.52"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 398?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 323?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹170", "output": "170"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 368?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 71?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹670, what is total?", "output": "GST = 120.6, Total = 790.6"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 287?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹759, what is total?", "output": "GST = 136.62, Total = 895.62"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 6?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹411", "output": "411"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 112?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 84?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹949, what is total?", "output": "GST = 170.82, Total = 1119.82"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹857, what is total?", "output": "GST = 154.26, Total = 1011.26"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 257?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹134", "output": "134"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹478", "output": "478"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹134, what is total?", "output": "GST = 24.12, Total = 158.12"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 317?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 159?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹126, what is total?", "output": "GST = 22.68, Total = 148.68"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹137", "output": "137"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹989, what is total?", "output": "GST = 178.02, Total = 1167.02"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹528, what is total?", "output": "GST = 95.04, Total = 623.04"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 330?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 339?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹501, what is total?", "output": "GST = 90.18, Total = 591.18"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹225", "output": "225"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹433, what is total?", "output": "GST = 77.94, Total = 510.94"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 282?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹485", "output": "485"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹249, what is total?", "output": "GST = 44.82, Total = 293.82"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 26?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 363?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹348", "output": "348"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 61?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 8?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹43", "output": "43"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹399", "output": "399"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 244?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹183", "output": "183"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 324?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 210?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹569, what is total?", "output": "GST = 102.42, Total = 671.42"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 284?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 334?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹378, what is total?", "output": "GST = 68.04, Total = 446.04"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹65", "output": "65"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹347", "output": "347"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 100?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹206", "output": "206"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 225?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 384?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 206?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 314?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 348?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹432", "output": "432"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹411, what is total?", "output": "GST = 73.98, Total = 484.98"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 175?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 108?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹777, what is total?", "output": "GST = 139.86, Total = 916.86"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹159, what is total?", "output": "GST = 28.62, Total = 187.62"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 381?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹195", "output": "195"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹282", "output": "282"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 234?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 91?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹336, what is total?", "output": "GST = 60.48, Total = 396.48"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹385, what is total?", "output": "GST = 69.3, Total = 454.3"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 170?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 372?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 266?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹172, what is total?", "output": "GST = 30.96, Total = 202.96"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 82?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 187?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹482", "output": "482"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹434", "output": "434"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹242", "output": "242"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹771, what is total?", "output": "GST = 138.78, Total = 909.78"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 345?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 388?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹439", "output": "439"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 296?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 180?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 270?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 93?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹236, what is total?", "output": "GST = 42.48, Total = 278.48"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 232?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 101?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹320", "output": "320"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹441, what is total?", "output": "GST = 79.38, Total = 520.38"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 289?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹128", "output": "128"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹845, what is total?", "output": "GST = 152.1, Total = 997.1"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 172?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 64?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 48?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹71", "output": "71"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹865, what is total?", "output": "GST = 155.7, Total = 1020.7"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 196?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 24?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹78", "output": "78"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 394?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 138?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹870, what is total?", "output": "GST = 156.6, Total = 1026.6"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 107?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹405, what is total?", "output": "GST = 72.9, Total = 477.9"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 36?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹108", "output": "108"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 98?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹358, what is total?", "output": "GST = 64.44, Total = 422.44"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹496, what is total?", "output": "GST = 89.28, Total = 585.28"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 96?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹940, what is total?", "output": "GST = 169.2, Total = 1109.2"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 17?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹133", "output": "133"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹554, what is total?", "output": "GST = 99.72, Total = 653.72"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 373?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹738, what is total?", "output": "GST = 132.84, Total = 870.84"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹588, what is total?", "output": "GST = 105.84, Total = 693.84"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹23", "output": "23"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 229?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹253, what is total?", "output": "GST = 45.54, Total = 298.54"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 85?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 128?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹286, what is total?", "output": "GST = 51.48, Total = 337.48"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹493, what is total?", "output": "GST = 88.74, Total = 581.74"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 326?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹48", "output": "48"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹124, what is total?", "output": "GST = 22.32, Total = 146.32"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹173", "output": "173"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 46?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹177", "output": "177"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 316?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 243?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹189", "output": "189"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 329?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹523, what is total?", "output": "GST = 94.14, Total = 617.14"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹781, what is total?", "output": "GST = 140.58, Total = 921.58"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹326", "output": "326"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 361?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹259", "output": "259"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹141", "output": "141"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 194?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 312?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹125, what is total?", "output": "GST = 22.5, Total = 147.5"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹189, what is total?", "output": "GST = 34.02, Total = 223.02"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 259?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 315?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 114?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹375", "output": "375"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹928, what is total?", "output": "GST = 167.04, Total = 1095.04"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹70", "output": "70"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 247?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹47", "output": "47"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 3?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 300?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹357, what is total?", "output": "GST = 64.26, Total = 421.26"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 23?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 367?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 267?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 359?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹350", "output": "350"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 115?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹456", "output": "456"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹480", "output": "480"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 220?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹837, what is total?", "output": "GST = 150.66, Total = 987.66"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 365?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 182?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 390?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 242?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 371?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹926, what is total?", "output": "GST = 166.68, Total = 1092.68"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 103?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹872, what is total?", "output": "GST = 156.96, Total = 1028.96"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹844, what is total?", "output": "GST = 151.92, Total = 995.92"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 310?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹121", "output": "121"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 181?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 139?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹77", "output": "77"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹454", "output": "454"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹828, what is total?", "output": "GST = 149.04, Total = 977.04"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹181", "output": "181"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 43?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 22?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 321?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 119?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 78?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹99", "output": "99"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹596, what is total?", "output": "GST = 107.28, Total = 703.28"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹149", "output": "149"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹266", "output": "266"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹999, what is total?", "output": "GST = 179.82, Total = 1178.82"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 357?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 79?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 201?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 222?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹962, what is total?", "output": "GST = 173.16, Total = 1135.16"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 54?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹419", "output": "419"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹351", "output": "351"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹165, what is total?", "output": "GST = 29.7, Total = 194.7"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 224?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 245?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹105, what is total?", "output": "GST = 18.9, Total = 123.9"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 278?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 31?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 260?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹248", "output": "248"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹979, what is total?", "output": "GST = 176.22, Total = 1155.22"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹53", "output": "53"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹231, what is total?", "output": "GST = 41.58, Total = 272.58"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 351?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹820, what is total?", "output": "GST = 147.6, Total = 967.6"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹300", "output": "300"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹328", "output": "328"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 118?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹52", "output": "52"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹455", "output": "455"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 150?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹451", "output": "451"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 186?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹445, what is total?", "output": "GST = 80.1, Total = 525.1"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹582, what is total?", "output": "GST = 104.76, Total = 686.76"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹959, what is total?", "output": "GST = 172.62, Total = 1131.62"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹931, what is total?", "output": "GST = 167.58, Total = 1098.58"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 21?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹20", "output": "20"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹995, what is total?", "output": "GST = 179.1, Total = 1174.1"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹694, what is total?", "output": "GST = 124.92, Total = 818.92"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 60?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹180", "output": "180"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹353", "output": "353"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹157", "output": "157"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹161", "output": "161"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹359, what is total?", "output": "GST = 64.62, Total = 423.62"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹279, what is total?", "output": "GST = 50.22, Total = 329.22"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹243", "output": "243"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹437, what is total?", "output": "GST = 78.66, Total = 515.66"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹112", "output": "112"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹96", "output": "96"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹361, what is total?", "output": "GST = 64.98, Total = 425.98"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹853, what is total?", "output": "GST = 153.54, Total = 1006.54"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 268?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹585, what is total?", "output": "GST = 105.3, Total = 690.3"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 204?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 137?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹433", "output": "433"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 140?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹145", "output": "145"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹148", "output": "148"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 240?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹438, what is total?", "output": "GST = 78.84, Total = 516.84"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 5?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 171?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹229, what is total?", "output": "GST = 41.22, Total = 270.22"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 151?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹467", "output": "467"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 286?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹816, what is total?", "output": "GST = 146.88, Total = 962.88"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹167, what is total?", "output": "GST = 30.06, Total = 197.06"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 4?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 202?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 146?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹484", "output": "484"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹292", "output": "292"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 149?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹489, what is total?", "output": "GST = 88.02, Total = 577.02"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹778, what is total?", "output": "GST = 140.04, Total = 918.04"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 290?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹38", "output": "38"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹421, what is total?", "output": "GST = 75.78, Total = 496.78"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 219?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Answer the finance question", "input": "What is GST in case 99?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹517, what is total?", "output": "GST = 93.06, Total = 610.06"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹182", "output": "182"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹131", "output": "131"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹258", "output": "258"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹397, what is total?", "output": "GST = 71.46, Total = 468.46"}
+{"instruction": "Answer the finance question", "input": "What is GST in case 66?", "output": "GST is an indirect tax applied on goods and services."}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹246", "output": "246"}
+{"instruction": "Solve the problem step by step", "input": "If GST is 18% on ₹640, what is total?", "output": "GST = 115.2, Total = 755.2"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹450", "output": "450"}
+{"instruction": "Extract the tax amount from the sentence", "input": "The GST applied is ₹249", "output": "249"}
