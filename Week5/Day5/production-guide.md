@@ -119,6 +119,10 @@ healthcheck:
 
 ### Restart Policy
 command-> docker compose -f docker-compose.prod.yml restart backend
+ |
+kill 1
+ |
+docker ps
 
 restart: always(Restart policy "always" ensures containers restart on failure or system restart, but not when manually stopped by the user.)
 
