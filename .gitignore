@@ -21,3 +21,8 @@ __pycache__/
 *.pyc
 Week7/venv/
 Week8/venv/
+Week8/day3/merged_model
+Week8/day3/quantized
+Week8/day5/logs
+Week8/day5/model
+model/

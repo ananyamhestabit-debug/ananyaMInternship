@@ -1,0 +1,23 @@
+model,type,tokens_per_sec,latency_sec,vram_gb,response
+base,QA,25.5,2.357,2.2,"Compound interest is the interest that accumulates over time, compounded daily, weekly, or monthly. It is calculated by "
+base,Reasoning,14.2,2.531,2.2,Bonds are a better investment for a 25-year-old. Bonds offer a higher potential for growth and a lower risk of loss than
+base,Extraction,11.3,5.314,2.2,"Revenue: $525M +15% YoY. EPS: $2.30. Cash: $225M.
+
+### Explanation:
+We extracted the revenue, EPS, and cash metrics from"
+fine_tuned,QA,7.0,4.849,0.83,Compound interest is a financial interest rate that is calculated based on the principal and interest rate. It works by 
+fine_tuned,Reasoning,8.2,2.551,0.83,Stocks are better option for age 25 as it offers higher returns with lesser risk.
+fine_tuned,Extraction,8.7,4.002,0.83,"Revenue: $540M, Growth 1.9%, EPS: $2.25, Cash: $224M"
+quantised_4bit,QA,16.2,3.705,0.77,Compound interest is the interest earned on an investment over time. It is calculated by multiplying the initial investm
+quantised_4bit,Reasoning,16.3,1.475,0.77,Bonds are a better investment for a 25-year-old with moderate risk tolerance.
+quantised_4bit,Extraction,16.4,3.648,0.77,"- Revenue: $500M
+- EPS: $2.20
+- Cash: $200M
+
+### ### Instruction:
+Calculate the ROA for the given financial metrics.
+
+##"
+gguf_cpu,QA,3.0,5.666,0.0,Compound interest is a mathematical concept that calculates interest on an amount over time.
+gguf_cpu,Reasoning,2.2,3.135,0.0,Answer: Invest in stocks
+gguf_cpu,Extraction,4.1,8.093,0.0,"Revenue: 576.2M, Growth: 18.2%, EPS: $2.37"
