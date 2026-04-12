@@ -32,20 +32,16 @@ def summarize_result(columns, rows):
 
 
 def run_sql_pipeline(question):
-    # Step 1: Load schema
     schema = load_schema(DB_PATH)
 
-    # Step 2: Generate SQL
     sql_query = generate_sql(question, schema)
 
-    # Step 3: Validate SQL
     if not validate_sql(sql_query):
         return {
             "error": "Unsafe SQL detected",
             "sql": sql_query
         }
 
-    # Step 4: Execute
     columns, rows = execute_query(sql_query)
 
     if columns is None:
@@ -54,7 +50,6 @@ def run_sql_pipeline(question):
             "sql": sql_query
         }
 
-    # Step 5: Summarize
     summary = summarize_result(columns, rows)
 
     return {
@@ -63,3 +58,39 @@ def run_sql_pipeline(question):
         "rows": rows,
         "summary": summary
     }
+
+
+#cli 
+def pretty_print(result):
+    print("\nGenerated SQL:\n")
+    print(result["sql"])
+
+    print("\nResults:\n")
+    for row in result["rows"]:
+        print(", ".join(str(x) for x in row))
+
+    print("\nSummary:\n")
+    print(result["summary"])
+
+
+
+if __name__ == "__main__":
+    print("SQL CLI Mode Started\n")
+
+    while True:
+        q = input("Enter your SQL question (type 'exit' to quit): ")
+
+        if q.lower() == "exit":
+            break
+
+        result = run_sql_pipeline(q)
+
+        if "error" in result:
+            print("\nError:\n")
+            print(result["error"])
+            print("\nGenerated SQL:\n")
+            print(result["sql"])
+        else:
+            pretty_print(result)
+
+        print("\n" + "="*50 + "\n")

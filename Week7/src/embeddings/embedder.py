@@ -4,7 +4,7 @@ import os
 import numpy as np
 import yaml
 
-# Load config
+# Loads the configurations
 with open(os.path.join(os.path.dirname(__file__), "../config/config.yaml")) as f:
     config = yaml.safe_load(f)
 

@@ -16,3 +16,4 @@ tqdm
 opencv-python
 pytesseract
 matplotlib
+rank-bm25

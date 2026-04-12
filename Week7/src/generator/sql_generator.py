@@ -1,26 +1,19 @@
 from groq import Groq
+from utils.prompt_loader import load_prompt
 
-# Initialize client (uses GROQ_API_KEY from environment)
 client = Groq()
 
 def generate_sql(question: str, schema: str) -> str:
+    base_prompt = load_prompt("sql_prompt.txt")
+
     prompt = f"""
-You are an expert SQL generator.
+{base_prompt}
 
 Database Schema:
 {schema}
 
 User Question:
 {question}
-
-Rules:
-- Only return SQL query
-- No explanation
-- Use correct table/column names
-- Only SELECT queries
-- Add LIMIT if user asks for top results
-- Use aggregation (SUM, COUNT) when needed
-- Use GROUP BY when aggregation is used
 
 SQL:
 """
@@ -32,8 +25,6 @@ SQL:
     )
 
     query = response.choices[0].message.content.strip()
-
-    # Clean markdown if model returns ```sql
     query = query.replace("```sql", "").replace("```", "").strip()
 
     return query

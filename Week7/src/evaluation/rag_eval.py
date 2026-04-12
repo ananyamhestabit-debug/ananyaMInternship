@@ -1,12 +1,33 @@
+from sentence_transformers import SentenceTransformer, util
+
+model = SentenceTransformer("all-MiniLM-L6-v2")
+
 def hallucination_score(answer, context):
-    # 🔥 handle list case
     if isinstance(context, list):
         context = " ".join([c["content"] for c in context])
 
-    words = answer.lower().split()
+    if not answer or not context:
+        return 0.0
 
-    matches = sum(1 for w in words if w in context.lower())
+    emb1 = model.encode(answer, convert_to_tensor=True)
+    emb2 = model.encode(context, convert_to_tensor=True)
 
-    return round(matches / len(words), 2) if words else 0
-def confidence_score(answer):
-    return round(min(len(answer) / 150, 1), 2)
+    score = util.cos_sim(emb1, emb2).item()
+    return round(score, 2)
+
+
+def confidence_score(answer, context):
+    if isinstance(context, list):
+        context = " ".join([c["content"] for c in context])
+
+    if not answer:
+        return 0.0
+
+    emb1 = model.encode(answer, convert_to_tensor=True)
+    emb2 = model.encode(context, convert_to_tensor=True)
+
+    similarity = util.cos_sim(emb1, emb2).item()
+    length_factor = min(len(answer) / 200, 1)
+
+    score = 0.7 * similarity + 0.3 * length_factor
+    return round(score, 2)

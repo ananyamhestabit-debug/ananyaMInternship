@@ -15,9 +15,10 @@ os.makedirs(VECTOR_PATH, exist_ok=True)
 
 embedder = CLIPEmbedder()
 
-# BLIP setup
+# BLIP model
 processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
 model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
+
 
 def generate_caption(image_path):
     image = Image.open(image_path).convert("RGB")
@@ -28,12 +29,17 @@ def generate_caption(image_path):
 
     return caption
 
+
 def extract_ocr(image_path):
     image = Image.open(image_path)
     return pytesseract.image_to_string(image)
 
+
 def ingest():
-    image_files = [f for f in os.listdir(DATA_PATH) if f.lower().endswith((".png", ".jpg", ".jpeg"))]
+    image_files = [
+        f for f in os.listdir(DATA_PATH)
+        if f.lower().endswith((".png", ".jpg", ".jpeg"))
+    ]
 
     embeddings = []
     metadata = []
@@ -53,17 +59,20 @@ def ingest():
             "ocr_text": ocr_text
         })
 
+    # build FAISS
     dim = len(embeddings[0])
     index = faiss.IndexFlatL2(dim)
-    embeddings = np.array(embeddings).astype("float32")  # 🔥 FIX
+    embeddings = np.array(embeddings).astype("float32")
     index.add(embeddings)
 
-    faiss.write_index(index, f"{VECTOR_PATH}/index.faiss")
+    
+    faiss.write_index(index, f"{VECTOR_PATH}/image_index.faiss")
 
-    with open(f"{VECTOR_PATH}/metadata.pkl", "wb") as f:
+    with open(f"{VECTOR_PATH}/image_metadata.pkl", "wb") as f:
         pickle.dump(metadata, f)
 
-    print("Ingestion Complete")
+    print("Image ingestion complete")
+
 
 if __name__ == "__main__":
     ingest()

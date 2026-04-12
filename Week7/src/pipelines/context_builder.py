@@ -26,15 +26,15 @@ def get_relevant_snippet(query, text, model, top_n=2):
 def build_context(chunks_file, query, top_k=5):
     chunks = load_json(chunks_file)
 
-    # Step 1: Retrieve using hybrid retriever
+    #Retrieve using hybrid retriever
     retriever = HybridRetriever(chunks)
     retrieved = retriever.retrieve(query, top_k=top_k*3)  # fetch more for reranking
 
-    # Step 2: Rerank top chunks
+    #Rerank top chunks
     reranker = Reranker()
     reranked = reranker.rerank(query, retrieved)
 
-    # Step 3: Deduplicate and pick top_k
+    #Deduplicate and pick top_k
     seen_ids = set()
     final_context = []
     for c in reranked:
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     print("\nFinal Context:\n")
     for c in context:
         snippet = get_relevant_snippet(query, c["content"], model)
-        snippet = snippet[:300]   # limit length
+        snippet = snippet[:300]  
 
         print(f"\nChunk ID: {c['chunk_id']}")
         print(f"Metadata: {c['metadata']}")

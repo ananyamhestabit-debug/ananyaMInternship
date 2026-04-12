@@ -1,15 +1,18 @@
 import sqlite3
 import os
 
+# Ensure database folder exists
 os.makedirs("database", exist_ok=True)
 
-conn = sqlite3.connect("database/sample.db")
+db_path = "database/sample.db"
+
+# Connect to database
+conn = sqlite3.connect(db_path)
 cursor = conn.cursor()
 
-# Drop old table (clean start)
+# Recreate table
 cursor.execute("DROP TABLE IF EXISTS sales")
 
-# New improved table
 cursor.execute("""
 CREATE TABLE sales (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -21,39 +24,41 @@ CREATE TABLE sales (
 )
 """)
 
-# More realistic data
-data = [
-    ("Artist A", "Pop", 100.5, 2023, "USA"),
-    ("Artist B", "Rock", 50.2, 2023, "UK"),
-    ("Artist C", "Hip-Hop", 120.0, 2023, "USA"),
-    ("Artist D", "Jazz", 80.0, 2023, "France"),
-    ("Artist E", "Pop", 95.0, 2023, "India"),
+# More realistic artist data
+records = [
+    ("Arijit Singh", "Pop", 110.0, 2023, "India"),
+    ("Taylor Swift", "Pop", 55.0, 2023, "USA"),
+    ("Drake", "Hip-Hop", 125.0, 2023, "Canada"),
+    ("Norah Jones", "Jazz", 78.0, 2023, "USA"),
+    ("Badshah", "Hip-Hop", 98.0, 2023, "India"),
 
-    ("Artist A", "Pop", 70.0, 2022, "USA"),
-    ("Artist B", "Rock", 65.0, 2022, "UK"),
-    ("Artist C", "Hip-Hop", 110.0, 2022, "USA"),
-    ("Artist D", "Jazz", 60.0, 2022, "France"),
-    ("Artist E", "Pop", 85.0, 2022, "India"),
+    ("Arijit Singh", "Pop", 72.0, 2022, "India"),
+    ("Taylor Swift", "Pop", 68.0, 2022, "USA"),
+    ("Drake", "Hip-Hop", 115.0, 2022, "Canada"),
+    ("Norah Jones", "Jazz", 62.0, 2022, "USA"),
+    ("Badshah", "Hip-Hop", 88.0, 2022, "India"),
 
-    ("Artist A", "Pop", 130.0, 2024, "USA"),
-    ("Artist B", "Rock", 75.0, 2024, "UK"),
-    ("Artist C", "Hip-Hop", 140.0, 2024, "USA"),
-    ("Artist D", "Jazz", 90.0, 2024, "France"),
-    ("Artist E", "Pop", 105.0, 2024, "India"),
+    ("Arijit Singh", "Pop", 135.0, 2024, "India"),
+    ("Taylor Swift", "Pop", 80.0, 2024, "USA"),
+    ("Drake", "Hip-Hop", 145.0, 2024, "Canada"),
+    ("Norah Jones", "Jazz", 92.0, 2024, "USA"),
+    ("Badshah", "Hip-Hop", 108.0, 2024, "India"),
 
-    ("Artist F", "Classical", 60.0, 2023, "Germany"),
-    ("Artist G", "EDM", 150.0, 2023, "Netherlands"),
-    ("Artist H", "Pop", 200.0, 2023, "India"),
-    ("Artist I", "Rock", 170.0, 2023, "USA"),
-    ("Artist J", "Hip-Hop", 190.0, 2023, "Canada")
+    ("Ludwig van Beethoven", "Classical", 65.0, 2023, "Germany"),
+    ("Calvin Harris", "EDM", 155.0, 2023, "UK"),
+    ("Shreya Ghoshal", "Pop", 210.0, 2023, "India"),
+    ("Imagine Dragons", "Rock", 175.0, 2023, "USA"),
+    ("Kendrick Lamar", "Hip-Hop", 195.0, 2023, "USA")
 ]
 
+# Insert data
 cursor.executemany("""
 INSERT INTO sales (artist, genre, revenue, year, country)
 VALUES (?, ?, ?, ?, ?)
-""", data)
+""", records)
 
+# Commit and close
 conn.commit()
 conn.close()
 
-print("New database created.")
+print("Database setup completed with realistic artist data.")

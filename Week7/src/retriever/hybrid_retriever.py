@@ -26,7 +26,6 @@ class HybridRetriever:
         query_vec = torch.tensor(query_vec).unsqueeze(0)
         cosine_scores = util.cos_sim(query_vec, embeddings)[0].cpu().numpy()
 
-        # Initialize
         selected = []
         candidate_idx = list(range(len(self.chunk_texts)))
         while len(selected) < top_k and candidate_idx:

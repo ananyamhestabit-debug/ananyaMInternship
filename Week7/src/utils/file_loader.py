@@ -2,6 +2,7 @@ import os
 from PyPDF2 import PdfReader
 import docx
 import json
+import pandas as pd
 
 def load_text_files(folder_path):
     texts = []
@@ -18,6 +19,7 @@ def load_text_files(folder_path):
             doc = docx.Document(fpath)
             full_text = "\n".join([p.text for p in doc.paragraphs])
             texts.append({"source": fname, "content": full_text})
+        
     return texts
 
 
