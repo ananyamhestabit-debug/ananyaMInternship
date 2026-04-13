@@ -17,3 +17,4 @@ opencv-python
 pytesseract
 matplotlib
 rank-bm25
+python-docx

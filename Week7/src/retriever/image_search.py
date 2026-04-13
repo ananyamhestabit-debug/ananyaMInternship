@@ -26,8 +26,19 @@ class ImageSearchEngine:
     # IMAGE → IMAGE
     def search_by_image(self, image_path, k=5):
         q_emb = self.embedder.embed_image(image_path)
-        D, I = self.index.search(np.array([q_emb]), k)
-        return D[0], I[0]
+
+        q_emb = np.array([q_emb]).astype("float32")
+
+        D, I = self.index.search(q_emb, k)
+
+    #  sort properly (LOW distance = best)
+        pairs = list(zip(D[0], I[0]))
+        pairs = sorted(pairs, key=lambda x: x[0])
+
+        scores = [p[0] for p in pairs]
+        indices = [p[1] for p in pairs]
+
+        return scores, indices
 
     # PRINT RESULTS
     def pretty_print(self, scores, indices):

@@ -1,15 +1,21 @@
 import streamlit as st
+import os
+import time
 from memory.memory_store import MemoryStore
 from pipelines.rag_pipeline import generate_answer
 from pipelines.sql_pipeline import run_sql_pipeline
-from pipelines.image_pipeline import image_query_text, image_query_image
-from evaluation.rag_eval import hallucination_score, confidence_score
+from pipelines.image_pipeline import image_query_text, image_query_image, extract_image_text
+from evaluation.rag_eval import evaluate_answer
 from utils.logger import log
 from dotenv import load_dotenv
 
 load_dotenv()
 
 st.set_page_config(page_title="AI Knowledge Assistant", layout="wide")
+
+# TEMP IMAGE FOLDER
+TEMP_IMG_DIR = "data/temp/images"
+os.makedirs(TEMP_IMG_DIR, exist_ok=True)
 
 # ---------------- MEMORY INIT ----------------
 if "memory" not in st.session_state:
@@ -20,11 +26,9 @@ memory = st.session_state.memory
 # ---------------- SIDEBAR ----------------
 st.sidebar.title("Recent Chats")
 
-# show last 5 chats (ALL systems)
 for m in memory.get_all():
-    st.sidebar.write("Type:", m["type"])
+    st.sidebar.write("Type:", m.get("type", ""))
     st.sidebar.write("Q:", m["q"])
-   
     st.sidebar.divider()
 
 # ---------------- MAIN ----------------
@@ -35,6 +39,10 @@ tab1, tab2, tab3 = st.tabs(["RAG", "SQL", "IMAGE"])
 
 # ---------------- RAG ----------------
 with tab1:
+
+    st.subheader("Ask from Knowledge Base or Upload PDF")
+
+    uploaded_file = st.file_uploader("Upload your PDF (optional)", type=["pdf"])
 
     q = st.text_input("Ask question")
 
@@ -48,42 +56,81 @@ with tab1:
         memory.clear()
         st.success("Memory cleared")
 
+    # ---------- HANDLE PDF UPLOAD ----------
+    custom_chunks_file = "data/chunks/chunks.json"
+
+    if uploaded_file:
+        temp_path = f"temp_{uploaded_file.name}"
+        with open(temp_path, "wb") as f:
+            f.write(uploaded_file.read())
+
+        from PyPDF2 import PdfReader
+        reader = PdfReader(temp_path)
+
+        text = ""
+        for page in reader.pages:
+            if page.extract_text():
+                text += page.extract_text() + "\n"
+
+        from pipelines.ingest import chunk_text
+        chunks = chunk_text(text)
+
+        temp_chunks = []
+        for i, c in enumerate(chunks):
+            temp_chunks.append({
+                "chunk_id": i,
+                "content": c["content"],
+                "metadata": {"source": uploaded_file.name}
+            })
+
+        import json
+        custom_chunks_file = f"data/chunks/temp_{uploaded_file.name}.json"
+
+        with open(custom_chunks_file, "w") as f:
+            json.dump(temp_chunks, f)
+
+        st.success("PDF processed successfully")
+
+    # ---------- QUERY ----------
     if ask_btn and q:
         context_mem = memory.get()
 
-        ans, context_used = generate_answer(q, context_mem)
+        ans, context_used = generate_answer(q, context_mem, custom_chunks_file)
+
         context_used = context_used[:top_k]
 
-        hall = hallucination_score(ans, context_used)
-        conf = confidence_score(ans, context_used)
+        eval_result = evaluate_answer(ans, context_used)
 
-        #  store in memory
         memory.add(q, ans)
         memory.buffer[-1]["type"] = "RAG"
 
         log({
             "type": "rag",
             "q": q,
-            "a": ans
+            "a": ans,
+            "evaluation": eval_result
         })
 
         st.session_state.ans = ans
         st.session_state.context_used = context_used
-        st.session_state.conf = conf
-        st.session_state.hall = hall
+        st.session_state.eval = eval_result
 
     if "ans" in st.session_state:
         st.subheader("Answer")
         st.write(st.session_state.ans)
 
-        st.subheader("Scores")
-        st.write("Confidence:", st.session_state.conf)
-        st.write("Hallucination:", st.session_state.hall)
+        st.subheader("Evaluation")
+        st.write("Hallucinated:", st.session_state.eval["hallucinated"])
+        st.write("Confidence:", st.session_state.eval["confidence"])
+        st.write("Faithfulness:", st.session_state.eval["faithfulness"])
+        st.write("Similarity:", st.session_state.eval["similarity"])
 
         st.subheader("Context Used")
         for i, c in enumerate(st.session_state.context_used):
-            st.write(f"{i+1}. {c['content']}")
+            st.write(f"{i+1}. {c['content'][:300]}")
+            st.write("Source:", c["metadata"].get("source"))
             st.divider()
+
 
 # ---------------- SQL ----------------
 with tab2:
@@ -98,23 +145,23 @@ with tab2:
         else:
             st.code(result["sql"])
             st.table(result["rows"])
-            st.write(result["summary"])
+            
 
-            #  store memory
-            memory.add(q, result["summary"])
+            
             memory.buffer[-1]["type"] = "SQL"
+
 
 # ---------------- IMAGE ----------------
 with tab3:
 
     mode = st.radio("Mode", [
-        "Text → Image",
-        "Image → Image",
-        "Image → Text"
+        "1. Text -> Image",
+        "2. Image -> Image",
+        "3. Image -> Text"
     ])
 
     # TEXT → IMAGE
-    if mode == "Text → Image":
+    if mode == "1. Text -> Image":
         q = st.text_input("Enter query")
 
         if st.button("Search"):
@@ -126,50 +173,60 @@ with tab3:
                 st.write("OCR:", r["ocr"][:200])
                 st.divider()
 
-            #  store memory
             if results:
                 memory.add(q, results[0]["caption"])
                 memory.buffer[-1]["type"] = "IMAGE"
 
     # IMAGE → IMAGE
-    elif mode == "Image → Image":
-        file = st.file_uploader("Upload image")
+    elif mode == "2. Image -> Image":
+        file = st.file_uploader("Upload image", type=["png", "jpg", "jpeg"])
 
         if file:
-            path = f"temp_{file.name}"
+            
+            path = os.path.join(TEMP_IMG_DIR, f"{int(time.time())}_{file.name}")
+
             with open(path, "wb") as f:
                 f.write(file.read())
 
-            if st.button("Find Similar"):
+            st.image(path, caption="Uploaded Image")
+
+            if st.button("Find Similar Images"):
                 results = image_query_image(path)
 
-                for r in results:
+                for i, r in enumerate(results):
                     st.image(r["image"])
+                    st.write(f"Rank: {i+1}")
+                    st.write("Distance:", round(r["score"], 3))
                     st.write("Caption:", r["caption"])
+                    st.write("OCR:", r["ocr"][:200])
                     st.divider()
 
                 if results:
-                    memory.add("Image Query", results[0]["caption"])
+                    memory.add("User Image Query", results[0]["caption"])
                     memory.buffer[-1]["type"] = "IMAGE"
 
     # IMAGE → TEXT
-    elif mode == "Image → Text":
+    elif mode == "3. Image -> Text":
         file = st.file_uploader("Upload image")
 
         if file:
-            st.image(file)
+            # UNIQUE PATH FIX
+            path = os.path.join(TEMP_IMG_DIR, f"{int(time.time())}_{file.name}")
 
-            path = f"temp_{file.name}"
             with open(path, "wb") as f:
                 f.write(file.read())
 
+            st.image(path)
+
             if st.button("Extract"):
-                results = image_query_image(path)
+                result = extract_image_text(path)
 
-                top = results[0]
+                st.write("Caption:", result["caption"])
 
-                st.write("Caption:", top["caption"])
-                st.write("OCR:", top["ocr"])
+                if result["ocr"]:
+                    st.write("OCR:", result["ocr"])
+                else:
+                    st.write("OCR: No text detected")
 
-                memory.add("Image OCR", top["caption"])
+                memory.add("Image OCR", result["caption"])
                 memory.buffer[-1]["type"] = "IMAGE"

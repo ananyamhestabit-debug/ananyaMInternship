@@ -3,6 +3,7 @@ from utils.prompt_loader import load_prompt
 
 client = Groq()
 
+
 def generate_sql(question: str, schema: str) -> str:
     base_prompt = load_prompt("sql_prompt.txt")
 
@@ -11,6 +12,13 @@ def generate_sql(question: str, schema: str) -> str:
 
 Database Schema:
 {schema}
+
+STRICT RULES:
+- Use ONLY table names from schema
+- Use ONLY column names from schema
+- DO NOT invent tables
+- DO NOT invent columns
+- ONLY SELECT queries
 
 User Question:
 {question}
@@ -27,14 +35,7 @@ SQL:
     query = response.choices[0].message.content.strip()
     query = query.replace("```sql", "").replace("```", "").strip()
 
+    if query.endswith(";"):
+        query = query[:-1]
+
     return query
-
-
-def validate_sql(query: str) -> bool:
-    dangerous_keywords = ["DROP", "DELETE", "UPDATE", "INSERT", "ALTER"]
-
-    for keyword in dangerous_keywords:
-        if keyword in query.upper():
-            return False
-
-    return query.strip().lower().startswith("select")

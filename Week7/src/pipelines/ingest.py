@@ -6,22 +6,28 @@ from utils.file_loader import load_text_files
 from sentence_transformers import SentenceTransformer
 import faiss
 import numpy as np
+from transformers import AutoTokenizer
 
 # load config
 with open(os.path.join(os.path.dirname(__file__), "../config/config.yaml")) as f:
     config = yaml.safe_load(f)
 
+# tokenizer (token-based chunking)
+tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 
-# chunking
+
+# ---------------- CHUNKING ----------------
 def chunk_text(text, chunk_size=700, overlap=50):
-    words = text.split()
+    tokens = tokenizer.encode(text)
+
     chunks = []
     start = 0
     chunk_id = 0
 
-    while start < len(words):
+    while start < len(tokens):
         end = start + chunk_size
-        chunk_content = " ".join(words[start:end])
+        chunk_tokens = tokens[start:end]
+        chunk_content = tokenizer.decode(chunk_tokens)
 
         chunks.append({
             "chunk_id": chunk_id,
@@ -34,7 +40,7 @@ def chunk_text(text, chunk_size=700, overlap=50):
     return chunks
 
 
-# create chunks
+# ---------------- CREATE CHUNKS ----------------
 def create_chunks(data_folder, save_folder):
     os.makedirs(save_folder, exist_ok=True)
 
@@ -64,7 +70,6 @@ def create_chunks(data_folder, save_folder):
             all_chunks.append(chunk_data)
             global_chunk_id += 1
 
-    # save chunks.json (optional but useful)
     chunks_path = os.path.join(save_folder, "chunks.json")
 
     with open(chunks_path, "w", encoding="utf-8") as f:
@@ -75,7 +80,7 @@ def create_chunks(data_folder, save_folder):
     return chunks_path, all_chunks
 
 
-# generate embeddings
+# ---------------- EMBEDDINGS ----------------
 def generate_embeddings(chunks, model_name):
     model = SentenceTransformer(model_name)
 
@@ -95,26 +100,24 @@ def generate_embeddings(chunks, model_name):
     return np.array(vectors).astype("float32"), metadata
 
 
-# build FAISS index
+# ---------------- FAISS ----------------
 def build_faiss_index(vectors):
     index = faiss.IndexFlatL2(vectors.shape[1])
     index.add(vectors)
     return index
 
 
-# save both FAISS + metadata.pkl
+# ---------------- SAVE ----------------
 def save_vectorstore(index, metadata):
     save_path = "data/cleaned/vector_store"
     os.makedirs(save_path, exist_ok=True)
 
-    # save index
     faiss.write_index(index, os.path.join(save_path, "index.faiss"))
 
-    # save metadata separately
     with open(os.path.join(save_path, "metadata.pkl"), "wb") as f:
         pickle.dump(metadata, f)
 
-    print("Vectorstore saved (index.faiss + metadata.pkl)")
+    print("Vectorstore saved")
 
 
 # ---------------- MAIN ----------------
@@ -141,7 +144,7 @@ if __name__ == "__main__":
     print("Building FAISS index...")
     index = build_faiss_index(vectors)
 
-    # STEP 4: save both
+    # STEP 4: save
     save_vectorstore(index, metadata)
 
     print("Ingestion completed successfully")
