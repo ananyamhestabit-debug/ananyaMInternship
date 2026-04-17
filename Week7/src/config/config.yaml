@@ -1,8 +1,9 @@
-chunk_size: 700
-chunk_overlap: 50
+#tunable parameters:we change value of these and then train the model 
+chunk_size: 700 #chosen to maximize context completeness while keeping retrieval efficient/precise and within embedding/llm token limits.
+chunk_overlap: 50 #50 tokens is enough to preserve context continuity while avoiding unnecessary duplication
 embedding_model: sentence-transformers/all-MiniLM-L6-v2
 vectorstore_path: ../vectorstore/index.faiss
 metadata_keys: ["source", "page_number", "tags"]
-provider: groq
+provider: groq #Provider defines which backend LLM service is used (local or API-based).
 model_name: llama-3.3-70b-versatile
-api_key_env: GROQ_API_KEY
+api_key_env: GROQ_API_KEY #It specifies which environment variable contains the API key/credentials secure and configurable across environments

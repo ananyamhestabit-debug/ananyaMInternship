@@ -7,9 +7,9 @@ model = SentenceTransformer("all-MiniLM-L6-v2")
 llm = LLMClient()
 
 
-def generate_answer(question, memory_context, chunks_file="data/chunks/chunks.json"):
+def generate_user_answer(question, memory_context, user_chunks_file):
 
-    chunks = build_context(chunks_file, question, top_k=5)
+    chunks = build_context(user_chunks_file, question, top_k=5)
 
     context_list = []
     context_text = ""
@@ -29,6 +29,9 @@ def generate_answer(question, memory_context, chunks_file="data/chunks/chunks.js
 
     prompt = f"""
 {base_prompt}
+
+STRICT RULE:
+Answer ONLY from the uploaded PDF context.
 
 Context:
 {context_text}

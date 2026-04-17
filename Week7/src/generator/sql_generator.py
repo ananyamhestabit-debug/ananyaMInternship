@@ -3,7 +3,7 @@ from utils.prompt_loader import load_prompt
 
 client = Groq()
 
-
+#NL->SQL converts(question->sql query)
 def generate_sql(question: str, schema: str) -> str:
     base_prompt = load_prompt("sql_prompt.txt")
 

@@ -3,7 +3,7 @@ from PIL import Image
 import pytesseract
 from transformers import BlipProcessor, BlipForConditionalGeneration
 
-# -------- INIT --------
+# connects to ui and easy wrapper for ui:Image pipeline = app aur backend ke beech ka bridge
 engine = ImageSearchEngine()
 
 # BLIP model load (only once)
@@ -11,7 +11,7 @@ processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base
 model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
 
 
-# -------- TEXT → IMAGE --------
+#TEXT -> IMAGE 
 def image_query_text(query):
     scores, indices = engine.search_by_text(query)
 
@@ -23,13 +23,13 @@ def image_query_text(query):
             "image": data["image_path"],
             "caption": data.get("caption", ""),
             "ocr": data.get("ocr_text", ""),
-            "score": float(score)   # ✅ important
+            "score": float(score) 
         })
 
     return results
 
 
-# -------- IMAGE → IMAGE --------
+#  IMAGE  IMAGE
 def image_query_image(image_path):
     scores, indices = engine.search_by_image(image_path)
 
@@ -41,13 +41,13 @@ def image_query_image(image_path):
             "image": data["image_path"],
             "caption": data.get("caption", ""),
             "ocr": data.get("ocr_text", ""),
-            "score": float(score)   # ✅ important
+            "score": float(score)   
         })
 
     return results
 
 
-# -------- IMAGE → TEXT (OCR + CAPTION) --------
+#IMAGE -> TEXT (OCR + CAPTION)
 def extract_image_text(image_path):
     image = Image.open(image_path).convert("RGB")
 

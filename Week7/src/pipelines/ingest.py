@@ -1,22 +1,22 @@
 import os
 import json
 import yaml
-import pickle
+import pickle  #metadat save/python object save
 from utils.file_loader import load_text_files
 from sentence_transformers import SentenceTransformer
 import faiss
-import numpy as np
-from transformers import AutoTokenizer
+import numpy as np  # vector db + array
+from transformers import AutoTokenizer #hugging face ka smart loader
 
-# load config
+#PDF -> text -> chunks -> embeddings -> FAISS(vector DB)
+# load config.yaml
 with open(os.path.join(os.path.dirname(__file__), "../config/config.yaml")) as f:
     config = yaml.safe_load(f)
 
 # tokenizer (token-based chunking)
 tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 
-
-# ---------------- CHUNKING ----------------
+#chunking
 def chunk_text(text, chunk_size=700, overlap=50):
     tokens = tokenizer.encode(text)
 
@@ -24,29 +24,30 @@ def chunk_text(text, chunk_size=700, overlap=50):
     start = 0
     chunk_id = 0
 
-    while start < len(tokens):
+    while start < len(tokens): 
         end = start + chunk_size
-        chunk_tokens = tokens[start:end]
-        chunk_content = tokenizer.decode(chunk_tokens)
+        chunk_tokens = tokens[start:end] #slice
+        chunk_content = tokenizer.decode(chunk_tokens)  #tokens->readable text
 
         chunks.append({
             "chunk_id": chunk_id,
             "content": chunk_content
-        })
+        }) # <-- chunk store
 
-        start += chunk_size - overlap
+        start += chunk_size - overlap  # overlap logic=700 size, 50 overlap -> next start = 650
         chunk_id += 1
 
     return chunks
 
 
-# ---------------- CREATE CHUNKS ----------------
+# CREATE CHUNKS (pdf-> chunks.json)
 def create_chunks(data_folder, save_folder):
     os.makedirs(save_folder, exist_ok=True)
 
-    texts = load_text_files(data_folder)
-    all_chunks = []
+    texts = load_text_files(data_folder) # loads pdf
 
+    #global tracking
+    all_chunks = []
     global_chunk_id = 0
 
     for doc in texts:
@@ -80,7 +81,7 @@ def create_chunks(data_folder, save_folder):
     return chunks_path, all_chunks
 
 
-# ---------------- EMBEDDINGS ----------------
+#  EMBEDDINGS (chunks->vector)
 def generate_embeddings(chunks, model_name):
     model = SentenceTransformer(model_name)
 
@@ -88,9 +89,11 @@ def generate_embeddings(chunks, model_name):
     metadata = []
 
     for c in chunks:
-        vec = model.encode(c["content"])
+        vec = model.encode(c["content"])  # (text->vector)
 
         vectors.append(vec)
+
+        #mapping store
         metadata.append({
             "chunk_id": c["chunk_id"],
             "content": c["content"],
@@ -100,14 +103,13 @@ def generate_embeddings(chunks, model_name):
     return np.array(vectors).astype("float32"), metadata
 
 
-# ---------------- FAISS ----------------
+#faiss
 def build_faiss_index(vectors):
-    index = faiss.IndexFlatL2(vectors.shape[1])
-    index.add(vectors)
+    index = faiss.IndexFlatL2(vectors.shape[1]) #L2 distance(similarity) :euclidean distance(sees magnitude too:absolute distance)
+    index.add(vectors)  #vectors add
     return index
 
-
-# ---------------- SAVE ----------------
+#saves vector DB and metadata
 def save_vectorstore(index, metadata):
     save_path = "data/cleaned/vector_store"
     os.makedirs(save_path, exist_ok=True)
@@ -120,17 +122,16 @@ def save_vectorstore(index, metadata):
     print("Vectorstore saved")
 
 
-# ---------------- MAIN ----------------
 if __name__ == "__main__":
 
     base_dir = os.path.dirname(__file__)
 
     data_folder = os.path.abspath(
-        os.path.join(base_dir, "../data/raw/pdf")
+        os.path.join(base_dir, "../data/raw/pdf") #input pdf
     )
 
     chunks_folder = os.path.abspath(
-        os.path.join(base_dir, "../data/chunks")
+        os.path.join(base_dir, "../data/chunks")  #output chunks
     )
 
     # STEP 1: chunking

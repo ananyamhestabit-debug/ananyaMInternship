@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+#calls llm (api call to llm after we give question so that llm answers)
+#config se provider read karna, API key load karna ,Groq/OpenAI jaisa backend choose karna, prompt bhejna, answer wapas lana
 class LLMClient:
     def __init__(self):
         config_path = os.path.join(os.path.dirname(__file__), "../config/config.yaml")
@@ -28,7 +30,7 @@ class LLMClient:
         response = self.client.chat.completions.create(
             model=self.model_name,
             messages=[{"role": "user", "content": prompt}],
-            temperature=0
+            temperature=0 #deterministic(same ans har baar) and reproducible outputs (same input->same output)/ randomness control in llm output (randomness nahi as 0 )
         )
 
         return response.choices[0].message.content.strip()

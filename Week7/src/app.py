@@ -1,6 +1,8 @@
 import streamlit as st
 import os
 import time
+import json
+
 from memory.memory_store import MemoryStore
 from pipelines.rag_pipeline import generate_answer
 from pipelines.sql_pipeline import run_sql_pipeline
@@ -13,17 +15,20 @@ load_dotenv()
 
 st.set_page_config(page_title="AI Knowledge Assistant", layout="wide")
 
-# TEMP IMAGE FOLDER
+# temp folders
 TEMP_IMG_DIR = "data/temp/images"
-os.makedirs(TEMP_IMG_DIR, exist_ok=True)
+TEMP_PDF_DIR = "data/temp/pdfs"
 
-# ---------------- MEMORY INIT ----------------
+os.makedirs(TEMP_IMG_DIR, exist_ok=True)
+os.makedirs(TEMP_PDF_DIR, exist_ok=True)
+
+# memory init
 if "memory" not in st.session_state:
     st.session_state.memory = MemoryStore()
 
 memory = st.session_state.memory
 
-# ---------------- SIDEBAR ----------------
+# sidebar
 st.sidebar.title("Recent Chats")
 
 for m in memory.get_all():
@@ -31,18 +36,22 @@ for m in memory.get_all():
     st.sidebar.write("Q:", m["q"])
     st.sidebar.divider()
 
-# ---------------- MAIN ----------------
+# main UI
 st.title("AI Knowledge Assistant")
 st.write("Ask questions from documents, images, and data")
 
 tab1, tab2, tab3 = st.tabs(["RAG", "SQL", "IMAGE"])
 
-# ---------------- RAG ----------------
+
+# RAG
 with tab1:
 
-    st.subheader("Ask from Knowledge Base or Upload PDF")
+    st.subheader("RAG Mode")
 
-    uploaded_file = st.file_uploader("Upload your PDF (optional)", type=["pdf"])
+    mode = st.radio(
+        "Choose mode",
+        ["System Knowledge", "User PDF"]
+    )
 
     q = st.text_input("Ask question")
 
@@ -56,65 +65,93 @@ with tab1:
         memory.clear()
         st.success("Memory cleared")
 
-    # ---------- HANDLE PDF UPLOAD ----------
-    custom_chunks_file = "data/chunks/chunks.json"
+    #  SYSTEM MODE 
+    if mode == "System Knowledge":
 
-    if uploaded_file:
-        temp_path = f"temp_{uploaded_file.name}"
-        with open(temp_path, "wb") as f:
-            f.write(uploaded_file.read())
+        if ask_btn and q:
+            context_mem = memory.get()
 
-        from PyPDF2 import PdfReader
-        reader = PdfReader(temp_path)
+            ans, context_used = generate_answer(
+                q,
+                context_mem,
+                chunks_file="data/chunks/chunks.json"
+            )
 
-        text = ""
-        for page in reader.pages:
-            if page.extract_text():
-                text += page.extract_text() + "\n"
+            context_used = context_used[:top_k]
 
-        from pipelines.ingest import chunk_text
-        chunks = chunk_text(text)
+            eval_result = evaluate_answer(ans, context_used)
 
-        temp_chunks = []
-        for i, c in enumerate(chunks):
-            temp_chunks.append({
-                "chunk_id": i,
-                "content": c["content"],
-                "metadata": {"source": uploaded_file.name}
-            })
+            memory.add(q, ans)
+            memory.buffer[-1]["type"] = "RAG-SYSTEM"
 
-        import json
-        custom_chunks_file = f"data/chunks/temp_{uploaded_file.name}.json"
+            st.session_state.ans = ans
+            st.session_state.context_used = context_used
+            st.session_state.eval = eval_result
 
-        with open(custom_chunks_file, "w") as f:
-            json.dump(temp_chunks, f)
+    # USER PDF MODE
+    elif mode == "User PDF":
 
-        st.success("PDF processed successfully")
+        uploaded_file = st.file_uploader("Upload PDF", type=["pdf"])
 
-    # ---------- QUERY ----------
-    if ask_btn and q:
-        context_mem = memory.get()
+        custom_chunks_file = None
 
-        ans, context_used = generate_answer(q, context_mem, custom_chunks_file)
+        if uploaded_file:
+            pdf_path = f"data/temp/pdfs/{uploaded_file.name}"
 
-        context_used = context_used[:top_k]
+            with open(pdf_path, "wb") as f:
+                f.write(uploaded_file.read())
 
-        eval_result = evaluate_answer(ans, context_used)
+            from PyPDF2 import PdfReader
+            reader = PdfReader(pdf_path)
 
-        memory.add(q, ans)
-        memory.buffer[-1]["type"] = "RAG"
+            text = ""
+            for page in reader.pages:
+                if page.extract_text():
+                    text += page.extract_text() + "\n"
 
-        log({
-            "type": "rag",
-            "q": q,
-            "a": ans,
-            "evaluation": eval_result
-        })
+            from pipelines.ingest import chunk_text
+            chunks = chunk_text(text, 700, 50)
 
-        st.session_state.ans = ans
-        st.session_state.context_used = context_used
-        st.session_state.eval = eval_result
+            temp_chunks = []
+            for i, c in enumerate(chunks):
+                temp_chunks.append({
+                    "chunk_id": f"user_{i}",
+                    "content": c["content"],
+                    "metadata": {"source": uploaded_file.name}
+                })
 
+            import json
+            custom_chunks_file = f"data/chunks/user_{uploaded_file.name}.json"
+
+            with open(custom_chunks_file, "w") as f:
+                json.dump(temp_chunks, f)
+
+            st.success("PDF ready")
+
+        if ask_btn and q and custom_chunks_file:
+
+            from pipelines.user_rag_pipeline import generate_user_answer
+
+            context_mem = memory.get()
+
+            ans, context_used = generate_user_answer(
+                q,
+                context_mem,
+                custom_chunks_file
+            )
+
+            context_used = context_used[:top_k]
+
+            eval_result = evaluate_answer(ans, context_used)
+
+            memory.add(q, ans)
+            memory.buffer[-1]["type"] = "RAG-USER"
+
+            st.session_state.ans = ans
+            st.session_state.context_used = context_used
+            st.session_state.eval = eval_result
+
+    # DISPLAY 
     if "ans" in st.session_state:
         st.subheader("Answer")
         st.write(st.session_state.ans)
@@ -122,17 +159,14 @@ with tab1:
         st.subheader("Evaluation")
         st.write("Hallucinated:", st.session_state.eval["hallucinated"])
         st.write("Confidence:", st.session_state.eval["confidence"])
-        st.write("Faithfulness:", st.session_state.eval["faithfulness"])
-        st.write("Similarity:", st.session_state.eval["similarity"])
 
         st.subheader("Context Used")
-        for i, c in enumerate(st.session_state.context_used):
-            st.write(f"{i+1}. {c['content'][:300]}")
+        for c in st.session_state.context_used:
+            st.write(c["content"][:300])
             st.write("Source:", c["metadata"].get("source"))
             st.divider()
 
-
-# ---------------- SQL ----------------
+# SQL
 with tab2:
 
     q = st.text_input("Ask SQL question")
@@ -145,13 +179,12 @@ with tab2:
         else:
             st.code(result["sql"])
             st.table(result["rows"])
-            
 
             
             memory.buffer[-1]["type"] = "SQL"
 
 
-# ---------------- IMAGE ----------------
+# IMAGE
 with tab3:
 
     mode = st.radio("Mode", [
@@ -160,7 +193,7 @@ with tab3:
         "3. Image -> Text"
     ])
 
-    # TEXT → IMAGE
+    # text to image
     if mode == "1. Text -> Image":
         q = st.text_input("Enter query")
 
@@ -177,12 +210,11 @@ with tab3:
                 memory.add(q, results[0]["caption"])
                 memory.buffer[-1]["type"] = "IMAGE"
 
-    # IMAGE → IMAGE
+    # image to image
     elif mode == "2. Image -> Image":
         file = st.file_uploader("Upload image", type=["png", "jpg", "jpeg"])
 
         if file:
-            
             path = os.path.join(TEMP_IMG_DIR, f"{int(time.time())}_{file.name}")
 
             with open(path, "wb") as f:
@@ -205,12 +237,11 @@ with tab3:
                     memory.add("User Image Query", results[0]["caption"])
                     memory.buffer[-1]["type"] = "IMAGE"
 
-    # IMAGE → TEXT
+    # image to text
     elif mode == "3. Image -> Text":
         file = st.file_uploader("Upload image")
 
         if file:
-            # UNIQUE PATH FIX
             path = os.path.join(TEMP_IMG_DIR, f"{int(time.time())}_{file.name}")
 
             with open(path, "wb") as f:

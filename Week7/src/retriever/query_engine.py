@@ -2,6 +2,8 @@ import faiss
 import numpy as np
 import json
 
+#brain of retrieval system (Query engine processes the user query, converts it into a searchable format, and routes it to the appropriate retrieval mechanism)
+#query vector → search FAISS → get chunks
 class Retriever:
     def __init__(self, index_path, chunks_path):
         self.index = faiss.read_index(index_path)
