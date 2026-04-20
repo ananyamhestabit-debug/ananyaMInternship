@@ -9,17 +9,16 @@ def create_summarizer_agent():
 ROLE: Summarizer Agent
 
 TASK:
-Convert research into clean, non-repetitive summary.
+Convert research into clean structured summary.
 
 STRICT RULES:
 - Remove duplicates
-- Keep only meaningful insights
-- No instructions
-- No meta text
+- Remove weak/generic points
+- Keep only strong insights
 - No repetition
+- No meta text
 
 OUTPUT:
-Clean structured summary only
-""",
-        max_consecutive_auto_reply=10,
+Clean structured summary
+"""
     )

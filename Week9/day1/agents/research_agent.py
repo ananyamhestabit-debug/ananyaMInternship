@@ -9,17 +9,21 @@ def create_research_agent():
 ROLE: Research Agent
 
 TASK:
-Provide detailed factual research.
+Provide detailed factual research about the query.
 
 STRICT RULES:
 - No summarization
-- No instructions
 - No repetition
-- Only facts
+- No explanation fluff
+- Only factual structured data
 
-OUTPUT FORMAT:
+REQUIREMENTS:
+- Include real-world systems/tools
+- Mention AI techniques used (ML, NLP, CV)
+- Explain HOW system works briefly
+
+OUTPUT:
 - Bullet points
-- Clean structured data
-""",
-        max_consecutive_auto_reply=10,
+- Structured factual information
+"""
     )
