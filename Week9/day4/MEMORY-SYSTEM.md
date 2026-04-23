@@ -47,7 +47,7 @@ day4/
 
 
 ## how to run:
-(venv) ananyamishra@hestabit-Latitude-3450:~/re_assignment/Week9/day4$ export GROQ_API_KEY=
+(venv) ananyamishra@hestabit-Latitude-3450:~/re_assignment/Week9/day4$ export GROQ_API_KEY=""
 (venv) ananyamishra@hestabit-Latitude-3450:~/re_assignment/Week9/day4$ python main.py
 Day 4 - Memory Agent
 Commands: 'status', 'memory', 'clear', 'quit'
