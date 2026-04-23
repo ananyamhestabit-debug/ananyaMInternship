@@ -1,2 +1,7 @@
-groq>=0.9.0
-pandas
+autogen==0.12.0
+groq==1.2.0
+openai==1.109.1
+pandas==3.0.2
+python-dotenv==1.2.2
+requests==2.33.1
+numpy==2.4.4

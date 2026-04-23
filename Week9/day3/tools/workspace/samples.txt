@@ -1,0 +1,26 @@
+AI Agent Systems Overview
+
+Artificial Intelligence (AI) agents are autonomous systems capable of perceiving their environment, reasoning about tasks, and taking actions to achieve goals.
+
+Types of Agents:
+1. Reactive Agents – Respond directly to input without memory.
+2. Deliberative Agents – Use planning and reasoning before acting.
+3. Learning Agents – Improve performance based on past experiences.
+
+Multi-Agent Systems:
+Multiple agents collaborate to solve complex problems. These systems use communication protocols and role-based coordination.
+
+Example Use Cases:
+- Healthcare diagnosis assistants
+- Financial fraud detection systems
+- Autonomous vehicles
+- Customer support chatbots
+
+Key Concepts:
+- Planning
+- Memory (short-term & long-term)
+- Tool usage (code execution, database querying, file handling)
+- Orchestration (managing multiple agents)
+
+Conclusion:
+Agentic AI systems represent the next evolution of artificial intelligence, enabling automation, scalability, and intelligent decision-making.

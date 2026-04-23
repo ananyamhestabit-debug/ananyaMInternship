@@ -1,132 +1,143 @@
-"""
-DAY 3 — Code Executor Agent
-Tool: Generate Python code and execute it safely using subprocess
-"""
+from autogen.agentchat import AssistantAgent, UserProxyAgent #AssistantAgent → LLM agent (code likhega)/UserProxyAgent → human simulator (execution karega)
+import subprocess, tempfile, os, re  #subporcess:code run krne ke liye, regex:pattern matching, tempfile:temp file bnan ekeliey
+from config import LLM_CONFIG   #llm ka config(model, api key)
 
-import subprocess
-import tempfile
-import os
-import re
-import time
-from groq import Groq
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_DIR = os.path.join(os.path.dirname(HERE), "output")
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-client = Groq()
-
-CODE_AGENT_PROMPT = """You are the Code Agent in a multi-agent AI system.
-
-Your ONLY job: Write Python code to solve the given task, then the code will be executed.
-
-Rules:
-- Write ONLY pure Python code (no bash, no shell commands)
-- Use only standard library + pandas + csv modules (always available)
-- Your code must PRINT its results — use print() for all output
-- Keep code simple and focused
-- Handle errors with try/except
-- Do NOT use matplotlib, seaborn or any visualization library
-- Do NOT use external APIs
-
-Return ONLY a Python code block like this:
-```python
-# your code here
-print("result")
-```
-
-No explanation before or after. Just the code block."""
-
-
-def extract_code(text: str) -> str:
-    """Extracts Python code from markdown code block"""
-    match = re.search(r'```python\n(.*?)```', text, re.DOTALL)
-    if match:
-        return match.group(1).strip()
-    # If no markdown block, try to use raw text as code
-    return text.strip()
-
-
-def execute_python(code: str, timeout: int = 15) -> dict:
-    """
-    Executes Python code in a subprocess safely.
-    Returns dict with stdout, stderr, success status.
-    """
-    # Write code to a temp file
-    with tempfile.NamedTemporaryFile(mode='w', suffix='.py', delete=False) as f:
-        f.write(code)
-        tmp_path = f.name
+#  EXECUTION 
+def execute_python(code: str) -> str:
+    with tempfile.NamedTemporaryFile(suffix=".py", mode="w", delete=False) as f:  #temp file ban rhi hai
+        f.write(code)  #llm ka code file me likh diya
+        tmp = f.name  #file ka path store
 
     try:
-        result = subprocess.run(
-            ["python3", tmp_path],
-            capture_output=True,
-            text=True,
-            timeout=timeout
+        #code execute ho rha
+        r = subprocess.run(
+            ["python3", tmp],
+            capture_output=True,  #ouput capture krta hai
+            text=True,   #string me convert
+            timeout=30    #infinte run avoid
         )
-        return {
-            "success": result.returncode == 0,
-            "stdout": result.stdout.strip(),
-            "stderr": result.stderr.strip(),
-            "code": code
-        }
-    except subprocess.TimeoutExpired:
-        return {
-            "success": False,
-            "stdout": "",
-            "stderr": f"Code execution timed out after {timeout}s",
-            "code": code
-        }
+        return r.stdout.strip() or r.stderr.strip() or "No output."
+
+    except subprocess.TimeoutExpired:  #infinite loop stop
+        return "ERROR: Timed out."
+    except Exception as e:   #unknown error 
+        return f"ERROR: {e}"
     finally:
-        os.unlink(tmp_path)
+        os.unlink(tmp)   #temp file delete
 
+# save code to permanent file
+def save_code_to_file(code: str, filename: str) -> str:
+    base = re.sub(r"[^\w\-.]", "_", os.path.basename(filename))
+    if not base.endswith(".py"):
+        base += ".py"
 
-def run_code_agent(instruction: str, context: str = "") -> dict:
-    """
-    Generates Python code for the instruction, executes it,
-    returns the execution result.
-    """
-    print(f"\n[CODE AGENT] Instruction: {instruction[:80]}...")
+    path = os.path.join(OUTPUT_DIR, base)
 
-    user_message = instruction
-    if context:
-        user_message += f"\n\nContext/Data available:\n{context}"
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(code)
 
-    # Step 1: Generate code
-    time.sleep(2)  # rate limit buffer
-    response = client.chat.completions.create(
-        model="llama-3.1-8b-instant",
-        messages=[
-            {"role": "system", "content": CODE_AGENT_PROMPT},
-            {"role": "user", "content": user_message}
-        ],
-        temperature=0.2,
-        max_tokens=800
-    )
+    print(f"\n File saved at: {path}")
+    return path
 
-    raw_response = response.choices[0].message.content.strip()
-    code = extract_code(raw_response)
+# extract code:llm ke output se python code extract
+def extract_code_block(text: str) -> str | None:
+    m = re.search(r"```(?:python)?\s*\n(.*?)```", text, re.DOTALL)
+    return m.group(1).strip() if m else None
 
-    print(f"[CODE AGENT] Code generated ({len(code)} chars)")
-    print(f"[CODE AGENT] Executing code...")
+#query->filename bnata
+def infer_filename(query: str) -> str:
+    name = re.sub(r"[^a-z0-9\s]", "", query.lower())
+    name = "_".join(name.split()[:5])
+    return name + ".py"
 
-    # Step 2: Execute code
-    exec_result = execute_python(code)
+# prompt
+CODE_AGENT_PROMPT = """
+You are the Code Agent.
 
-    if exec_result["success"]:
-        print(f"[CODE AGENT] Execution successful ✓")
-        output = f"💻 CODE EXECUTED SUCCESSFULLY:\n\n```python\n{code}\n```\n\n📤 OUTPUT:\n{exec_result['stdout']}"
-    else:
-        print(f"[CODE AGENT] Execution failed — returning generated code")
-        output = f"💻 GENERATED CODE:\n\n```python\n{code}\n```\n\n⚠️ Execution note: {exec_result['stderr'][:200]}"
+Generate correct, executable Python code.
 
-    return {
-        "agent": "code_agent",
-        "instruction": instruction,
-        "code": code,
-        "execution": exec_result,
-        "output": output
-    }
+OUTPUT FORMAT:
+1. One-line explanation
+2. ONE python code block
+3. SAVE_AS: filename.py
 
+RULES:
+- Always include demo/test so output is visible
+- Always end with SAVE_AS
 
-if __name__ == "__main__":
-    result = run_code_agent(
-        instruction="Write Python code to calculate the sum of numbers 1 to 100 and print the result"
-    )
-    print(result["output"])
+DATA RULES (CRITICAL):
+- If CSV is used:
+    import pandas as pd
+    df = pd.read_csv("file_path")
+
+    print("Columns:", df.columns)
+
+    df.columns = df.columns.str.lower().str.strip()
+
+    Then use lowercase column names like:
+    df.groupby("product")["revenue"].sum()
+
+- NEVER assume column names
+"""
+
+# agent:llm agent
+code_agent = AssistantAgent(
+    name="CodeAgent",
+    system_message=CODE_AGENT_PROMPT,  #rules
+    llm_config=LLM_CONFIG,
+    human_input_mode="NEVER",  #auto run
+    max_consecutive_auto_reply=3   #retry
+)
+
+# proxy:execution agent : error ho toh fix karwata hai → sahi ho toh save karta hai
+class CodeExecutorProxy(UserProxyAgent):
+
+    def __init__(self, original_query: str):
+        super().__init__(
+            name="CodeProxy",
+            human_input_mode="NEVER",
+            max_consecutive_auto_reply=3,
+            code_execution_config=False,
+        )
+        self.query = original_query   #state store
+        self.done = False
+
+    def generate_reply(self, messages=None, sender=None, **kwargs):  #jab llm reply kre to ye run hota hia
+
+        if self.done:
+            return None
+
+        last = (messages or [{}])[-1].get("content", "")  #last message niaklta
+        code = extract_code_block(last)   #code nikalta
+
+        if not code:  #safety
+            return "Please provide code in ```python block"
+
+        # Execute
+        output = execute_python(code)
+
+        # Filename extract
+        match = re.search(r"SAVE_AS:\s*(\S+\.py)", last)
+        filename = match.group(1) if match else infer_filename(self.query)
+
+        # If error -> retry by llm
+        if output.startswith("ERROR") or "Traceback" in output:
+            return f"Execution failed:\n{output}\nFix the code."
+
+        # Save
+        path = save_code_to_file(code, filename)
+
+        print("\n Executed successfully")
+        print(f" Saved → {path}")
+        print(f" Output → {output[:200]}")
+
+        self.done = True  #stop loop 
+        return None
+
+#new proxy create karta
+def make_code_proxy(query: str = "") -> CodeExecutorProxy:
+    return CodeExecutorProxy(query)
