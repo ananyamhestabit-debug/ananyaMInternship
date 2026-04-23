@@ -1,6 +1,7 @@
 import sys
 import os
 import re
+import logging
 from datetime import datetime
 from openai import OpenAI
 
@@ -16,6 +17,23 @@ from memory.vector_store import VectorStore
 from config import MODEL_NAME, API_KEY, BASE_URL
 
 OUTPUTS_DIR = os.path.join(BASE_DIR, "outputs")
+LOGS_DIR    = os.path.join(BASE_DIR, "logs")
+
+# ── LOGGING SETUP ──────────────────────────────────────────────────────────────
+os.makedirs(LOGS_DIR, exist_ok=True)
+
+_log_file = os.path.join(LOGS_DIR, f"nexus_{datetime.now().strftime('%Y%m%d')}.log")
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+    handlers=[
+        logging.FileHandler(_log_file, encoding="utf-8"),
+        logging.StreamHandler(sys.stdout),
+    ],
+)
+logger = logging.getLogger("nexus")
 
 
 class NexusAI:
@@ -26,6 +44,7 @@ class NexusAI:
         self.long_term_memory = LongTermMemory()
         self.vector_store     = VectorStore()
         self._load_long_term_into_vector()
+        logger.info(f"NexusAI initialized | model={MODEL_NAME} | vector={self.vector_store.mode} | log={_log_file}")
 
     def _load_long_term_into_vector(self):
         for text in self.long_term_memory.retrieve_all():
@@ -42,6 +61,7 @@ class NexusAI:
             msg = resp.choices[0].message
             return msg.content.strip() if msg and msg.content else f"(Fallback) {prompt[:100]}..."
         except Exception as e:
+            logger.error(f"call_model failed: {e}")
             return f"Error: {e}"
 
     def route(self, query: str):
@@ -124,10 +144,12 @@ class NexusAI:
         return prompts.get(agent, f"Answer this query helpfully:\n{query}")
 
     def run_agent(self, agent: str, query: str, pipeline_context: str, memory_context: str = "") -> str:
+        logger.info(f"[AGENT:{agent.upper()}] running")
         prompt = self.get_prompt(agent, query, pipeline_context, memory_context)
         output = self.call_model(prompt)
         if not output or output.strip().lower() in ["", "none"]:
-            return self.call_model(f"Context:\n{pipeline_context}\n\nAnswer this helpfully: {query}")
+            output = self.call_model(f"Context:\n{pipeline_context}\n\nAnswer this helpfully: {query}")
+        logger.info(f"[AGENT:{agent.upper()}] done | output_len={len(output)}")
         return output
 
     def save_code_files(self, query: str, code_output: str, exec_output: str):
@@ -146,20 +168,25 @@ class NexusAI:
             f"{exec_output.strip() if exec_output and exec_output.strip() else 'No output captured.'}\n```\n"
         )
         write_md(md_file, md_content)
+        logger.info(f"[CODE] saved → {py_file}")
         return py_file, md_file
 
     def run(self, query: str) -> dict:
         """Returns dict with pipeline, steps, memory_hits, final."""
-        print("\n=== NEXUS AI ===\n")
+        logger.info("=" * 60)
+        logger.info(f"[QUERY] {query}")
+
         self.session_memory.add_message("User", query)
         context = self.session_memory.get_context()
 
         memory_context = self.recall_similar(query)
         memory_hits = [line.lstrip("- ") for line in memory_context.split("\n") if line.startswith("- ")] if memory_context else []
 
-        print("[ROUTER]")
+        if memory_hits:
+            logger.info(f"[MEMORY] {len(memory_hits)} relevant memories recalled")
+
         agent_sequence = self.route(query)
-        print("Pipeline:", " → ".join(agent_sequence))
+        logger.info(f"[ROUTER] pipeline = {' → '.join(agent_sequence)}")
 
         result = {"pipeline": agent_sequence, "steps": [], "memory_hits": memory_hits, "final": ""}
 
@@ -168,13 +195,14 @@ class NexusAI:
             self.session_memory.add_message("Agent", final_output)
             result["final"] = final_output
             result["steps"].append({"agent": "personal", "output": final_output})
+            logger.info(f"[PERSONAL] answered from stored facts")
+            logger.info("=" * 60)
             return result
 
         pipeline_context = f"Session context:\n{context}\n\nUser query:\n{query}"
         code_output = ""
 
         for agent in agent_sequence:
-            print(f"\n[{agent.upper()}]")
             mem_ctx = memory_context if agent == "researcher" else ""
             output = self.run_agent(agent, query, pipeline_context, mem_ctx)
             result["steps"].append({"agent": agent, "output": output})
@@ -187,11 +215,12 @@ class NexusAI:
             code_match = re.search(r"```python(.*?)```", code_output, re.DOTALL)
             if code_match:
                 exec_output = execute_code(code_match.group(1).strip())
+                logger.info(f"[CODE] executed | result_len={len(exec_output)}")
             py_file, md_file = self.save_code_files(query, code_output, exec_output)
-            print(f"  Code saved: {py_file}")
 
         final_output = pipeline_context
         if not final_output or str(final_output).strip().lower() in ["", "none"]:
+            logger.warning("[FALLBACK] empty output, retrying with direct call")
             final_output = self.call_model(f"Context:\n{context}\n\nAnswer this helpfully: {query}")
 
         summary = f"Q: {query[:120]} | A: {str(final_output)[:200]}"
@@ -199,8 +228,6 @@ class NexusAI:
         self.session_memory.add_message("Agent", final_output)
         result["final"] = final_output
 
-        print("\n=== FINAL OUTPUT ===")
-        print("-" * 50)
-        print(final_output)
-        print("-" * 50)
+        logger.info(f"[DONE] final_len={len(str(final_output))} | memory_entries={len(self.long_term_memory.retrieve_all())}")
+        logger.info("=" * 60)
         return result
