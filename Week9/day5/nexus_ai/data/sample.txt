@@ -1,0 +1,7 @@
+Artificial Intelligence is transforming the way humans interact with technology. From simple automation to complex decision-making systems, AI is now integrated into almost every industry. It enables machines to learn from data, adapt to new inputs, and perform tasks that traditionally required human intelligence.
+
+Agentic AI is an advanced form of artificial intelligence where systems can act independently using tools, memory, and reasoning. Unlike traditional generative AI, which mainly produces outputs based on training data, agentic systems can plan, execute tasks, and refine their actions dynamically. This makes them highly useful in real-world applications such as automation, research, and software development.
+
+One of the key components of modern AI systems is memory. Short-term memory helps retain context during interactions, while long-term memory allows systems to store and recall important information over time. Vector databases and similarity search techniques further enhance the ability to retrieve relevant knowledge efficiently.
+
+As AI continues to evolve, understanding its architecture and capabilities becomes essential for developers. Building projects like multi-agent systems not only improves technical skills but also provides insights into how intelligent systems can collaborate, adapt, and solve complex problems in a scalable manner.

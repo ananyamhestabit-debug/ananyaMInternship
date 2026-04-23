@@ -1,0 +1,6 @@
+openai>=1.0.0
+python-dotenv
+streamlit>=1.30.0
+faiss-cpu
+sentence-transformers
+numpy

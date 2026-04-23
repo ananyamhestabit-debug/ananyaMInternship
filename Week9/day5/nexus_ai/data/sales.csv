@@ -1,0 +1,11 @@
+id,product,price,category,stock_quantity
+1,phone,10000,electronics,50
+2,laptop,50000,electronics,30
+3,tablet,20000,electronics,25
+4,headphones,5000,accessories,100
+5,smartwatch,15000,wearables,40
+6,camera,25000,electronics,20
+7,printer,8000,office,15
+8,monitor,12000,electronics,35
+9,keyboard,3000,accessories,150
+10,mouse,2000,accessories,200

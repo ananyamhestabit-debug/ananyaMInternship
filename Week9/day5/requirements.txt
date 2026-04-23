@@ -1,7 +1,0 @@
-groq
-fastapi
-uvicorn
-streamlit
-requests
-sentence-transformers
-numpy

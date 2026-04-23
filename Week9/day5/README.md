@@ -1,57 +1,193 @@
-# NEXUS AI — Day 5
+# 🚀 NEXUS AI
 
-Autonomous 9-agent AI system with FastAPI backend + Streamlit UI.
+### Autonomous Multi-Agent AI System — Week 9 Capstone
 
-## Setup (one time)
+---
+
+## 🧠 What is NEXUS AI?
+
+**NEXUS AI** is a fully autonomous multi-agent AI system designed to solve complex tasks using coordinated intelligence.
+
+It orchestrates **8 specialized agents** that work together to:
+
+* Plan
+* Research
+* Code
+* Analyze
+* Critique
+* Optimize
+* Validate
+* Report
+
+Unlike traditional chatbots, NEXUS AI behaves like a **complete AI system**, capable of reasoning, execution, and self-improvement.
+
+---
+
+## ⚡ Capabilities
+
+* 🧩 Multi-agent orchestration
+* 🧠 Multi-step planning
+* ⚡ Parallel task execution
+* 🐍 Python code generation & execution
+* 🔄 Self-reflection & optimization loop
+* 💾 Memory system:
+
+  * Session Memory
+  * Vector Memory (FAISS)
+  * Long-Term Memory (SQLite)
+* 📊 CSV data analysis
+* 🧾 Logs & tracing
+* 🛠 Tool integration (code, file, DB)
+* 🔁 Failure recovery
+
+---
+
+## 🧰 Tech Stack
+
+| Component       | Technology                    |
+| --------------- | ----------------------------- |
+| Agent Framework | AutoGen                       |
+| LLM             | Groq (llama-3.1-8b-instant)   |
+| Vector Memory   | FAISS + sentence-transformers |
+| Database        | SQLite                        |
+| Code Execution  | Python (exec)                 |
+| File Handling   | CSV / TXT                     |
+| Environment     | Python 3.12 + venv            |
+
+---
+
+## 📦 Prerequisites
 
 ```bash
-cd ~/re_assignment/Week9/day5
-
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+pip install autogen-agentchat autogen-ext faiss-cpu sentence-transformers python-dotenv openai
 ```
 
-## Run
+---
 
-Open **two terminals**. Both need the venv activated and API key set.
-
-### Terminal 1 — FastAPI backend
+## ⚙️ Setup
 
 ```bash
-cd ~/re_assignment/Week9/day5
-source venv/bin/activate
-export GROQ_API_KEY="your_key_here"
-python -m uvicorn api:app --reload --port 8000
+cd Week9
 ```
 
-### Terminal 2 — Streamlit UI
+Create `.env`:
+
+```env
+OPENAI_API_KEY=your_groq_api_key_here
+```
+
+---
+
+## ▶️ Run Project
 
 ```bash
-cd ~/re_assignment/Week9/day5
-source venv/bin/activate
-export GROQ_API_KEY="your_key_here"
-streamlit run ui.py
+cd day5/nexus_ai
+python main.py
 ```
 
-Then open: http://localhost:8501
+---
 
-## Agents
+## 💡 Example Queries
 
-1. Orchestrator — decides pipeline
-2. Planner — creates step-by-step plan
-3. Researcher — gathers context, reads CSV
-4. Coder — writes Python code
-5. Analyst — data analysis and insights
-6. Critic — reviews output quality
-7. Optimizer — improves based on critic
-8. Validator — final quality check + self-reflection
-9. Reporter — produces final report
+```
+what is array
+write binary search code
+plan AI startup
+analyze CSV data
+exit
+```
 
-## Features
+---
 
-- CSV upload via UI — any CSV file, agents analyze real data
-- Memory — SQLite long-term + FAISS vector memory
-- Self-reflection — if score < 7, optimizer runs again
-- Output files — code tasks save .py + .md, others CLI only
-- Logs — every run saved to logs/
+## 🏗 Project Structure (ACTUAL)
+
+```
+Week9/
+│
+├── day1/
+│   ├── agents/
+│   ├── orchestrator.py
+│   ├── main.py
+│   └── AGENT-FUNDAMENTALS.md
+│
+├── day2/
+│   ├── agents/
+│   ├── orchestrator/
+│   ├── main.py
+│   └── FLOW-DIAGRAM.md
+│
+├── day3/
+│   ├── agents/
+│   ├── tools/
+│   ├── data/
+│   ├── orchestrator/
+│   ├── main.py
+│   └── TOOL-CHAIN.md
+│
+├── day4/
+│   ├── memory/
+│   ├── main.py
+│   └── MEMORY-SYSTEM.md
+│
+├── day5/
+│   ├── nexus_ai/
+│   │   ├── agents/
+│   │   ├── orchestrator/
+│   │   │   └── nexus.py
+│   │   ├── main.py
+│   │   ├── config.py
+│   │   └── outputs/
+│   │
+│   ├── ARCHITECTURE.md
+│   ├── FINAL-REPORT.md
+│   └── README.md
+│
+├── .env
+├── requirements.txt
+└── venv/
+```
+
+---
+
+## 🔄 How It Works
+
+1. User enters query
+2. Router selects agents
+3. Agents execute step-by-step
+4. Tools are used (code / file / DB)
+5. Memory is injected
+6. Final output is generated
+7. Code (if any) is executed + saved
+
+---
+
+## 📜 Logs
+
+Stored in:
+
+```
+day5/nexus_ai/outputs/
+```
+
+---
+
+## 🎯 Key Highlights
+
+* Fully autonomous agent system
+* Works for both code + general queries
+* Saves executed code automatically
+* Uses memory + tools
+* Real-world AI system architecture
+
+---
+
+## 🏁 Final Outcome
+
+This project demonstrates the transition:
+
+➡️ Prompt Engineering
+➡️ AI System Engineering
+
+**NEXUS AI is not a chatbot — it is a complete autonomous AI system.**
+
+---

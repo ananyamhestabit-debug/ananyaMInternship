@@ -1,16 +1,18 @@
 import os
-from pathlib import Path
+from dotenv import load_dotenv
 
-BASE_DIR = Path(__file__).parent.parent
-DATA_DIR = BASE_DIR / "data"
-LOGS_DIR = BASE_DIR / "logs"
-OUTPUT_DIR = BASE_DIR / "output_files"
-MEMORY_DIR = BASE_DIR / "memory"
-DB_PATH = BASE_DIR / "memory" / "long_term.db"
+load_dotenv()
 
-LOGS_DIR.mkdir(exist_ok=True)
-OUTPUT_DIR.mkdir(exist_ok=True)
-MEMORY_DIR.mkdir(exist_ok=True)
-
-GROQ_MODEL = "llama-3.2-1b-preview"
-GROQ_MODEL_MAIN = "llama-3.1-8b-instant"
+MODEL_NAME = os.getenv("MODEL_NAME")
+API_KEY = os.getenv("OPENAI_API_KEY")
+BASE_URL = "https://api.groq.com/openai/v1"
+print("DEBUG KEY:", API_KEY)
+MODEL_INFO = {
+    "provider": "groq",
+    "family": "llama",
+    "context_length": 8192,
+    "vision": False,
+    "function_calling": False,
+    "json_output": False,
+    "structured_output": False,
+}
