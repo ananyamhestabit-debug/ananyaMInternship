@@ -1,63 +1,57 @@
 # NEXUS AI — Day 5
 
-Autonomous 9-agent AI system. No GPU required.
+Autonomous 9-agent AI system with FastAPI backend + Streamlit UI.
 
-## Setup & Run
+## Setup (one time)
 
 ```bash
+cd ~/re_assignment/Week9/day5
+
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-export GROQ_API_KEY="your_key_here"
-python3 nexus_ai/main.py
 ```
 
-## Example Tasks
+## Run
 
-| # | Task | Output saved as |
-|---|---|---|
-| 1 | Plan a startup in AI for healthcare | `.md` |
-| 2 | Write a Python FastAPI REST API with CRUD endpoints | `.py` + `.md` |
-| 3 | Analyze a CSV sales dataset and create a business strategy | `.md` |
-| 4 | Build a machine learning pipeline for text classification | `.py` + `.md` |
-| 5 | Design a RAG pipeline for 50000 documents | `.py` + `.md` |
-| 6 | Generate backend architecture for a scalable e-commerce app | `.md` |
+Open **two terminals**. Both need the venv activated and API key set.
 
-## Output Files
+### Terminal 1 — FastAPI backend
 
-- **Code queries** → `output_files/output_TIMESTAMP.py` (code) + `output_files/output_TIMESTAMP_report.md`
-- **Text queries** → `output_files/output_TIMESTAMP.md`
+```bash
+cd ~/re_assignment/Week9/day5
+source venv/bin/activate
+export GROQ_API_KEY="your_key_here"
+python -m uvicorn api:app --reload --port 8000
+```
 
-CLI always shows full output in terminal too.
+### Terminal 2 — Streamlit UI
+
+```bash
+cd ~/re_assignment/Week9/day5
+source venv/bin/activate
+export GROQ_API_KEY="your_key_here"
+streamlit run ui.py
+```
+
+Then open: http://localhost:8501
 
 ## Agents
 
-| Agent | Role |
-|---|---|
-| Orchestrator | Breaks task into high-level steps |
-| Planner | Expands steps into detailed sub-tasks |
-| Researcher | Gathers relevant information |
-| Coder | Writes Python code / technical implementation |
-| Analyst | Synthesizes findings into structured insights |
-| Critic | Reviews output and finds weaknesses |
-| Optimizer | Improves output using critic feedback |
-| Validator | Final quality check (score + pass/fail) |
-| Reporter | Compiles everything into final report |
+1. Orchestrator — decides pipeline
+2. Planner — creates step-by-step plan
+3. Researcher — gathers context, reads CSV
+4. Coder — writes Python code
+5. Analyst — data analysis and insights
+6. Critic — reviews output quality
+7. Optimizer — improves based on critic
+8. Validator — final quality check + self-reflection
+9. Reporter — produces final report
 
-## Folder Structure
+## Features
 
-```
-day5/
-├── nexus_ai/
-│   ├── main.py           <- run this
-│   ├── agents.py         <- all 9 agents
-│   ├── output_saver.py   <- saves .py or .md based on query
-│   ├── memory.py         <- SQLite long-term memory
-│   ├── llm_client.py     <- shared Groq client
-│   └── config.py         <- settings
-├── output_files/         <- .py and .md outputs saved here
-├── logs/                 <- JSON run logs
-├── memory/               <- nexus_memory.db
-├── ARCHITECTURE.md
-└── requirements.txt
-```
+- CSV upload via UI — any CSV file, agents analyze real data
+- Memory — SQLite long-term + FAISS vector memory
+- Self-reflection — if score < 7, optimizer runs again
+- Output files — code tasks save .py + .md, others CLI only
+- Logs — every run saved to logs/

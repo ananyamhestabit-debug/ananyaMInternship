@@ -1,43 +1,44 @@
 # NEXUS AI — Architecture
 
-## Agent Pipeline
+## Flow
 
-```
-USER INPUT
-  -> ORCHESTRATOR   breaks task into high-level steps
-  -> PLANNER        expands steps into detailed sub-tasks with owners
-  -> RESEARCHER     gathers information and context
-  -> CODER          writes Python code or technical implementation
-  -> ANALYST        synthesizes findings into structured insights
-  -> CRITIC         reviews output, finds weaknesses and gaps
-  -> OPTIMIZER      improves output using critic feedback
-  -> VALIDATOR      final quality check — pass/fail + score
-  -> REPORTER       compiles everything into a final report
-```
+USER --> ORCHESTRATOR --> PLANNER --> RESEARCHER --> CODER --> ANALYST --> CRITIC --> OPTIMIZER --> VALIDATOR --> REPORTER --> DONE
 
-## Output File Saving
+## Agents
 
-System decides file type based on the query:
-
-| Query type | Detection | Files saved |
-|---|---|---|
-| Code (build/write/api/pipeline/implement) | keyword match or ```python block in output | `.py` (code) + `.md` (report) |
-| Plan / strategy / analysis / design | everything else | `.md` only |
-
-CLI always shows full output regardless of file type.
+| Agent | Role |
+|---|---|
+| Orchestrator | Decides which agents to activate based on task |
+| Planner | Breaks task into numbered steps |
+| Researcher | Gathers context, reads CSV data |
+| Coder | Writes Python code when needed |
+| Analyst | Data analysis, insights from CSV or research |
+| Critic | Scores output, finds issues |
+| Optimizer | Improves output based on critic feedback |
+| Validator | Final quality check, triggers self-reflection if score < 7 |
+| Reporter | Produces final structured report |
 
 ## Memory
 
-- Long-term: SQLite at `memory/nexus_memory.db`
-- Stores task, score, saved filename, timestamp per run
-- Shown at startup for context
+- Short-term: session turns (in-memory, max 20)
+- Long-term: SQLite (memory/long_term.db) — facts and run history
+- Vector: FAISS via sentence-transformers (memory/vectors.pkl) — semantic recall
 
-## Logs
+## Tool Use
 
-- Every run: `logs/nexus_run_TIMESTAMP.json`
+- CSV Tool: reads any CSV, extracts stats, column info, sample rows
+- Output Saver: code tasks → .py + .md, other tasks → CLI only
 
-## Tech
+## API
 
-- LLM: Groq API (`llama-3.1-8b-instant`) — no GPU needed
-- Language: Python 3.10+
-- No heavy dependencies
+- POST /run — run pipeline
+- POST /upload-csv — upload CSV file
+- GET /memory — view stored memory
+
+## Stack
+
+- Groq API (llama-3.1-8b-instant) — no GPU needed
+- FastAPI + Uvicorn — backend
+- Streamlit — UI
+- SQLite — long-term memory
+- sentence-transformers + numpy — vector memory

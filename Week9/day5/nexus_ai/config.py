@@ -1,10 +1,16 @@
 import os
+from pathlib import Path
 
-GROQ_MODEL  = "llama-3.1-8b-instant"
-AGENT_SLEEP = 2  # seconds between API calls to avoid rate limit
+BASE_DIR = Path(__file__).parent.parent
+DATA_DIR = BASE_DIR / "data"
+LOGS_DIR = BASE_DIR / "logs"
+OUTPUT_DIR = BASE_DIR / "output_files"
+MEMORY_DIR = BASE_DIR / "memory"
+DB_PATH = BASE_DIR / "memory" / "long_term.db"
 
-BASE_DIR    = os.path.dirname(os.path.dirname(__file__))
-LOG_DIR     = os.path.join(BASE_DIR, "logs")
-MEMORY_DIR  = os.path.join(BASE_DIR, "memory")
-OUTPUT_DIR  = os.path.join(BASE_DIR, "output_files")
-DATA_DIR = os.path.join(BASE_DIR, 'data')
+LOGS_DIR.mkdir(exist_ok=True)
+OUTPUT_DIR.mkdir(exist_ok=True)
+MEMORY_DIR.mkdir(exist_ok=True)
+
+GROQ_MODEL = "llama-3.2-1b-preview"
+GROQ_MODEL_MAIN = "llama-3.1-8b-instant"

@@ -1,244 +1,193 @@
-"""
-agents.py
-All 9 NEXUS AI agents. Each function = one agent.
-Called in sequence by main.py.
-"""
+import json
+import re
+import time
+from groq import Groq
+from nexus_ai.config import GROQ_MODEL_MAIN as MODEL
 
-import json, re, os, csv
-from nexus_ai.llm_client import call_llm
-from nexus_ai.config import DATA_DIR
+client = Groq()
+
+SLEEP = 1  # minimal sleep between calls
 
 
-def _read_csv_summary(csv_path: str = "") -> str:
-    """
-    Reads the given CSV file and returns a plain-text summary to inject into prompts.
-    Returns empty string if path not given or file not found.
-    """
-    if not csv_path or not os.path.exists(csv_path):
-        return ""
-
-    rows = []
-    with open(csv_path, newline="", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        headers = reader.fieldnames or []
-        for row in reader:
-            rows.append(row)
-
-    if not rows:
-        return ""
-
-    total_rows = len(rows)
-
-    # find sales/revenue column and sum it
-    sales_col = next((h for h in headers if "sales" in h.lower() or "revenue" in h.lower()), None)
-    total_sales = 0.0
-    if sales_col:
-        for r in rows:
-            try:
-                total_sales += float(r[sales_col])
-            except (ValueError, KeyError):
-                pass
-
-    # top 5 sample rows
-    sample_text = "\n".join([str(r) for r in rows[:5]])
-
-    # categorical column unique values
-    cat_lines = []
-    for h in headers:
-        vals = list(set(r[h] for r in rows if r.get(h)))
-        if 2 <= len(vals) <= 15:
-            cat_lines.append(f"  {h}: {', '.join(sorted(vals)[:10])}")
-
-    summary = (
-        f"REAL CSV DATA FROM {os.path.basename(csv_path)}:\n"
-        f"  Columns   : {', '.join(headers)}\n"
-        f"  Total rows: {total_rows}\n"
-        f"  Total {sales_col or 'sales'}: {round(total_sales, 2)}\n\n"
-        f"Sample rows (first 5):\n{sample_text}\n\n"
-        f"Unique values in categorical columns:\n" + "\n".join(cat_lines)
+def _call(system_prompt, user_msg, max_tokens=600):
+    time.sleep(SLEEP)
+    resp = client.chat.completions.create(
+        model=MODEL,
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_msg},
+        ],
+        temperature=0.3,
+        max_tokens=max_tokens,
     )
-    return summary
+    return resp.choices[0].message.content.strip()
 
 
-# ── 1. ORCHESTRATOR ───────────────────────────────────────────────────────────
-
-def orchestrator(task: str) -> dict:
-    print("[ORCHESTRATOR] Breaking task into high-level steps...")
-    system = """You are an AI orchestrator. Given a task, return ONLY this JSON:
-{
-  "task": "<original task>",
-  "goal": "<one sentence goal>",
-  "steps": ["step1", "step2", "step3", "step4", "step5"]
-}
-No markdown. No explanation. Just the JSON."""
-    raw = call_llm(system, f"Task: {task}", max_tokens=400)
-    m = re.search(r'\{.*\}', raw, re.DOTALL)
-    if m:
+def _parse_json(text):
+    # try full match first
+    match = re.search(r"\{.*\}", text, re.DOTALL)
+    if match:
         try:
-            return json.loads(m.group())
-        except Exception:
+            return json.loads(match.group())
+        except json.JSONDecodeError:
             pass
-    return {
-        "task": task,
-        "goal": f"Complete: {task}",
-        "steps": ["Gather requirements", "Research", "Analyse", "Generate output", "Review"],
-    }
+    return {"raw": text}
 
 
-# ── 2. PLANNER ────────────────────────────────────────────────────────────────
+# --- ORCHESTRATOR ---
 
-def planner(orch: dict) -> dict:
-    print("[PLANNER] Expanding steps into detailed sub-tasks...")
-    system = """You are a project planner. Return ONLY this JSON:
-{
-  "plan": [
-    {"step": 1, "task": "<detailed task>", "owner": "<researcher|coder|analyst>", "output": "<expected output>"}
-  ]
-}"""
-    raw = call_llm(system, f"Goal: {orch['goal']}\nSteps: {json.dumps(orch['steps'])}", max_tokens=600)
-    m = re.search(r'\{.*\}', raw, re.DOTALL)
-    if m:
-        try:
-            return json.loads(m.group())
-        except Exception:
-            pass
-    return {
-        "plan": [
-            {"step": i+1, "task": s, "owner": "researcher", "output": "findings"}
-            for i, s in enumerate(orch["steps"])
-        ]
-    }
-
-
-# ── 3. RESEARCHER ─────────────────────────────────────────────────────────────
-
-def researcher(task: str, plan: dict, csv_path: str = "") -> str:
-    print("[RESEARCHER] Gathering relevant information...")
-
-    csv_data = _read_csv_summary(csv_path)
-    if csv_data:
-        print("[RESEARCHER] Real CSV data found — injecting into analysis...")
-
-    system = "You are a research agent. Analyse the provided data thoroughly. Use clear section headers and be specific with numbers from the data."
-
-    prompt = f"Task: {task}\nPlan:\n{json.dumps(plan, indent=2)}"
-    if csv_data:
-        prompt += f"\n\n{csv_data}\n\nBase your analysis on the REAL DATA above. Quote actual numbers, column names, and values."
-
-    return call_llm(system, prompt, max_tokens=900, temperature=0.3)
-
-
-# ── 4. CODER ──────────────────────────────────────────────────────────────────
-
-def coder(task: str, research: str, csv_path: str = "") -> str:
-    print("[CODER] Writing code and technical implementation...")
-
-    csv_data = _read_csv_summary(csv_path)
-
-    system = """You are a software engineer agent.
-Write clean, well-commented Python code.
-Always wrap code in ```python ... ``` blocks.
-If the task is not code-related, write a technical implementation plan instead."""
-
-    prompt = f"Task: {task}\n\nContext from research:\n{research[:600]}"
-    if csv_data:
-        prompt += f"\n\nCSV file info:\n{csv_data[:400]}\n\nUse 'data/sales.csv' as the file path in the code."
-
-    return call_llm(system, prompt, max_tokens=1000, temperature=0.2)
-
-
-# ── 5. ANALYST ────────────────────────────────────────────────────────────────
-
-def analyst(task: str, research: str, code_out: str, csv_path: str = "") -> str:
-    print("[ANALYST] Synthesizing findings into structured insights...")
-
-    csv_data = _read_csv_summary(csv_path)
-
-    system = "You are a business and data analyst. Synthesize findings into structured insights. Use numbered lists and clear headers. Be specific with real numbers where available."
-
-    prompt = (
-        f"Task: {task}\n\n"
-        f"Research:\n{research[:500]}\n\n"
-        f"Technical output:\n{code_out[:400]}\n\n"
+def orchestrator(task, memory_context=""):
+    system = (
+        "You are the Orchestrator of NEXUS AI. "
+        "Decide which agents to run based on the task type.\n"
+        "Rules:\n"
+        "- If task asks to write/build/implement code -> include coder\n"
+        "- If task involves CSV/data/analysis -> include researcher, analyst\n"
+        "- Always include: planner, critic, optimizer, validator, reporter\n"
+        "Return ONLY valid JSON:\n"
+        '{"task":"<task>","pipeline":["planner","researcher","coder","analyst","critic","optimizer","validator","reporter"],"notes":"<one line>"}\n'
+        "Only include agents that are needed. Always end with validator, reporter."
     )
-    if csv_data:
-        prompt += f"Real data context:\n{csv_data[:400]}\n\n"
-    prompt += "Provide:\n1. Key findings (with real numbers)\n2. Recommendations\n3. Risks or limitations"
-
-    return call_llm(system, prompt, max_tokens=700, temperature=0.3)
-
-
-# ── 6. CRITIC ─────────────────────────────────────────────────────────────────
-
-def critic(task: str, analysis: str) -> dict:
-    print("[CRITIC] Reviewing output for weaknesses...")
-    system = """You are a critical review agent. Find flaws and gaps. Return ONLY this JSON:
-{
-  "score": <1-10>,
-  "strengths": ["s1", "s2"],
-  "weaknesses": ["w1", "w2"],
-  "missing": ["m1"]
-}"""
-    raw = call_llm(system, f"Task: {task}\n\nAnalysis:\n{analysis[:700]}", max_tokens=400)
-    m = re.search(r'\{.*\}', raw, re.DOTALL)
-    if m:
-        try:
-            return json.loads(m.group())
-        except Exception:
-            pass
-    return {"score": 7, "strengths": ["Comprehensive"], "weaknesses": ["Could be more specific"], "missing": []}
+    msg = f"Task: {task}"
+    if memory_context:
+        msg += f"\nPast context: {memory_context}"
+    result = _call(system, msg, max_tokens=300)
+    parsed = _parse_json(result)
+    if "pipeline" not in parsed:
+        parsed["pipeline"] = ["planner", "researcher", "analyst", "critic", "optimizer", "validator", "reporter"]
+    return parsed
 
 
-# ── 7. OPTIMIZER ──────────────────────────────────────────────────────────────
+# --- PLANNER ---
 
-def optimizer(task: str, analysis: str, critique: dict) -> str:
-    print("[OPTIMIZER] Improving output based on critic feedback...")
-    system = "You are an optimisation agent. Improve the analysis by addressing every weakness and gap the critic found."
-    prompt = (
-        f"Task: {task}\n\n"
-        f"Original analysis:\n{analysis[:600]}\n\n"
-        f"Weaknesses: {critique.get('weaknesses', [])}\n"
-        f"Missing:    {critique.get('missing', [])}\n\n"
-        "Write an improved version."
+def planner(task, orchestrator_notes=""):
+    system = (
+        "You are the Planner agent. Break the task into 4-6 clear numbered steps.\n"
+        "Return ONLY valid JSON:\n"
+        '{"steps":[{"step":1,"action":"<what>","agent":"<who>"}],"estimated_complexity":"low|medium|high"}'
     )
-    return call_llm(system, prompt, max_tokens=800, temperature=0.3)
+    msg = f"Task: {task}"
+    result = _call(system, msg, max_tokens=400)
+    return _parse_json(result)
 
 
-# ── 8. VALIDATOR ──────────────────────────────────────────────────────────────
+# --- RESEARCHER ---
 
-def validator(task: str, optimized: str) -> dict:
-    print("[VALIDATOR] Running final quality checks...")
-    system = """You are a quality validation agent. Return ONLY this JSON:
-{
-  "passed": true,
-  "score": <1-10>,
-  "verdict": "<one sentence>",
-  "issues": []
-}"""
-    raw = call_llm(system, f"Task: {task}\n\nOutput:\n{optimized[:700]}", max_tokens=300)
-    m = re.search(r'\{.*\}', raw, re.DOTALL)
-    if m:
-        try:
-            return json.loads(m.group())
-        except Exception:
-            pass
-    return {"passed": True, "score": 8, "verdict": "Output meets requirements.", "issues": []}
-
-
-# ── 9. REPORTER ───────────────────────────────────────────────────────────────
-
-def reporter(task: str, all_outputs: dict) -> str:
-    print("[REPORTER] Compiling final report...")
-    system = """You are a reporting agent.
-Compile all agent work into one clean professional report.
-Sections: Executive Summary, Key Findings, Implementation, Recommendations, Conclusion."""
-    prompt = (
-        f"Task: {task}\n\n"
-        f"Research:  {str(all_outputs.get('research',''))[:400]}\n"
-        f"Analysis:  {str(all_outputs.get('analysis',''))[:400]}\n"
-        f"Optimized: {str(all_outputs.get('optimized',''))[:400]}\n"
-        f"Validation: passed={all_outputs.get('validation',{}).get('passed')} "
-        f"score={all_outputs.get('validation',{}).get('score')}\n\n"
-        "Write the final report."
+def researcher(task, csv_summary="", memory_facts=None):
+    system = (
+        "You are the Researcher agent. Provide relevant background and key facts for the task. "
+        "If CSV data is given, highlight the most important patterns. Be concise — max 200 words."
     )
-    return call_llm(system, prompt, max_tokens=1000, temperature=0.4)
+    parts = [f"Task: {task}"]
+    if memory_facts:
+        parts.append("Past facts:\n" + "\n".join(memory_facts[:3]))
+    if csv_summary:
+        parts.append(f"CSV Data:\n{csv_summary}")
+    return _call(system, "\n\n".join(parts), max_tokens=400)
+
+
+# --- CODER ---
+
+def coder(task, research_context=""):
+    system = (
+        "You are the Coder agent. Write clean working Python code.\n"
+        "Rules:\n"
+        "- Wrap ALL code in ```python ... ``` blocks\n"
+        "- Add brief inline comments\n"
+        "- No emojis, no fluff"
+    )
+    msg = f"Task: {task}"
+    if research_context:
+        msg += f"\nContext: {research_context[:300]}"
+    return _call(system, msg, max_tokens=800)
+
+
+# --- ANALYST ---
+
+def analyst(task, research_context="", csv_summary="", sql_insights=""):
+    system = (
+        "You are the Analyst agent. Produce 5 concrete data-driven insights. "
+        "Reference specific numbers if available. Be direct and concise."
+    )
+    parts = [f"Task: {task}"]
+    if csv_summary:
+        parts.append(f"CSV Data:\n{csv_summary}")
+    if sql_insights:
+        parts.append(f"SQL Query Results:\n{sql_insights}")
+    if research_context:
+        parts.append(f"Research:\n{research_context[:200]}")
+    return _call(system, "\n\n".join(parts), max_tokens=500)
+
+
+# --- CRITIC ---
+
+def critic(task, previous_output=""):
+    system = (
+        "You are the Critic agent. Review the output and score it.\n"
+        'Return ONLY valid JSON: {"score":<1-10>,"issues":["<issue>"],"suggestions":["<suggestion>"]}'
+    )
+    # truncate to avoid slow processing
+    msg = f"Task: {task}\nOutput (truncated):\n{str(previous_output)[:600]}"
+    result = _call(system, msg, max_tokens=250)
+    parsed = _parse_json(result)
+    if "score" not in parsed:
+        parsed = {"score": 7, "issues": [], "suggestions": ["Add more detail"]}
+    return parsed
+
+
+# --- OPTIMIZER ---
+
+def optimizer(task, previous_output, critic_feedback):
+    system = (
+        "You are the Optimizer agent. Fix the issues in the output.\n"
+        "Return improved output as plain text. For code use ```python``` blocks. Be concise."
+    )
+    issues = critic_feedback.get("issues", [])
+    suggestions = critic_feedback.get("suggestions", [])
+    msg = (
+        f"Task: {task}\n"
+        f"Issues to fix: {issues}\n"
+        f"Suggestions: {suggestions}\n"
+        f"Original output:\n{str(previous_output)[:800]}"
+    )
+    return _call(system, msg, max_tokens=700)
+
+
+# --- VALIDATOR ---
+
+def validator(task, final_output):
+    system = (
+        "You are the Validator agent. Check output quality.\n"
+        'Return ONLY valid JSON: {"status":"PASS","score":<1-10>,"verdict":"<one line>","final_answer":"<output or same>"}'
+    )
+    msg = f"Task: {task}\nOutput:\n{str(final_output)[:800]}"
+    result = _call(system, msg, max_tokens=500)
+    parsed = _parse_json(result)
+    if "status" not in parsed:
+        parsed = {"status": "PASS", "score": 8, "verdict": "Acceptable", "final_answer": str(final_output)}
+    return parsed
+
+
+# --- REPORTER ---
+
+def reporter(task, validated_output, plan_steps, critic_score, validator_result):
+    system = (
+        "You are the Reporter agent. Write a concise final report.\n"
+        "Format exactly:\n"
+        "## Task\n<task>\n\n"
+        "## Steps Taken\n<numbered list>\n\n"
+        "## Result\n<final answer>\n\n"
+        "## Quality Score\n<score>/10"
+    )
+    steps_text = ""
+    if plan_steps and isinstance(plan_steps, list):
+        steps_text = "\n".join(
+            f"{s.get('step', i+1)}. [{s.get('agent','?').upper()}] {s.get('action', '')}"
+            for i, s in enumerate(plan_steps)
+        )
+
+    final = validated_output.get("final_answer", "") if isinstance(validated_output, dict) else str(validated_output)
+    score = validator_result.get("score", critic_score) if isinstance(validator_result, dict) else critic_score
+
+    msg = f"Task: {task}\nSteps:\n{steps_text}\nFinal answer:\n{str(final)[:600]}\nScore: {score}/10"
+    return _call(system, msg, max_tokens=600)

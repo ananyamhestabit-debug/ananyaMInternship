@@ -1,17 +1,34 @@
-# FINAL REPORT - NEXUS AI
+# NEXUS AI — Final Report
 
-This file is auto-generated after running the system.
-Run `python3 nexus_ai/main.py` and the output will be saved in `logs/`.
+## Week 9 Day 5 Capstone
 
-## Capabilities Demonstrated
+### What was built
 
-- Multi-agent orchestration (9 agents)
-- Sequential agent communication with output passing
-- Self-reflection (Critic agent reviews Analyst output)
-- Self-improvement (Optimizer uses Critic feedback)
-- Multi-step planning (Orchestrator + Planner)
-- Validation gate before final output
-- Long-term memory (SQLite, persists across runs)
-- Full logging (JSON per run in logs/)
-- Failure recovery (fallback JSON in every agent)
-- No GPU required (Groq API)
+NEXUS AI is a fully autonomous multi-agent AI system with 9 specialized agents, persistent memory, tool use, self-reflection, and a web UI.
+
+### Agents implemented
+
+All 9 required agents: Orchestrator, Planner, Researcher, Coder, Analyst, Critic, Optimizer, Validator, Reporter.
+
+### Capabilities
+
+- Multi-agent orchestration with dynamic pipeline selection
+- Tool use: CSV file reading, Python code generation, output file saving
+- Memory: short-term session, long-term SQLite, vector FAISS memory
+- Self-reflection: Validator triggers a second optimization pass if quality score < 7
+- Self-improvement: Critic + Optimizer loop
+- Multi-step planning via Planner agent
+- Role switching: pipeline adapts based on task type
+- Logs and tracing: every run saved to logs/ as JSON
+- Failure recovery: all agents have fallback responses
+
+### Stack
+
+- Groq API (no GPU required)
+- FastAPI backend
+- Streamlit UI (black and white, simple)
+- SQLite + FAISS memory
+
+### How to run
+
+See README.md
