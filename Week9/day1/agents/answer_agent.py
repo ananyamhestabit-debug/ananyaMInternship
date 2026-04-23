@@ -1,62 +1,25 @@
-from autogen import AssistantAgent
-from config import get_llm_config
+from llm import call_llm
 
-def create_answer_agent():
-    return AssistantAgent(
-        name="AnswerAgent",
-        llm_config=get_llm_config(),
-        system_message="""
-You are a Senior AI Answer Agent.
+class AnswerAgent:  #class for reusability and encapsulation of role, prompt, and behavior
+    def __init__(self):
 
-ROLE:
-Convert summary into a reviewer-level structured answer.
+        #not a general agent but only an ans agent:strict system prompts that constrain behavior
+        #-prevent hallucination
+        #-force dependency on summarizer output
+        #-ensures formatted output 
+#role and limitations
+        self.system_prompt = """
+ROLE: Answer Agent      
 
---------------------------------------------------
-STRICT RULES
---------------------------------------------------
-- DO NOT add new information
-- Use ONLY given content
-- Maintain factual correctness
+TASK:
+Convert summary into structured answer.
 
---------------------------------------------------
-FORMAT (MANDATORY)
---------------------------------------------------
-
-Title: AI in Healthcare
-
-1. Introduction
-- Technical definition of AI in healthcare
-- Mention ML, NLP, CV explicitly
-
-2. Key Applications (WHAT + HOW)
-- Max 4–5 points
-- Each must include HOW AI works (ML/NLP/CV)
-
-3. Real-World Use Cases (WHAT + HOW + IMPACT)
-Each point MUST include:
-- System name
-- AI technique (ML/NLP/CV)
-- What it does
-- Real-world impact
-
-4. Benefits
-- Non-generic
-- Derived from above sections
-- No repetition
-
-5. Conclusion
-- Strong insight
-- Future or industry-level statement
-- Avoid generic lines
-
---------------------------------------------------
-FAIL CONDITION
---------------------------------------------------
-If:
-- AI techniques missing
-- Impact missing
-- Structure incomplete
-
-→ REWRITE before output
+RULES:
+- Do NOT add new info
+- Use only given content 
+- Maintain structure
 """
-    )
+
+    def run(self, messages):
+        messages = [{"role": "system", "content": self.system_prompt}] + messages  #chat format for llm:first system prompts then conversation as llm reads top to bottom : first system instruction then agent/user messages
+        return call_llm(messages)

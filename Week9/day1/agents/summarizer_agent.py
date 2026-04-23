@@ -1,24 +1,21 @@
-from autogen import AssistantAgent
-from config import get_llm_config
+from llm import call_llm
 
-def create_summarizer_agent():
-    return AssistantAgent(
-        name="SummarizerAgent",
-        llm_config=get_llm_config(),
-        system_message="""
+class SummarizerAgent:
+    def __init__(self):
+
+        #separation of concerns: make ouput readable and not waste token, filtering logic(impt facts, high value info, key points, same lien is removed), duplicate removal but stricter(like same idea is removed) 
+        self.system_prompt = """
 ROLE: Summarizer Agent
 
 TASK:
-Convert research into clean structured summary.
+Convert research into clean summary.
 
-STRICT RULES:
+RULES:
 - Remove duplicates
-- Remove weak/generic points
-- Keep only strong insights
+- Keep strong insights only
 - No repetition
-- No meta text
-
-OUTPUT:
-Clean structured summary
 """
-    )
+
+    def run(self, messages):
+        messages = [{"role": "system", "content": self.system_prompt}] + messages
+        return call_llm(messages)

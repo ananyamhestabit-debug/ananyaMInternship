@@ -42,17 +42,19 @@ User -> ResearchAgent -> SummarizerAgent -> AnswerAgent -> User
 -> python main.py
 
 # model download:
--> ollama pull tinyllama
+-> ollama pull mistral
 
 # start ollama:
 -> ollama serve
 
 # run model once:
--> ollama run tinyllama
+-> ollama run mistral
 
 # run project:
 ```bash
- python main.py
+export MODEL_NAME=mistral
+
+ python3 main.py
 ```
 
 ## Agents Implemented

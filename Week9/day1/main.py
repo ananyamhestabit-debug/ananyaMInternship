@@ -1,109 +1,93 @@
 import logging
 import uuid
 
-from agents.research_agent import create_research_agent
-from agents.summarizer_agent import create_summarizer_agent
-from agents.answer_agent import create_answer_agent
+from agents.research_agent import ResearchAgent
+from agents.summarizer_agent import SummarizerAgent
+from agents.answer_agent import AnswerAgent
 
 from cache import get_cached_response, set_cached_response
-
 
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(message)s"
 )
 
-logging.getLogger("httpx").setLevel(logging.WARNING)
+# MEMORY
+conversation_memory = []
+MEMORY_WINDOW = 10
 
 
-def run_pipeline(query: str):
+def update_memory(msg):
+    global conversation_memory
+
+    conversation_memory.append(msg)
+
+    if len(conversation_memory) > MEMORY_WINDOW:
+        conversation_memory = conversation_memory[-MEMORY_WINDOW:]
+
+
+def run_pipeline(query):
     request_id = str(uuid.uuid4())[:6]
 
-    logging.info(f"[{request_id}]  Pipeline started")
-    logging.info(f"[{request_id}] Query: {query}")
+    logging.info(f"[{request_id}] START")
+    logging.info(f"Query: {query}")
 
-    # ---------------- CACHE ----------------
     cached = get_cached_response(query)
     if cached:
-        logging.info(f"[{request_id}] ⚡ Cache hit")
+        logging.info("Cache hit")
         return cached
 
-    # ---------------- AGENTS ----------------
-    research_agent = create_research_agent()
-    summarizer_agent = create_summarizer_agent()
-    answer_agent = create_answer_agent()
+    research_agent = ResearchAgent()
+    summarizer_agent = SummarizerAgent()
+    answer_agent = AnswerAgent()
 
     try:
-        # STEP 1 — RESEARCH
-        logging.info(f"[{request_id}]  Research phase")
+        # STEP 1
+        update_memory({"role": "user", "content": query})
 
-        research = research_agent.generate_reply(
-            messages=[{"role": "user", "content": query}]
-        )
+        research = research_agent.run(conversation_memory)
+        update_memory({"role": "assistant", "content": research})
 
-        # STEP 2 — SUMMARY
-        logging.info(f"[{request_id}]  Summarization phase")
+        # STEP 2
+        update_memory({"role": "user", "content": research})
 
-        summary = summarizer_agent.generate_reply(
-            messages=[{"role": "user", "content": research}]
-        )
+        summary = summarizer_agent.run(conversation_memory)
+        update_memory({"role": "assistant", "content": summary})
 
-        # STEP 3 — FINAL ANSWER (FIXED PROMPT)
-        logging.info(f"[{request_id}]  Answer generation phase")
+        # STEP 3
+        final_prompt = f"""
+Convert into structured answer:
 
-        final = answer_agent.generate_reply(
-            messages=[{
-                "role": "user",
-                "content": f"""
-Transform into structured answer.
-
-STRICT FORMAT:
-
-Title: AI in Healthcare
-
-1. Introduction
-(2-3 lines with ML/NLP/CV)
-
-2. Key Applications (WHAT + HOW)
-- Max 5 points
-
-3. Real-World Use Cases (WHAT + HOW + IMPACT)
-
-4. Benefits
-
-5. Conclusion
-
-CONTENT:
 {summary}
 
-STRICT RULES:
-- Do NOT skip any section
-- Do NOT output only use cases
-- No generic lines
-- Maintain proper structure
+FORMAT:
+1. Introduction
+2. Key Applications
+3. Use Cases
+4. Benefits
+5. Conclusion
 """
-            }]
-        )
 
-        # SAVE CACHE
+        update_memory({"role": "user", "content": final_prompt})
+
+        final = answer_agent.run(conversation_memory)
+        update_memory({"role": "assistant", "content": final})
+
         set_cached_response(query, final)
 
-        logging.info(f"[{request_id}] Pipeline completed")
+        logging.info(f"[{request_id}] DONE")
 
         return final
 
     except Exception as e:
-        logging.error(f"[{request_id}]  Error: {str(e)}")
+        logging.error(str(e))
         return "Error occurred"
 
 
-# ENTRY POINT
 if __name__ == "__main__":
     query = "Explain AI in healthcare with real-world use cases"
+    result = run_pipeline(query)
 
-    output = run_pipeline(query)
-
-    print("\n" + "=" * 60)
-    print("FINAL OUTPUT:\n")
-    print(output)
-    print("=" * 60)
+    print("\n" + "="*60)
+    print(result)
+    print("="*60)

@@ -1,29 +1,23 @@
-from autogen import AssistantAgent
-from config import get_llm_config
+from llm import call_llm   #agent does not think by itself it uses llm to think
 
-def create_research_agent():
-    return AssistantAgent(
-        name="ResearchAgent",
-        llm_config=get_llm_config(),
-        system_message="""
+class ResearchAgent:
+    def __init__(self):
+
+        #no overlap with summarizer agent, removes unnecesary words, forces bullet point sadn orgranized data, answer must include ml, nlp, comp vision
+        self.system_prompt = """
 ROLE: Research Agent
 
 TASK:
-Provide detailed factual research about the query.
+Provide detailed factual research.
 
-STRICT RULES:
+RULES:
 - No summarization
-- No repetition
-- No explanation fluff
-- Only factual structured data
-
-REQUIREMENTS:
-- Include real-world systems/tools
-- Mention AI techniques used (ML, NLP, CV)
-- Explain HOW system works briefly
-
-OUTPUT:
-- Bullet points
-- Structured factual information
+- No fluff
+- Only structured facts
+- Include ML/NLP/CV usage
+- Mention real systems
 """
-    )
+
+    def run(self, messages):
+        messages = [{"role": "system", "content": self.system_prompt}] + messages
+        return call_llm(messages)
