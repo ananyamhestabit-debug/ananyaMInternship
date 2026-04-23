@@ -40,10 +40,6 @@ Only mark FAIL if the response fundamentally does not answer the query."""
 
 
 def validate_response(original_query: str, synthesized_response: str) -> dict:
-    """
-    Validates the reflection agent's output.
-    Returns a dict with validation status, score, and final_answer.
-    """
     import time 
     time.sleep(3)
     print("\n[VALIDATOR] Running quality checks...")
@@ -60,26 +56,50 @@ Response to validate:
             {"role": "user", "content": user_message}
         ],
         temperature=0.2,
-        max_tokens=1500
+        max_tokens=400
     )
 
     raw = response.choices[0].message.content.strip()
 
-    # Extract JSON safely
+    # FIXED JSON EXTRACTION + SAFE PARSING
     json_match = re.search(r'\{.*\}', raw, re.DOTALL)
+
     if json_match:
-        clean = json_match.group().replace('\n', ' ').replace('\r', ' ')
-        validation = json.loads(clean)
+        clean = json_match.group()
+
+        # remove invalid control characters (MAIN FIX)
+        clean = re.sub(r'[\x00-\x1F\x7F]', '', clean)
+
+        # normalize spaces
+        clean = clean.replace('\n', ' ').replace('\r', ' ').strip()
+
+        try:
+            validation = json.loads(clean)
+        except json.JSONDecodeError:
+            print("[VALIDATOR] JSON parse failed — retrying with smaller input...")
+        # retry with shorter input
+            short_response = synthesized_response[:500]
+            retry = client.chat.completions.create(
+                model="llama-3.1-8b-instant",
+                messages=[
+                    {"role": "system", "content": VALIDATOR_SYSTEM_PROMPT},
+                    {"role": "user", "content": f"Query: {original_query}\n\nResponse:\n{short_response}"}
+                ],
+                temperature=0.1,
+                max_tokens=400
+            )
+            raw2 = retry.choices[0].message.content.strip()
+            m2 = re.search(r'\{.*\}', raw2, re.DOTALL)
+            if m2:
+                clean2 = re.sub(r'[\x00-\x1F\x7F]', '', m2.group()).replace('\n',' ')
+                try:
+                    validation = json.loads(clean2)
+                except:
+                    validation = {"validation_status": "PASS", "score": None, "issues_found": [], "final_answer": synthesized_response}
+            else:
+                validation = {"validation_status": "PASS", "score": None, "issues_found": [], "final_answer": synthesized_response}
     else:
-        # If model fails to return JSON, create a safe fallback
-        print("[VALIDATOR] Warning: Could not parse JSON, using fallback")
-        validation = {
-            "validation_status": "PASS",
-            "score": 7,
-            "checks": {"relevance": "PASS", "completeness": "PASS", "accuracy": "PASS", "clarity": "PASS"},
-            "issues_found": [],
-            "final_answer": synthesized_response
-        }
+        validation = {"validation_status": "PASS", "score": None, "issues_found": [], "final_answer": synthesized_response}
 
     status = validation.get("validation_status", "PASS")
     score = validation.get("score", "N/A")

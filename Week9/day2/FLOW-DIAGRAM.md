@@ -56,7 +56,7 @@ USER QUERY
 └────────────────────┬────────────────────────────────────┘
                      │
                      ▼
-             ✅ FINAL ANSWER
+               FINAL ANSWER
              (saved to logs/)
 ```
 

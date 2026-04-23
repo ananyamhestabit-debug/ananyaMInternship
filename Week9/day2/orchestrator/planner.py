@@ -42,32 +42,35 @@ Rules:
 - Always assign at least 2 tasks
 """
 
+#Takes user query, returns structured execution plan as dict
 def create_plan(user_query: str) -> dict:
-    """Takes user query, returns structured execution plan as dict"""
+    
     print(f"\n[ORCHESTRATOR] Received query: {user_query}")
     print("[ORCHESTRATOR] Creating execution plan...")
 
     response = client.chat.completions.create(
         model="llama-3.1-8b-instant",
+
+        #defines planner behaviour ans user: actual query(what to plan) , sytem:how to plan
         messages=[
             {"role": "system", "content": PLANNER_SYSTEM_PROMPT},
             {"role": "user", "content": f"Create a plan for: {user_query}"}
         ],
-        temperature=0.3,
+        temperature=0.3,  #randomness is low(consistency and strutured)
         max_tokens=600
     )
 
-    raw = response.choices[0].message.content.strip()
+    raw = response.choices[0].message.content.strip() # extract raw llm output 
 
     # Extract JSON even if model adds small prefix/suffix
     json_match = re.search(r'\{.*\}', raw, re.DOTALL)
     if json_match:
-        plan = json.loads(json_match.group())
+        plan = json.loads(json_match.group())  #extract string and convert to dict
     else:
         raise ValueError(f"Planner did not return valid JSON.\nRaw output:\n{raw}")
 
     print(f"[ORCHESTRATOR] Plan created with {len(plan['tasks'])} tasks")
-    for t in plan["tasks"]:
+    for t in plan["tasks"]:  #loop thorugh task to pritntask id  role and instructoion 
         print(f"  → {t['task_id']} | Assigned to: {t['assigned_to']} | {t['instruction'][:60]}...")
 
     return plan

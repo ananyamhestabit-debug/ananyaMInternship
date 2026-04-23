@@ -22,8 +22,8 @@ Your task:
 4. Improve clarity and remove redundancy
 
 Output format:
-Start with "🔍 REFLECTION NOTES:" — briefly note what you improved or noticed
-Then write "📝 SYNTHESIZED RESPONSE:" — the complete improved answer
+Start with " REFLECTION NOTES:" — briefly note what you improved or noticed
+Then write " SYNTHESIZED RESPONSE:" — the complete improved answer
 
 Be thorough but concise. The final response should be better than any individual worker output."""
 
