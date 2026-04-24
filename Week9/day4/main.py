@@ -1,7 +1,5 @@
-"""
-DAY 4 - Main Runner
-Memory System: session + long-term + vector
-"""
+#DAY 4 - Main Runner
+#Memory System: session + long-term + vector
 
 import os
 import sys
@@ -13,12 +11,12 @@ from memory import vector_store as vs
 
 
 def show_memory_status():
-    facts = ltm.get_all_memories(memory_type="fact")
+    facts = ltm.get_all_memories(memory_type="fact")  #db + vector load
     store = vs.load_store()
     print(f"\n--- Memory Status ---")
-    print(f"Session turns     : {len(session.get_history())}")
-    print(f"Long-term facts   : {len(facts)}")
-    print(f"Vector store size : {len(store.get('texts', []))}")
+    print(f"Session turns     : {len(session.get_history())}") #RAM memory count
+    print(f"Long-term facts   : {len(facts)}")  #db count
+    print(f"Vector store size : {len(store.get('texts', []))}")  #vector count
     print("---------------------\n")
 
 
@@ -34,7 +32,7 @@ def show_long_term():
 
 
 def main():
-    print("Day 4 - Memory Agent")
+    
     print("Commands: 'status', 'memory', 'clear', 'quit'")
     print("Anything else is treated as a query.\n")
 

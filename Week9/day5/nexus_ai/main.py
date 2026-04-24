@@ -1,24 +1,23 @@
 from orchestrator.nexus import NexusAI
 
+# ── Entry point for NEXUS AI ──────────────────────────────────────
 def main():
-
-    system = NexusAI()
+    print("\nNEXUS AI is starting...\n")
+    nexus = NexusAI()
 
     while True:
         try:
-            q = input("\nUser: ")
+            user_input = input("You: ")
 
-            if q.lower() in ["exit", "quit"]:
+            if user_input.lower() in ["exit", "quit"]:
+                print("Goodbye!")
                 break
 
-            
-            system.run(q)
-
+            nexus.run(user_input)
 
         except KeyboardInterrupt:
-            print("\nExiting...")
+            print("\nSession ended.")
             break
-
 
 if __name__ == "__main__":
     main()

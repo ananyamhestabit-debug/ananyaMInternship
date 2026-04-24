@@ -2,8 +2,8 @@ import sys
 import os
 import re
 import logging
-from datetime import datetime
-from openai import OpenAI
+from datetime import datetime  #timestamp for code file saveing and dat efor log file
+from openai import OpenAI  #openai ka official pyhton client, groq ke liey yehi use krlete 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if BASE_DIR not in sys.path:
@@ -12,7 +12,6 @@ if BASE_DIR not in sys.path:
 from tools.code_executor import execute_code
 from tools.file_agent import write_txt, write_md, read_csv
 from tools.db_agent import create_table_from_csv, get_schema, run_sql, DB
-from tools.realtime import get_weather, format_weather, web_search, format_search_results
 from memory.session_memory import SessionMemory
 from memory.long_term import LongTermMemory
 from memory.vector_store import VectorStore
@@ -40,16 +39,16 @@ logger = logging.getLogger("nexus")
 class NexusAI:
 
     def __init__(self):
-        self.client = OpenAI(api_key=API_KEY, base_url=BASE_URL)
-        self.session_memory   = SessionMemory()
-        self.long_term_memory = LongTermMemory()
+        self.client = OpenAI(api_key=API_KEY, base_url=BASE_URL)  #groq ka connection bnata 
+        self.session_memory   = SessionMemory()  #naya session memeory object : is session ki conversation track krta 
+        self.long_term_memory = LongTermMemory()  #sqlit edb connect
         self.vector_store     = VectorStore()
         self._load_long_term_into_vector()
-        self._ensure_db_loaded()
+        self._ensure_db_loaded()  #sqlite me jo oehle se memories hain unhe vector store me daal rha
         logger.info(f"NexusAI initialized | model={MODEL_NAME} | vector={self.vector_store.mode} | log={_log_file}")
 
     # ── STARTUP: load CSV into SQLite once ────────────────────────────────────
-    def _ensure_db_loaded(self):
+    def _ensure_db_loaded(self): #ses ki sales.csv ka data sqlit eme hai ya nhi 
         """Load sales.csv into SQLite DB on startup if table is empty/missing."""
         try:
             import sqlite3
@@ -72,7 +71,8 @@ class NexusAI:
         for text in self.long_term_memory.retrieve_all():
             self.vector_store.add(text)
 
-    # ── MODEL CALL ─────────────────────────────────────────────────────────────
+    # ── MODEL CALL ─
+    # ────────────────────────────────────────────────────────────
     def call_model(self, prompt: str, max_tokens: int = 2048) -> str:
         try:
             resp = self.client.chat.completions.create(
@@ -99,13 +99,6 @@ class NexusAI:
         ]
         if any(t in q for t in personal_triggers):
             return ["personal"]
-
-        # Weather triggers
-        if any(w in q for w in [
-            "weather", "temperature", "temp", "humidity", "rain", "forecast",
-            "hot outside", "cold outside", "wind speed", "mausam", "aaj ka mausam",
-        ]):
-            return ["weather"]
 
         # Real-time web search triggers
         if any(w in q for w in [
@@ -144,20 +137,6 @@ class NexusAI:
         self.long_term_memory.store(text, category)
         self.vector_store.add(text)
 
-    # ── WEATHER ────────────────────────────────────────────────────────────────
-    def run_weather(self, query: str) -> str:
-        """Extract city from query, fetch live weather, return formatted string."""
-        logger.info(f"[WEATHER] query: {query}")
-        city_prompt = (
-            f"Extract ONLY the city or location name from this query. "
-            f"Return just the city name, nothing else.\n\nQuery: {query}"
-        )
-        city = self.call_model(city_prompt).strip().strip('"\' ')
-        logger.info(f"[WEATHER] extracted city: {city}")
-        data = get_weather(city)
-        result = format_weather(data)
-        logger.info(f"[WEATHER] done | city={city} | success={'error' not in data}")
-        return result
 
     # ── WEB SEARCH (Real-time) ─────────────────────────────────────────────────
     def run_search(self, query: str) -> str:
@@ -363,16 +342,6 @@ class NexusAI:
             result["final"] = final_output
             result["steps"].append({"agent": "personal", "output": final_output})
             logger.info("[PERSONAL] answered from stored facts")
-            logger.info("=" * 60)
-            return result
-
-        # ── WEATHER ──
-        if agent_sequence == ["weather"]:
-            final_output = self.run_weather(query)
-            self.session_memory.add_message("Agent", final_output)
-            result["final"] = final_output
-            result["steps"].append({"agent": "weather", "output": final_output})
-            logger.info("[DONE] weather complete")
             logger.info("=" * 60)
             return result
 

@@ -1,10 +1,8 @@
-# 🚀 NEXUS AI
-
+# NEXUS AI
+pip install --upgrade transformers , torch torchvision, openai
 ### Autonomous Multi-Agent AI System — Week 9 Capstone
 
----
-
-## 🧠 What is NEXUS AI?
+## What is NEXUS AI?
 
 **NEXUS AI** is a fully autonomous multi-agent AI system designed to solve complex tasks using coordinated intelligence.
 
@@ -21,28 +19,26 @@ It orchestrates **8 specialized agents** that work together to:
 
 Unlike traditional chatbots, NEXUS AI behaves like a **complete AI system**, capable of reasoning, execution, and self-improvement.
 
----
 
-## ⚡ Capabilities
+## Capabilities
 
-* 🧩 Multi-agent orchestration
-* 🧠 Multi-step planning
-* ⚡ Parallel task execution
-* 🐍 Python code generation & execution
-* 🔄 Self-reflection & optimization loop
-* 💾 Memory system:
+* Multi-agent orchestration
+* Multi-step planning
+*  Parallel task execution
+*  Python code generation & execution
+* Self-reflection & optimization loop
+*  Memory system:
 
   * Session Memory
   * Vector Memory (FAISS)
   * Long-Term Memory (SQLite)
-* 📊 CSV data analysis
-* 🧾 Logs & tracing
-* 🛠 Tool integration (code, file, DB)
-* 🔁 Failure recovery
+* CSV data analysis
+* Logs & tracing
+* Tool integration (code, file, DB)
+* Failure recovery
 
----
 
-## 🧰 Tech Stack
+## Tech Stack
 
 | Component       | Technology                    |
 | --------------- | ----------------------------- |
@@ -54,17 +50,13 @@ Unlike traditional chatbots, NEXUS AI behaves like a **complete AI system**, cap
 | File Handling   | CSV / TXT                     |
 | Environment     | Python 3.12 + venv            |
 
----
-
-## 📦 Prerequisites
+## Prerequisites
 
 ```bash
 pip install autogen-agentchat autogen-ext faiss-cpu sentence-transformers python-dotenv openai
 ```
 
----
-
-## ⚙️ Setup
+## Setup
 
 ```bash
 cd Week9
@@ -76,18 +68,14 @@ Create `.env`:
 OPENAI_API_KEY=your_groq_api_key_here
 ```
 
----
-
-## ▶️ Run Project
+## Run Project
 
 ```bash
 cd day5/nexus_ai
 python main.py
 ```
 
----
-
-## 💡 Example Queries
+## Example Queries
 
 ```
 what is array
@@ -97,9 +85,7 @@ analyze CSV data
 exit
 ```
 
----
-
-## 🏗 Project Structure (ACTUAL)
+## Project Structure (ACTUAL)
 
 ```
 Week9/
@@ -149,7 +135,7 @@ Week9/
 
 ---
 
-## 🔄 How It Works
+## How It Works
 
 1. User enters query
 2. Router selects agents
@@ -159,9 +145,8 @@ Week9/
 6. Final output is generated
 7. Code (if any) is executed + saved
 
----
 
-## 📜 Logs
+## Logs
 
 Stored in:
 
@@ -169,9 +154,8 @@ Stored in:
 day5/nexus_ai/outputs/
 ```
 
----
 
-## 🎯 Key Highlights
+##  Key Highlights
 
 * Fully autonomous agent system
 * Works for both code + general queries
@@ -179,15 +163,15 @@ day5/nexus_ai/outputs/
 * Uses memory + tools
 * Real-world AI system architecture
 
----
 
-## 🏁 Final Outcome
+
+## Final Outcome
 
 This project demonstrates the transition:
 
-➡️ Prompt Engineering
-➡️ AI System Engineering
+ Prompt Engineering
+AI System Engineering
 
 **NEXUS AI is not a chatbot — it is a complete autonomous AI system.**
 
----
+

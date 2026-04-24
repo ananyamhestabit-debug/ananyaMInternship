@@ -34,7 +34,7 @@ def print_execution_tree(plan: dict, worker_results: list, validation: dict):
 
 
 def save_log(plan: dict, worker_results: list, reflection: str, validation: dict, elapsed: float):
-    """Saves full pipeline run to logs/"""
+    # Saves full pipeline run to logs/
     os.makedirs("logs", exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     log_file = f"logs/run_{timestamp}.json"

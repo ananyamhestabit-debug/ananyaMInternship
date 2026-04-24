@@ -1,28 +1,30 @@
-"""
-DAY 4 - Memory Agent
-Uses session memory, long-term memory, and vector memory together.
-Flow: new query -> search vector memory -> fetch long-term facts -> inject context -> generate answer
-"""
+#DAY 4 - Memory Agent
+#Uses session memory, long-term memory, and vector memory together.
+#Flow: new query -> search vector memory -> fetch long-term facts -> inject context -> generate answer
 
-import time
+import time  #delay(rate litmit avoid)
 from groq import Groq
-from memory.session_memory import SessionMemory
-from memory import long_term_memory as ltm
-from memory import vector_store as vs
+from memory.session_memory import SessionMemory  #short term memory
+from memory import long_term_memory as ltm  #long term db
+from memory import vector_store as vs   #vector search
 
+#client -> llm access | session -> last 10 chat turns(ek message) store krega
 client = Groq()
 session = SessionMemory(max_turns=10)
 
+
+#memory use kro and concise ans de
 SYSTEM_PROMPT = """You are a helpful AI assistant with memory.
 You will be given context from past conversations and facts when relevant.
 Use this context to give better, more personalized answers.
 Be concise and direct."""
 
-
+#chat se impt fact nikalna
 def extract_facts(query: str, response: str) -> str:
+    
     # Ask the model to extract a one-line fact worth remembering
     result = client.chat.completions.create(
-        model="llama-3.1-8b-instant",
+        model="llama-3.1-8b-instant",  #fast+cheap
         messages=[
             {
                 "role": "user",
@@ -32,46 +34,47 @@ def extract_facts(query: str, response: str) -> str:
         temperature=0.1,
         max_tokens=100
     )
-    return result.choices[0].message.content.strip()
+    return result.choices[0].message.content.strip()  #final fact return
 
 
+#main pipeline
 def chat(user_query: str) -> str:
-    print(f"\n[USER] {user_query}")
+    print(f"\n[USER] {user_query}")  #debug logs
 
-    # Step 1: search vector memory for similar past context
+    # Step 1: search vector memory for similar past context/chats
     similar = vs.search_similar(user_query, top_k=2)
     vector_context = ""
-    if similar:
+    if similar:  #agar kuch mila
         print(f"[MEMORY] Found {len(similar)} similar memories")
-        vector_context = "Relevant past context:\n"
-        for s in similar:
-            vector_context += f"- {s['text']}\n"
+        vector_context = "Relevant past context:\n"  #header
+        for s in similar:  
+            vector_context += f"- {s['text']}\n"  #sab similar lines add
 
-    # Step 2: fetch recent long-term facts
+    # Step 2: fetch recent long-term facts:DB se facts 
     long_term_facts = ltm.get_all_memories(memory_type="fact")
     fact_context = ""
     if long_term_facts:
-        recent_facts = long_term_facts[:5]
-        fact_context = "Known facts about user:\n"
+        recent_facts = long_term_facts[:5]  #sirf last 5
+        fact_context = "Known facts about user:\n"   #header
         for f in recent_facts:
-            fact_context += f"- {f['content']}\n"
+            fact_context += f"- {f['content']}\n"  #facts add
 
     # Step 3: build messages with injected context
-    system_with_context = SYSTEM_PROMPT
-    if vector_context or fact_context:
-        system_with_context += f"\n\n{vector_context}\n{fact_context}"
+    system_with_context = SYSTEM_PROMPT  #base prompt
+    if vector_context or fact_context:   #agar kuch memory mila
+        system_with_context += f"\n\n{vector_context}\n{fact_context}"  #MEMORY INJECTION
 
-    messages = [{"role": "system", "content": system_with_context}]
+    messages = [{"role": "system", "content": system_with_context}]     #system msg
 
-    # add session history
+    # add session history:old chat
     for turn in session.get_history():
         messages.append(turn)
 
     # add current query
-    messages.append({"role": "user", "content": user_query})
+    messages.append({"role": "user", "content": user_query})  
 
     # Step 4: generate response
-    time.sleep(1)
+    time.sleep(1)  #api safety
     response = client.chat.completions.create(
         model="llama-3.1-8b-instant",
         messages=messages,
@@ -82,15 +85,15 @@ def chat(user_query: str) -> str:
     answer = response.choices[0].message.content.strip()
     print(f"[AGENT] {answer}")
 
-    # Step 5: update session memory
+    # Step 5: update session memory:chat store
     session.add("user", user_query)
     session.add("assistant", answer)
 
-    # Step 6: extract and store fact in long-term memory
+    # Step 6: extract and store fact in long-term memory:llm se fact
     time.sleep(1)
     fact = extract_facts(user_query, answer)
-    ltm.save_memory(fact, memory_type="fact")
-    print(f"[MEMORY] Stored fact: {fact}")
+    ltm.save_memory(fact, memory_type="fact")  #DB save
+    print(f"[MEMORY] Stored fact: {fact}")    #debug
 
     # Step 7: store full exchange in vector memory for future similarity search
     exchange = f"User asked: {user_query} | Assistant answered: {answer[:200]}"

@@ -4,3 +4,7 @@ streamlit>=1.30.0
 faiss-cpu
 sentence-transformers
 numpy
+autogen-ext
+autogen-core
+torch
+torchvision
