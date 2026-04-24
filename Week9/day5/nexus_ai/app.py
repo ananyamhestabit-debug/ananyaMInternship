@@ -311,14 +311,6 @@ for msg in st.session_state.messages:
         steps       = data.get("steps", [])
         final       = data.get("final", msg["content"])
 
-        # Pipeline badges
-        if pipeline and pipeline != ["personal"]:
-            badges = ""
-            for i, agent in enumerate(pipeline):
-                badges += f"<span class='pipe-badge'>{agent}</span>"
-                if i < len(pipeline) - 1:
-                    badges += "<span class='pipe-arrow'>→</span>"
-            st.markdown(f"<div class='pipeline-wrap'>{badges}</div>", unsafe_allow_html=True)
 
         # Memory hits
         if memory_hits:
@@ -326,8 +318,7 @@ for msg in st.session_state.messages:
                 f"<span class='mem-tag'>{h[:65]}{'...' if len(h)>65 else ''}</span>"
                 for h in memory_hits[:3]
             )
-            st.markdown(f"<div class='mem-header'>◈ Vector Memory Recall</div>{tags}", unsafe_allow_html=True)
-
+            
         # Main response
         safe_final = str(final).replace("<", "&lt;").replace(">", "&gt;").replace("\n", "<br>")
         st.markdown(f"""
