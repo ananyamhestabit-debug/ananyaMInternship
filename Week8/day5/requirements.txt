@@ -1,0 +1,15 @@
+# Core
+fastapi
+uvicorn
+pydantic
+requests
+
+# GGUF inference (CPU)
+llama-cpp-python
+
+# UI
+streamlit
+
+# optional utilities
+tqdm
+pyyaml

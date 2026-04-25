@@ -4,17 +4,15 @@ import os
 import statistics
 import matplotlib.pyplot as plt
 
-# -----------------------------
+
 # SETUP
-# -----------------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "../data")
 
 os.makedirs(DATA_DIR, exist_ok=True)
 
-# -----------------------------
+
 # GENERATE DATA
-# -----------------------------
 data = []
 
 # 1. QA DATA
@@ -50,9 +48,7 @@ for i in range(300):
 print(f"Total raw samples: {len(data)}")
 
 
-# -----------------------------
 # CLEANING
-# -----------------------------
 clean_data = []
 seen = set()
 
@@ -71,9 +67,7 @@ for item in data:
 print(f"Clean samples: {len(clean_data)}")
 
 
-# -----------------------------
 # TOKEN LENGTH ANALYSIS
-# -----------------------------
 lengths = []
 
 for item in clean_data:
@@ -91,9 +85,7 @@ print(f"Min length: {min_len}")
 print(f"Max length: {max_len}")
 
 
-# -----------------------------
 # REMOVE OUTLIERS
-# -----------------------------
 filtered_data = []
 
 LOW = 5
@@ -107,9 +99,7 @@ for item, l in zip(clean_data, lengths):
 print(f"After outlier removal: {len(filtered_data)}")
 
 
-# -----------------------------
 # TRAIN / VAL SPLIT
-# -----------------------------
 random.shuffle(filtered_data)
 
 split_idx = int(0.8 * len(filtered_data))
@@ -121,9 +111,7 @@ print(f"Train samples: {len(train_data)}")
 print(f"Validation samples: {len(val_data)}")
 
 
-# -----------------------------
 # SAVE FILES
-# -----------------------------
 train_path = os.path.join(DATA_DIR, "train.jsonl")
 val_path = os.path.join(DATA_DIR, "val.jsonl")
 
@@ -138,9 +126,7 @@ with open(val_path, "w", encoding="utf-8") as f:
 print("Files saved successfully!")
 
 
-# -----------------------------
 # SAVE ANALYSIS FILE
-# -----------------------------
 analysis_path = os.path.join(BASE_DIR, "../DATASET-ANALYSIS.md")
 
 with open(analysis_path, "w") as f:
@@ -163,9 +149,9 @@ with open(analysis_path, "w") as f:
 
 print("Analysis file generated!")
 
-#graph
+#graph:my dataset has less variations as many samples are of same token length(can change bin size to 5 for more smoothness)
 
-plt.hist(lengths, bins=20)
+plt.hist(lengths, bins=20)  #bins:divide data in 20 groups(intervals) 
 plt.title("Token Length Distribution")
 plt.xlabel("Length")
 plt.ylabel("Frequency")

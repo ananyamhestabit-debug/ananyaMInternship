@@ -26,3 +26,41 @@ Week8/day3/quantized
 Week8/day5/logs
 Week8/day5/model
 model/
+
+# database
+Week7/src/database/sample.db
+
+
+# embeddings & chunks
+Week7/src/data/embeddings/
+Week7/src/data/chunks/
+
+# vector store (faiss + metadata)
+Week7/src/data/cleaned/
+Week7/src/data/cleaned/vector_store/
+
+# numpy / faiss / pickle files
+Week7/src/**/*.npy
+Week7/src/**/*.faiss
+Week7/src/**/*.pkl
+
+Week9/venv/
+Week9/day1/.cache/
+Week9/day1/venv/
+
+venv/
+*env/
+.venv/
+
+Week9/day2/venv/
+Week9/day3/venv/
+Week0/day3/data/sales.db
+Week9/day4/venv/
+Week9/day5/venv/
+
+Week9/day4/memory/long_term.db
+Week9/day4/memory/vector_store.json
+Week9/day4/.env
+
+Week9/day5/memory/nexus_memory.db
+Week9/day1/cache.json
