@@ -63,7 +63,7 @@ Landing Page
 <img width="1813" height="862" alt="landingpage" src="https://github.com/user-attachments/assets/1817fdbc-f393-4b0f-bafd-88566fba5c82" />
 
 Dashboard  
-<img width="1813" height="920" alt="dashboard" src="<img width="1810" height="930" alt="Screenshot from 2026-04-25 12-33-40" src="https://github.com/user-attachments/assets/ca2bffb5-d127-41ae-b47d-6e0930f0cd66" />
+<img width="1813" height="920" alt="dashboard" src="https://github.com/user-attachments/assets/ca2bffb5-d127-41ae-b47d-6e0930f0cd66" />
 ">
 
 Users Page  
