@@ -337,7 +337,7 @@ Combine HTML, CSS, and JavaScript into a real-world UI project.
 
 ### Screenshot
 
-<img width="1817" height="931" alt="image" src="https://github.com/user-attachments/assets/fc83af25-c954-453c-84d1-fe448f9d63b6" />
+<img width="1810" height="930" alt="image" src="https://github.com/user-attachments/assets/edaba0ae-155c-43b5-9c2d-4c14f7577289" />
 
 ---
 
