@@ -695,7 +695,7 @@ Result: The API is protected against common attacks and misuse.
 
 ---
 
-## Day 5 — Async Jobs & Production Readiness
+## WEEK4:Day 5 — Async Jobs & Production Readiness
 
 On this day, the backend was made production-ready.
 
@@ -712,6 +712,150 @@ Implemented:
 - Deployment notes
 
 Result: The backend supports async processing, structured logging, and is ready for deployment.
+
+---
+
+# AI Engineering Internship Project (Weeks 5–9)
+
+## Overview
+
+This repository contains projects completed during Weeks 5 to 9 of the AI Engineering Internship.
+The focus of this phase is on production systems, machine learning pipelines, GenAI systems, and multi-agent AI architectures.
+
+The work progresses from infrastructure setup to building fully autonomous AI systems.
+
+---
+
+## Week 5 — Server Side Foundations (Docker & DevOps)
+
+### Topics Covered
+
+* Docker fundamentals (images, containers, volumes, networks)
+* Linux operations inside containers
+* Docker Compose for multi-container applications
+* NGINX reverse proxy and load balancing
+* SSL/TLS and HTTPS setup using self-signed certificates
+* Deployment automation and production configurations
+
+### Key Outputs
+
+* Dockerfile
+* docker-compose.yml
+* nginx.conf
+* SSL certificates and setup documentation
+* Production deployment configuration
+
+---
+
+## Week 6 — Machine Learning Engineering
+
+### Topics Covered
+
+* Data pipeline design and preprocessing
+* Exploratory Data Analysis (EDA)
+* Feature engineering and feature selection
+* Model training and evaluation
+* Hyperparameter tuning and optimization
+* Model deployment using API
+* Monitoring and drift detection
+
+### Key Outputs
+
+* Data pipeline scripts
+* Feature engineering modules
+* Model training pipeline
+* Best trained model
+* Evaluation reports and metrics
+* Deployment API
+
+---
+
+## Week 7 — GenAI & Multimodal RAG
+
+### Topics Covered
+
+* Retrieval-Augmented Generation (RAG)
+* Document ingestion and chunking
+* Embeddings and vector databases
+* Hybrid retrieval (semantic + keyword)
+* Image-based retrieval (CLIP, OCR)
+* SQL question answering system
+* Context optimization and evaluation
+
+### Key Outputs
+
+* RAG ingestion pipeline
+* Embedding and vector store setup
+* Hybrid retriever
+* Image RAG pipeline
+* SQL query engine
+* Evaluation and logging modules
+
+---
+
+## Week 8 — LLM Fine-Tuning & Optimization
+
+### Topics Covered
+
+* Transformer architecture basics
+* Instruction dataset creation
+* LoRA and QLoRA fine-tuning
+* Model quantization (8-bit, 4-bit, GGUF)
+* Inference optimization and benchmarking
+* Local LLM deployment as API
+
+### Key Outputs
+
+* Training datasets
+* Fine-tuned model adapters
+* Quantized models
+* Benchmark reports
+* Inference scripts
+* Deployment API
+
+---
+
+## Week 9 — Agentic AI & Multi-Agent Systems
+
+### Topics Covered
+
+* Agent architecture and communication
+* Multi-agent orchestration
+* Planner–Executor–Validator pattern
+* Tool-calling agents (code, file, database)
+* Memory systems (short-term, long-term, vector)
+* Role-based agents and task delegation
+* Autonomous system design
+
+### Final Project: NEXUS AI
+
+## Screenshot of UI:<img width="1810" height="930" alt="image" src="https://github.com/user-attachments/assets/3421190e-e607-4b28-a325-c7039f66107c" />
+
+---
+
+A fully autonomous multi-agent system with:
+
+* Task planning and orchestration
+* Tool usage (code execution, file handling, database queries)
+* Memory integration
+* Self-reflection and optimization
+* Role switching and failure recovery
+* Logging and execution tracing
+
+### Key Components
+
+* Orchestrator
+* Planner
+* Researcher
+* Coder
+* Analyst
+* Critic
+* Optimizer
+* Validator
+* Reporter
+
+---
+
 
 
 
