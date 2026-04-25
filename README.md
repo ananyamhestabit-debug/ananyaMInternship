@@ -715,17 +715,6 @@ Result: The backend supports async processing, structured logging, and is ready 
 
 ---
 
-# AI Engineering Internship Project (Weeks 5–9)
-
-## Overview
-
-This repository contains projects completed during Weeks 5 to 9 of the AI Engineering Internship.
-The focus of this phase is on production systems, machine learning pipelines, GenAI systems, and multi-agent AI architectures.
-
-The work progresses from infrastructure setup to building fully autonomous AI systems.
-
----
-
 ## Week 5 — Server Side Foundations (Docker & DevOps)
 
 ### Topics Covered
