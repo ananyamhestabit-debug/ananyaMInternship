@@ -802,6 +802,19 @@ Result: The backend supports async processing, structured logging, and is ready 
 * Inference scripts
 * Deployment API
 
+## Screenshots:
+
+# Swagger:
+<img width="1770" height="931" alt="Screenshot from 2026-04-18 10-10-07" src="https://github.com/user-attachments/assets/6dc3961d-bbd8-4167-a247-f548f7c084a3" />
+
+--- 
+# Streamlit:
+<img width="1770" height="931" alt="Screenshot from 2026-04-18 10-11-46" src="https://github.com/user-attachments/assets/db3f1d66-5851-497d-9530-a578c5604d50" />
+
+---
+
+<img width="1770" height="931" alt="Screenshot from 2026-04-18 10-11-53" src="https://github.com/user-attachments/assets/6b4d87c9-2ef0-4c43-986a-0c4852c5636e" />
+
 ---
 
 ## Week 9 — Agentic AI & Multi-Agent Systems
