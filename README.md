@@ -780,9 +780,10 @@ Result: The backend supports async processing, structured logging, and is ready 
 * SQL query engine
 * Evaluation and logging modules
 
-# Screenshot of UI:
+## Screenshot of UI:
 
-<img width="1810" height="930" alt="image" src="https://github.com/user-attachments/assets/97e385fd-5083-4668-96f3-f9cce2722e1d" />
+<img width="1810" height="930" alt="image" src="https://github.com/user-attachments/assets/06d09a70-3f1c-42fc-a827-9eb5c2daac34" />
+
 
 
 ---
